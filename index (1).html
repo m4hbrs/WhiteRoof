@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="WhiteRoof — Revêtement blanc thermo-réflectif pour toitures industrielles. Baissez vos factures d'énergie de 30 à 50% et votre température intérieure de 6 à 10°C. Interventions dans toute la Belgique." />
+  <meta name="keywords" content="cool roofing, toiture réflective, revêtement thermique, économie d'énergie, toiture industrielle, Belgique, application Airless" />
+  <meta name="author" content="WhiteRoof SRL" />
+  <meta property="og:title" content="WhiteRoof — Revêtement thermo-réflectif pour toitures industrielles" />
+  <meta property="og:description" content="−40°C sur votre toit, 6 à 10°C à l'intérieur, 30 à 50% sur vos factures d'énergie." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_BE" />
+  <!-- TODO : remplacez l'URL ci-dessous par l'URL définitive de votre site en production -->
+  <meta property="og:url" content="https://www.whiteroof.be/" />
+  <!-- TODO : remplacez le chemin ci-dessous par votre image de prévisualisation (1200x630 px recommandé) -->
+  <meta property="og:image" content="img/og-preview.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="img/og-preview.jpg" />
+  <title>WhiteRoof — Revêtement thermo-réflectif pour toitures industrielles</title>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'wr-dark': '#0f172a',
+            'wr-blue': '#2563eb',
+            'wr-blue-dark': '#1d4ed8',
+            'wr-blue-light': '#3b82f6',
+            'wr-green': '#10b981',
+            'wr-green-soft': '#34d399',
+            'wr-green-pale': '#ecfdf5',
+            'wr-heat': '#ef4444',
+            'wr-heat-dark': '#b91c1c',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+            display: ['Sora', 'Inter', 'sans-serif'],
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-heat': 'pulseHeat 2.5s ease-in-out infinite',
+            'shimmer': 'shimmer 3s linear infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-12px)' },
+            },
+            pulseHeat: {
+              '0%, 100%': { opacity: '0.7', transform: 'scale(1)' },
+              '50%': { opacity: '1', transform: 'scale(1.04)' },
+            },
+            shimmer: {
+              '0%': { backgroundPosition: '-200% 0' },
+              '100%': { backgroundPosition: '200% 0' },
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .font-display { font-family: 'Sora', 'Inter', sans-serif; }
+
+    .hero-mesh {
+      background:
+        radial-gradient(circle at 15% 30%, rgba(37, 99, 235, 0.16) 0%, transparent 45%),
+        radial-gradient(circle at 85% 20%, rgba(16, 185, 129, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 70% 80%, rgba(37, 99, 235, 0.10) 0%, transparent 45%),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .glow-blue { box-shadow: 0 20px 60px -15px rgba(37, 99, 235, 0.45); }
+    .glow-green { box-shadow: 0 20px 60px -15px rgba(16, 185, 129, 0.35); }
+
+    .card-lift {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    }
+    .card-lift:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.18);
+    }
+
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #2563eb, #10b981);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    .stat-number {
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: 'tnum';
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    input[type="range"].wr-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 8px;
+      background: linear-gradient(90deg, #2563eb 0%, #10b981 100%);
+      border-radius: 999px;
+      outline: none;
+    }
+    input[type="range"].wr-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 28px;
+      height: 28px;
+      background: #ffffff;
+      border: 3px solid #2563eb;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+      transition: transform 0.2s ease;
+    }
+    input[type="range"].wr-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
+    input[type="range"].wr-slider::-moz-range-thumb {
+      width: 28px;
+      height: 28px;
+      background: #ffffff;
+      border: 3px solid #2563eb;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+    }
+
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .mobile-menu.open { max-height: 500px; }
+
+    .section-divider {
+      background: linear-gradient(90deg, transparent 0%, rgba(37, 99, 235, 0.3) 50%, transparent 100%);
+      height: 1px;
+    }
+
+    .wr-input { transition: all 0.25s ease; }
+    .wr-input:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+    }
+
+    .btn-shine { position: relative; overflow: hidden; }
+    .btn-shine::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      transition: left 0.6s ease;
+    }
+    .btn-shine:hover::before { left: 100%; }
+
+    .heat-aura {
+      background: radial-gradient(circle at center, rgba(239, 68, 68, 0.45) 0%, rgba(239, 68, 68, 0.15) 40%, transparent 70%);
+      animation: pulseHeat 2.5s ease-in-out infinite;
+    }
+    .cool-aura {
+      background: radial-gradient(circle at center, rgba(37, 99, 235, 0.25) 0%, rgba(16, 185, 129, 0.12) 40%, transparent 70%);
+    }
+
+    @keyframes raysDown {
+      0%, 100% { opacity: 0.85; }
+      50% { opacity: 0.4; }
+    }
+    .sun-ray { animation: raysDown 2.5s ease-in-out infinite; }
+
+    @keyframes heatWave {
+      0% { transform: translateY(0) scaleX(1); opacity: 0; }
+      30% { opacity: 0.8; }
+      100% { transform: translateY(-30px) scaleX(1.3); opacity: 0; }
+    }
+    .heat-wave-1 { animation: heatWave 3s ease-out infinite; }
+    .heat-wave-2 { animation: heatWave 3s ease-out infinite; animation-delay: 0.8s; }
+    .heat-wave-3 { animation: heatWave 3s ease-out infinite; animation-delay: 1.6s; }
+
+    @keyframes reflectRay {
+      0% { transform: translateY(20px); opacity: 0; }
+      40% { opacity: 1; }
+      100% { transform: translateY(-40px); opacity: 0; }
+    }
+    .reflect-ray-1 { animation: reflectRay 2.4s ease-out infinite; }
+    .reflect-ray-2 { animation: reflectRay 2.4s ease-out infinite; animation-delay: 0.6s; }
+    .reflect-ray-3 { animation: reflectRay 2.4s ease-out infinite; animation-delay: 1.2s; }
+  </style>
+</head>
+
+<body class="bg-white text-wr-dark antialiased">
+
+  <!-- ============ HEADER / NAVIGATION ============ -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/85 backdrop-blur-lg border-b border-slate-200/60">
+    <nav class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <!-- Logo -->
+        <a href="#accueil" class="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded-xl">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-wr-blue to-wr-green flex items-center justify-center shadow-lg shadow-wr-blue/30 group-hover:scale-105 transition-transform">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+              <path d="M3 12L12 3l9 9"></path>
+              <path d="M5 10v10h14V10"></path>
+              <path d="M9 20v-6h6v6"></path>
+            </svg>
+          </div>
+          <div class="flex flex-col leading-none">
+            <span class="font-display font-bold text-xl text-wr-dark tracking-tight">WhiteRoof</span>
+            <span class="text-[10px] font-semibold text-slate-500 tracking-widest uppercase">Cool Roofing</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden lg:flex items-center gap-9">
+          <a href="#accueil" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Accueil</a>
+          <a href="#choc-thermique" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Choc Thermique</a>
+          <a href="#profil" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Notre Profil</a>
+          <a href="#calculateur" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Calculateur</a>
+          <a href="#devis" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Devis</a>
+        </div>
+
+        <!-- CTA + Mobile toggle -->
+        <div class="flex items-center gap-3">
+          <a href="#devis" class="hidden sm:inline-flex btn-shine items-center gap-2 bg-wr-dark hover:bg-slate-800 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all shadow-lg shadow-wr-dark/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
+            <i data-lucide="thermometer-sun" class="w-4 h-4 text-wr-green-soft"></i>
+            Devis Gratuit
+          </a>
+          <button id="menuToggle" class="lg:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2" aria-label="Menu">
+            <i data-lucide="menu" class="w-6 h-6 text-wr-dark"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="mobile-menu lg:hidden">
+        <div class="py-4 space-y-1 border-t border-slate-200">
+          <a href="#accueil" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Accueil</a>
+          <a href="#choc-thermique" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Choc Thermique</a>
+          <a href="#profil" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Notre Profil</a>
+          <a href="#calculateur" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Calculateur</a>
+          <a href="#devis" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Devis</a>
+          <a href="#devis" class="block mt-2 mx-3 text-center bg-wr-dark text-white text-sm font-semibold px-5 py-3 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">Devis Gratuit</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============ HERO SECTION ============ -->
+  <section id="accueil" class="hero-mesh grid-bg pt-32 pb-20 lg:pt-40 lg:pb-28 relative overflow-hidden">
+    <div class="absolute top-20 right-0 w-96 h-96 bg-wr-blue/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-wr-green/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+
+        <!-- Left: Copy -->
+        <div class="lg:col-span-7">
+          <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur border border-wr-blue/20 rounded-full px-4 py-1.5 mb-7 shadow-sm">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-wr-green opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-wr-green"></span>
+            </span>
+            <span class="text-xs font-semibold text-wr-dark tracking-wide">Revêtement blanc thermo-réflectif haute performance</span>
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight text-wr-dark">
+            Baissez vos factures d'énergie de
+            <span class="relative inline-block">
+              <span class="relative z-10 bg-gradient-to-r from-wr-blue to-wr-green bg-clip-text text-transparent">30 à 50%</span>
+            </span>
+            et votre température intérieure de
+            <span class="relative inline-block">
+              <span class="relative z-10 bg-gradient-to-r from-wr-blue to-wr-green bg-clip-text text-transparent">6 à 10°C</span>
+              <svg class="absolute -bottom-1 left-0 w-full" viewBox="0 0 200 12" preserveAspectRatio="none">
+                <path d="M0,8 Q50,2 100,6 T200,4" stroke="#10b981" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.5"/>
+              </svg>
+            </span>
+          </h1>
+
+          <p class="mt-7 text-lg text-slate-600 leading-relaxed max-w-2xl">
+            WhiteRoof applique un revêtement blanc thermo-réflectif qui <strong class="text-wr-dark">réfléchit les rayons du soleil</strong> au lieu de les absorber. Votre toiture cesse de fonctionner comme un radiateur : la charge sur la climatisation, la ventilation et la préservation de vos équipements chute drastiquement.
+          </p>
+
+          <div class="mt-9 flex flex-col sm:flex-row gap-4">
+            <a href="#calculateur" class="btn-shine inline-flex items-center justify-center gap-2 bg-wr-blue hover:bg-wr-blue-dark text-white text-base font-semibold px-7 py-4 rounded-xl transition-all shadow-xl shadow-wr-blue/30 glow-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
+              <i data-lucide="calculator" class="w-5 h-5"></i>
+              Calculer mes économies en 10 secondes
+            </a>
+            <a href="#choc-thermique" class="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-wr-dark text-base font-semibold px-7 py-4 rounded-xl border border-slate-200 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
+              Voir le choc thermique
+              <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </a>
+          </div>
+
+          <!-- Mini trust badges -->
+          <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-slate-500">
+            <div class="flex items-center gap-2">
+              <i data-lucide="shield-check" class="w-4 h-4 text-wr-green"></i>
+              <span class="font-medium">Étanchéité renforcée</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="building-2" class="w-4 h-4 text-wr-green"></i>
+              <span class="font-medium">Interventions dans toute la Belgique</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="award" class="w-4 h-4 text-wr-green"></i>
+              <span class="font-medium">Application Airless de précision</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Visual -->
+        <div class="lg:col-span-5">
+          <div class="relative">
+            <div class="relative bg-white rounded-3xl shadow-2xl shadow-wr-dark/10 p-6 lg:p-8 border border-slate-100">
+              <div class="flex items-center justify-between mb-6">
+                <div>
+                  <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Comparaison thermique</p>
+                  <p class="text-sm font-bold text-wr-dark mt-1">Surface du toit en été</p>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-wr-green-pale flex items-center justify-center">
+                  <i data-lucide="thermometer-sun" class="w-5 h-5 text-wr-green"></i>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-4">
+                <!-- Before: black roof -->
+                <div class="text-center">
+                  <p class="text-xs font-semibold text-slate-500 mb-2">Toiture foncée standard</p>
+                  <div class="relative h-40 w-12 mx-auto bg-slate-100 rounded-full overflow-hidden border-2 border-slate-200">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-wr-heat-dark to-wr-heat rounded-full" style="height: 95%;"></div>
+                    <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-16 h-16 bg-wr-heat rounded-full border-4 border-white shadow-lg animate-pulse-heat"></div>
+                  </div>
+                  <p class="mt-8 text-2xl font-bold text-wr-heat stat-number">~80°C</p>
+                  <p class="text-xs text-slate-500">Absorption maximale</p>
+                </div>
+
+                <!-- After: WhiteRoof -->
+                <div class="text-center">
+                  <p class="text-xs font-semibold text-wr-blue mb-2">Revêtement WhiteRoof</p>
+                  <div class="relative h-40 w-12 mx-auto bg-slate-100 rounded-full overflow-hidden border-2 border-slate-200">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-wr-blue to-wr-green-soft rounded-full" style="height: 32%;"></div>
+                    <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-16 h-16 bg-wr-blue rounded-full border-4 border-white shadow-lg"></div>
+                  </div>
+                  <p class="mt-8 text-2xl font-bold text-wr-blue stat-number">~40°C</p>
+                  <p class="text-xs text-slate-500">Réflexion solaire élevée</p>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-5 border-t border-slate-100">
+                <div class="flex items-center justify-between text-sm">
+                  <span class="text-slate-500 font-medium">Baisse de température de surface</span>
+                  <span class="font-bold text-wr-green bg-wr-green-pale px-3 py-1 rounded-full">−40°C</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating badge -->
+            <div class="absolute -top-5 -right-3 lg:-right-5 bg-wr-dark text-white rounded-2xl px-4 py-3 shadow-xl animate-float">
+              <div class="flex items-center gap-2">
+                <i data-lucide="trending-down" class="w-5 h-5 text-wr-green-soft"></i>
+                <div>
+                  <p class="text-[10px] uppercase tracking-wider text-slate-400">Factures énergie</p>
+                  <p class="text-sm font-bold">−30 à −50%</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust metrics bar -->
+      <div class="mt-16 lg:mt-24 grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 bg-white rounded-2xl shadow-lg shadow-wr-dark/5 border border-slate-100 p-8">
+        <div class="text-center lg:text-left">
+          <p class="font-display text-3xl lg:text-4xl font-bold text-wr-dark stat-number">−40°C</p>
+          <p class="text-sm text-slate-500 mt-1">Sur la surface du toit</p>
+        </div>
+        <div class="text-center lg:text-left">
+          <p class="font-display text-3xl lg:text-4xl font-bold text-wr-dark stat-number">6 à 10°C</p>
+          <p class="text-sm text-slate-500 mt-1">Baisse intérieure</p>
+        </div>
+        <div class="text-center lg:text-left">
+          <p class="font-display text-3xl lg:text-4xl font-bold text-wr-dark stat-number">30 à 50%</p>
+          <p class="text-sm text-slate-500 mt-1">Sur les factures d'énergie</p>
+        </div>
+        <div class="text-center lg:text-left">
+          <p class="font-display text-3xl lg:text-4xl font-bold text-wr-dark stat-number">10 ans+</p>
+          <p class="text-sm text-slate-500 mt-1">Durée de vie du revêtement</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CHOC THERMIQUE (Avant / Après) ============ -->
+  <section id="choc-thermique" class="py-24 lg:py-32 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+      <div class="text-center max-w-3xl mx-auto reveal">
+        <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4">Le choc thermique</span>
+        <h2 class="font-display text-3xl lg:text-5xl font-bold text-wr-dark leading-tight tracking-tight">
+          Jusqu'à 80°C en surface. Voilà ce que subit votre toiture en été.
+        </h2>
+        <p class="mt-5 text-lg text-slate-600 leading-relaxed">
+          Selon l'ensoleillement, une toiture foncée standard absorbe massivement le rayonnement solaire et monte jusqu'à <strong class="text-wr-dark">~80°C</strong>. Elle devient un véritable radiateur au-dessus de vos ateliers, stocks et machines. Le revêtement blanc WhiteRoof <strong class="text-wr-dark">réfléchit les rayons du soleil</strong> et fait chuter cette température drastiquement, protégeant la structure et bloquant l'entrée de la chaleur dans le bâtiment.
+        </p>
+      </div>
+
+      <!-- Avant / Après visual -->
+      <div class="mt-16 grid lg:grid-cols-2 gap-8">
+
+        <!-- AVANT : Toiture foncée -->
+        <div class="reveal bg-white rounded-3xl border border-slate-100 shadow-xl shadow-wr-dark/5 overflow-hidden">
+          <div class="p-7 lg:p-9">
+            <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-wr-heat/10 flex items-center justify-center">
+                  <i data-lucide="flame" class="w-5 h-5 text-wr-heat"></i>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Avant</p>
+                  <p class="font-bold text-wr-dark">Toiture foncée standard</p>
+                </div>
+              </div>
+              <span class="text-xs font-bold text-wr-heat bg-wr-heat/10 px-3 py-1.5 rounded-full">Jusqu'à ~80°C</span>
+            </div>
+
+            <!-- Visual: roof + sun + heat -->
+            <div class="relative h-56 rounded-2xl bg-gradient-to-b from-sky-50 to-slate-100 overflow-hidden border border-slate-100">
+              <!-- Sun -->
+              <div class="absolute top-4 right-6 w-14 h-14 rounded-full bg-gradient-to-br from-yellow-300 to-orange-400 shadow-lg shadow-orange-300/50 flex items-center justify-center">
+                <i data-lucide="sun" class="w-7 h-7 text-white"></i>
+              </div>
+
+              <!-- Sun rays hitting the roof -->
+              <svg class="absolute top-12 right-12 w-32 h-24 sun-ray" viewBox="0 0 100 60" fill="none">
+                <line x1="10" y1="0" x2="20" y2="50" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                <line x1="40" y1="0" x2="50" y2="50" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                <line x1="70" y1="0" x2="80" y2="50" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+              </svg>
+
+              <!-- Heat waves rising -->
+              <svg class="absolute bottom-20 left-1/2 -translate-x-1/2 w-32 h-12" viewBox="0 0 100 30" fill="none">
+                <path class="heat-wave-1" d="M20 30 Q15 15 20 0 Q25 15 20 30" stroke="#ef4444" stroke-width="2" fill="none" opacity="0.6"/>
+                <path class="heat-wave-2" d="M50 30 Q45 15 50 0 Q55 15 50 30" stroke="#ef4444" stroke-width="2" fill="none" opacity="0.6"/>
+                <path class="heat-wave-3" d="M80 30 Q75 15 80 0 Q85 15 80 30" stroke="#ef4444" stroke-width="2" fill="none" opacity="0.6"/>
+              </svg>
+
+              <!-- Dark roof -->
+              <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-slate-800 to-slate-900 relative">
+                <div class="absolute inset-0 heat-aura"></div>
+                <div class="absolute inset-0 opacity-20" style="background-image: repeating-linear-gradient(90deg, transparent, transparent 12px, rgba(0,0,0,0.4) 12px, rgba(0,0,0,0.4) 13px);"></div>
+              </div>
+
+              <div class="absolute bottom-0 left-0 right-0 h-16 flex items-end justify-center pb-1">
+                <span class="text-[10px] font-bold text-white/70 bg-black/40 px-2 py-0.5 rounded">Chaleur transmise au bâtiment</span>
+              </div>
+            </div>
+
+            <ul class="mt-6 space-y-3 text-sm">
+              <li class="flex items-start gap-3 text-slate-600">
+                <i data-lucide="x-circle" class="w-5 h-5 text-wr-heat flex-shrink-0 mt-0.5"></i>
+                <span>Absorption massive du rayonnement solaire</span>
+              </li>
+              <li class="flex items-start gap-3 text-slate-600">
+                <i data-lucide="x-circle" class="w-5 h-5 text-wr-heat flex-shrink-0 mt-0.5"></i>
+                <span>Vieillissement accéléré des membranes sous l'effet thermique</span>
+              </li>
+              <li class="flex items-start gap-3 text-slate-600">
+                <i data-lucide="x-circle" class="w-5 h-5 text-wr-heat flex-shrink-0 mt-0.5"></i>
+                <span>Surcharge des systèmes CVC et pics de consommation</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- APRÈS : WhiteRoof -->
+        <div class="reveal bg-white rounded-3xl border border-wr-blue/20 shadow-xl shadow-wr-blue/10 overflow-hidden" style="transition-delay: 0.15s;">
+          <div class="p-7 lg:p-9">
+            <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-wr-blue/10 flex items-center justify-center">
+                  <i data-lucide="snowflake" class="w-5 h-5 text-wr-blue"></i>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-wr-blue uppercase tracking-wider">Après</p>
+                  <p class="font-bold text-wr-dark">Revêtement blanc WhiteRoof</p>
+                </div>
+              </div>
+              <span class="text-xs font-bold text-wr-blue bg-wr-blue/10 px-3 py-1.5 rounded-full">~40°C</span>
+            </div>
+
+            <!-- Visual: roof + sun + reflected rays -->
+            <div class="relative h-56 rounded-2xl bg-gradient-to-b from-sky-50 to-white overflow-hidden border border-slate-100">
+              <!-- Sun -->
+              <div class="absolute top-4 right-6 w-14 h-14 rounded-full bg-gradient-to-br from-yellow-300 to-orange-400 shadow-lg shadow-orange-300/50 flex items-center justify-center">
+                <i data-lucide="sun" class="w-7 h-7 text-white"></i>
+              </div>
+
+              <!-- Incoming sun rays -->
+              <svg class="absolute top-12 right-12 w-32 h-24 sun-ray" viewBox="0 0 100 60" fill="none">
+                <line x1="10" y1="0" x2="20" y2="50" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                <line x1="40" y1="0" x2="50" y2="50" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                <line x1="70" y1="0" x2="80" y2="50" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+              </svg>
+
+              <!-- Reflected rays bouncing off -->
+              <svg class="absolute top-0 left-1/3 w-32 h-32" viewBox="0 0 100 100" fill="none">
+                <line class="reflect-ray-1" x1="80" y1="80" x2="20" y2="20" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+                <line class="reflect-ray-2" x1="70" y1="80" x2="10" y2="30" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+                <line class="reflect-ray-3" x1="60" y1="80" x2="5" y2="45" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+              </svg>
+
+              <!-- Cool aura -->
+              <div class="absolute bottom-16 left-0 right-0 h-16 cool-aura"></div>
+
+              <!-- White roof -->
+              <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-slate-50 to-white border-t-2 border-slate-100">
+                <div class="absolute inset-0 opacity-40" style="background: linear-gradient(90deg, transparent, rgba(37,99,235,0.08), transparent); background-size: 200% 100%; animation: shimmer 3s linear infinite;"></div>
+              </div>
+
+              <div class="absolute bottom-0 left-0 right-0 h-16 flex items-end justify-center pb-1">
+                <span class="text-[10px] font-bold text-wr-blue bg-wr-blue/10 px-2 py-0.5 rounded">Chaleur bloquée à l'extérieur</span>
+              </div>
+            </div>
+
+            <ul class="mt-6 space-y-3 text-sm">
+              <li class="flex items-start gap-3 text-slate-600">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-wr-green flex-shrink-0 mt-0.5"></i>
+                <span>Réflexion élevée du rayonnement solaire</span>
+              </li>
+              <li class="flex items-start gap-3 text-slate-600">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-wr-green flex-shrink-0 mt-0.5"></i>
+                <span>Protection des membranes contre le vieillissement thermique</span>
+              </li>
+              <li class="flex items-start gap-3 text-slate-600">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-wr-green flex-shrink-0 mt-0.5"></i>
+                <span>Baisse drastique de la charge CVC et stabilisation des coûts</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bandeau indicateurs B2B -->
+      <div class="mt-16 reveal">
+        <div class="bg-wr-dark rounded-3xl p-8 lg:p-10">
+          <div class="flex items-center gap-3 mb-7">
+            <div class="w-11 h-11 rounded-xl bg-wr-green/20 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="bar-chart-3" class="w-5 h-5 text-wr-green-soft"></i>
+            </div>
+            <div>
+              <p class="font-display font-bold text-white text-xl">Des indicateurs de performance, pas du ressenti.</p>
+              <p class="text-slate-400 text-sm mt-1">Trois leviers concrets et mesurables pour un directeur de site.</p>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
+              <div class="flex items-center gap-3 mb-3">
+                <i data-lucide="users" class="w-5 h-5 text-wr-green-soft"></i>
+                <p class="font-bold text-white text-sm">Maintien de la productivité</p>
+              </div>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Maintien de la productivité lors des canicules : la baisse de température intérieure limite les ralentissements d'activité et les arrêts liés aux seuils réglementaires en atelier.
+              </p>
+            </div>
+
+            <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
+              <div class="flex items-center gap-3 mb-3">
+                <i data-lucide="package" class="w-5 h-5 text-wr-green-soft"></i>
+                <p class="font-bold text-white text-sm">Protection des stocks & machines</p>
+              </div>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Protection des stocks et machines contre la surchauffe : température de toiture stabilisée, moindres écarts thermiques, réduction des risques d'arrêt technique et de dégradation des produits stockés.
+              </p>
+            </div>
+
+            <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
+              <div class="flex items-center gap-3 mb-3">
+                <i data-lucide="scale" class="w-5 h-5 text-wr-green-soft"></i>
+                <p class="font-bold text-white text-sm">Conformité réglementaire</p>
+              </div>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Conformité des conditions de travail : respect plus facile des seuils de température en zone de production et meilleure maîtrise du Code du bien-être au travail.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NOTRE PROFIL ============ -->
+  <section id="profil" class="py-24 lg:py-32 bg-white relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+
+        <!-- Left: Founders -->
+        <div class="reveal">
+          <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4">Notre profil</span>
+          <h2 class="font-display text-3xl lg:text-5xl font-bold text-wr-dark leading-tight tracking-tight">
+            La rigueur de l'ingénierie, alliée à une application de précision.
+          </h2>
+
+          <p class="mt-6 text-slate-600 text-lg leading-relaxed">
+            WhiteRoof réunit deux profils complémentaires : la direction opérationnelle d'un côté, l'expertise technique d'un <strong class="text-wr-dark">ingénieur de maintenance</strong> de l'autre. Chaque chantier démarre par l'analyse des contraintes industrielles du bâtiment avant de déclencher une application Airless calibrée.
+          </p>
+
+          <!-- Founder cards -->
+          <div class="mt-10 space-y-5">
+            <div class="flex items-center gap-5 bg-slate-50 hover:bg-white card-lift rounded-2xl p-5 border border-slate-100">
+              <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-wr-blue to-wr-blue-dark flex items-center justify-center shadow-lg shadow-wr-blue/30">
+                <span class="text-white font-display font-bold text-xl">MB</span>
+              </div>
+              <div>
+                <p class="font-bold text-wr-dark text-lg">Mehdi Bourass</p>
+                <p class="text-sm text-slate-500 font-medium">Co-fondateur — Direction opérationnelle</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-5 bg-slate-50 hover:bg-white card-lift rounded-2xl p-5 border border-slate-100">
+              <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-wr-green to-emerald-600 flex items-center justify-center shadow-lg shadow-wr-green/30">
+                <span class="text-white font-display font-bold text-xl">DB</span>
+              </div>
+              <div>
+                <p class="font-bold text-wr-dark text-lg">Delil Benjamin Odun</p>
+                <p class="text-sm text-slate-500 font-medium">Co-fondateur — Ingénieur de maintenance</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Method card -->
+        <div class="reveal" style="transition-delay: 0.1s;">
+          <div class="relative bg-gradient-to-br from-wr-dark to-slate-800 rounded-3xl p-8 lg:p-10 shadow-2xl shadow-wr-dark/30 overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-wr-blue/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-48 h-48 bg-wr-green/10 rounded-full blur-3xl"></div>
+
+            <div class="relative">
+              <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur flex items-center justify-center mb-6 border border-white/10">
+                <i data-lucide="settings-2" class="w-7 h-7 text-wr-green-soft"></i>
+              </div>
+
+              <p class="text-xl lg:text-2xl text-white font-medium leading-relaxed">
+                La rigueur de l'ingénierie alliée à une application <span class="text-wr-green-soft font-semibold">Airless de précision</span>, pour une efficacité maximale et une étanchéité durable.
+              </p>
+
+              <div class="mt-8 pt-8 border-t border-white/10 space-y-5">
+                <div class="flex items-start gap-4">
+                  <span class="flex-shrink-0 w-9 h-9 rounded-xl bg-wr-green/20 flex items-center justify-center font-display font-bold text-wr-green-soft text-sm">01</span>
+                  <div>
+                    <p class="font-bold text-white">Analyse des contraintes industrielles</p>
+                    <p class="text-sm text-slate-300 mt-1">Type de membrane, isolation, exposition, charges CVC, sensibilité des stocks.</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <span class="flex-shrink-0 w-9 h-9 rounded-xl bg-wr-green/20 flex items-center justify-center font-display font-bold text-wr-green-soft text-sm">02</span>
+                  <div>
+                    <p class="font-bold text-white">Application Airless de précision</p>
+                    <p class="text-sm text-slate-300 mt-1">Couche homogène et étanche, calibrée selon le support et l'ensoleillement.</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <span class="flex-shrink-0 w-9 h-9 rounded-xl bg-wr-green/20 flex items-center justify-center font-display font-bold text-wr-green-soft text-sm">03</span>
+                  <div>
+                    <p class="font-bold text-white">Contrôle & réception d'étanchéité</p>
+                    <p class="text-sm text-slate-300 mt-1">Vérification de la couverture, des points singuliers et de la continuité.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CALCULATEUR D'ÉCONOMIES ============ -->
+  <section id="calculateur" class="py-24 lg:py-32 bg-wr-dark relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-wr-blue/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-1/4 w-80 h-80 bg-wr-green/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute inset-0 grid-bg opacity-20 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+      <div class="text-center max-w-3xl mx-auto reveal">
+        <span class="inline-block text-xs font-bold text-wr-green-soft uppercase tracking-widest mb-4">Calculateur d'économies</span>
+        <h2 class="font-display text-3xl lg:text-5xl font-bold text-white leading-tight tracking-tight">
+          Vos économies estimées, en 10 secondes.
+        </h2>
+        <p class="mt-5 text-lg text-slate-300">
+          Entrez la surface de votre toit plat. Le calculateur affiche instantanément la baisse de température de surface et la fourchette d'économies d'énergie annuelles estimée.
+        </p>
+      </div>
+
+      <!-- Calculateur card -->
+      <div class="mt-14 max-w-5xl mx-auto reveal">
+        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden">
+          <div class="grid lg:grid-cols-5">
+
+            <!-- Input side -->
+            <div class="lg:col-span-3 p-8 lg:p-12">
+              <div class="flex items-center gap-3 mb-8">
+                <div class="w-11 h-11 rounded-xl bg-wr-blue/10 flex items-center justify-center">
+                  <i data-lucide="sliders-horizontal" class="w-5 h-5 text-wr-blue"></i>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Étape 1</p>
+                  <p class="font-bold text-wr-dark">Entrez votre surface</p>
+                </div>
+              </div>
+
+              <label for="surfaceInput" class="block text-sm font-semibold text-slate-700 mb-2">
+                Surface de votre toit plat (m²)
+              </label>
+              <div class="relative">
+                <input
+                  type="number"
+                  id="surfaceInput"
+                  value="1000"
+                  min="50"
+                  max="50000"
+                  step="10"
+                  class="wr-input w-full text-3xl font-bold text-wr-dark bg-slate-50 border-2 border-slate-200 rounded-2xl px-5 py-4 pr-16 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 stat-number"
+                  placeholder="1000"
+                />
+                <span class="absolute right-5 top-1/2 -translate-y-1/2 text-slate-400 font-semibold text-lg">m²</span>
+              </div>
+
+              <input
+                type="range"
+                id="surfaceSlider"
+                min="50"
+                max="50000"
+                step="10"
+                value="1000"
+                class="wr-slider mt-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+              />
+              <div class="flex justify-between text-xs text-slate-400 mt-2 font-medium">
+                <span>50 m²</span>
+                <span>50 000 m²</span>
+              </div>
+
+              <div class="mt-8 p-4 bg-slate-50 rounded-xl border border-slate-100">
+                <div class="flex items-start gap-3">
+                  <i data-lucide="info" class="w-5 h-5 text-wr-blue flex-shrink-0 mt-0.5"></i>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Estimation basée sur une fourchette de <span class="font-bold text-wr-dark">3 € à 5 € d'économie par m² par an</span> (climatisation, ventilation, préservation des équipements). Le résultat réel dépend de l'isolation, de l'usage du bâtiment et du système CVC en place.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Results side -->
+            <div class="lg:col-span-2 bg-gradient-to-br from-wr-dark to-slate-800 p-8 lg:p-12 text-white relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-40 h-40 bg-wr-blue/20 rounded-full blur-3xl"></div>
+
+              <div class="relative">
+                <div class="flex items-center gap-3 mb-8">
+                  <div class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center border border-white/10">
+                    <i data-lucide="trending-up" class="w-5 h-5 text-wr-green-soft"></i>
+                  </div>
+                  <div>
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Étape 2</p>
+                    <p class="font-bold">Résultats immédiats</p>
+                  </div>
+                </div>
+
+                <!-- Result 1: surface temperature drop -->
+                <div class="mb-7">
+                  <p class="text-sm text-slate-400 font-medium mb-2">Baisse de température de surface</p>
+                  <div class="flex items-baseline gap-2">
+                    <span class="font-display text-4xl font-bold text-wr-green-soft stat-number">−40°C</span>
+                    <span class="text-sm font-semibold text-slate-300">sur le toit en plein soleil</span>
+                  </div>
+                  <div class="mt-2 flex items-center gap-2 text-xs">
+                    <span class="text-slate-400">Toit foncé : ~80°C</span>
+                    <i data-lucide="arrow-right" class="w-3 h-3 text-slate-500"></i>
+                    <span class="text-wr-green-soft font-bold">WhiteRoof : ~40°C</span>
+                  </div>
+                </div>
+
+                <!-- Result 2: energy savings range (€) -->
+                <div class="mb-7 p-4 bg-white/5 rounded-xl border border-white/10">
+                  <p class="text-sm text-slate-400 font-medium mb-2">Économies d'énergie estimées</p>
+                  <div class="flex items-baseline gap-1.5">
+                    <span id="savingsMin" class="font-display text-3xl lg:text-4xl font-bold text-wr-green-soft stat-number">3 000</span>
+                    <span class="text-slate-300 font-semibold">à</span>
+                    <span id="savingsMax" class="font-display text-3xl lg:text-4xl font-bold text-wr-green-soft stat-number">5 000</span>
+                    <span class="text-slate-300 font-semibold text-lg">€ / an</span>
+                  </div>
+                  <p class="text-xs text-slate-400 mt-2">Sur les factures d'énergie globales (clim., ventilation, équipements)</p>
+                </div>
+
+                <!-- Interior temp reminder -->
+                <div class="mb-8">
+                  <p class="text-sm text-slate-400 font-medium mb-2">Baisse de température intérieure</p>
+                  <div class="flex items-baseline gap-2">
+                    <span class="font-display text-3xl font-bold text-white stat-number">6 à 10°C</span>
+                  </div>
+                </div>
+
+                <!-- CTA direct -->
+                <a href="#devis" class="btn-shine w-full inline-flex items-center justify-center gap-2 bg-wr-green hover:bg-wr-green-soft text-wr-dark font-bold text-sm px-5 py-4 rounded-xl transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
+                  <i data-lucide="file-signature" class="w-4 h-4"></i>
+                  Demander mon devis gratuit d'application
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FORMULAIRE DEVIS ============ -->
+  <section id="devis" class="py-24 lg:py-32 bg-gradient-to-b from-white to-slate-50 relative">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16">
+
+        <!-- Left: pitch -->
+        <div class="lg:col-span-5 reveal">
+          <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4">Demande de devis gratuit</span>
+          <h2 class="font-display text-3xl lg:text-5xl font-bold text-wr-dark leading-tight tracking-tight">
+            Recevez votre devis d'application sous 48 h.
+          </h2>
+          <p class="mt-5 text-lg text-slate-600 leading-relaxed">
+            Décrivez votre projet en quelques lignes. Un expert WhiteRoof vous recontacte avec un devis d'application chiffré, détaillé et sans engagement.
+          </p>
+
+          <div class="mt-10 space-y-5">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-wr-blue/10 flex items-center justify-center">
+                <i data-lucide="map-pin" class="w-5 h-5 text-wr-blue"></i>
+              </div>
+              <div>
+                <p class="font-bold text-wr-dark">Interventions dans toute la Belgique</p>
+                <p class="text-sm text-slate-500">Wallonie, Bruxelles, Flandre — déplacement inclus.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-wr-green/10 flex items-center justify-center">
+                <i data-lucide="clock" class="w-5 h-5 text-wr-green"></i>
+              </div>
+              <div>
+                <p class="font-bold text-wr-dark">Réponse sous 48 h ouvrées</p>
+                <p class="text-sm text-slate-500">Un interlocuteur unique du diagnostic à la pose.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-wr-blue/10 flex items-center justify-center">
+                <i data-lucide="file-text" class="w-5 h-5 text-wr-blue"></i>
+              </div>
+              <div>
+                <p class="font-bold text-wr-dark">Devis détaillé et transparent</p>
+                <p class="text-sm text-slate-500">Surface, méthode, calendrier, garanties — sans surprise.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <div class="lg:col-span-7 reveal" style="transition-delay: 0.1s;">
+          <div class="bg-white rounded-3xl shadow-xl shadow-wr-dark/5 border border-slate-100 p-8 lg:p-10">
+            <!-- Remplacer l'action ci-dessous par votre endpoint Formspree : https://formspree.io/forms -->
+            <form id="devisForm" action="https://formspree.io/f/votre-id-formspree" method="POST" class="space-y-5">
+
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label for="nom" class="block text-sm font-semibold text-slate-700 mb-2">Nom complet *</label>
+                  <input type="text" id="nom" name="nom" required
+                    class="wr-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-wr-dark placeholder-slate-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                    placeholder="Jean Dupont" />
+                </div>
+                <div>
+                  <label for="societe" class="block text-sm font-semibold text-slate-700 mb-2">Nom de la société *</label>
+                  <input type="text" id="societe" name="societe" required
+                    class="wr-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-wr-dark placeholder-slate-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                    placeholder="Dupont Industries SA" />
+                </div>
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label for="telephone" class="block text-sm font-semibold text-slate-700 mb-2">Numéro de téléphone <span class="text-slate-400 font-normal">(Optionnel — pour un traitement plus rapide)</span></label>
+                  <input type="tel" id="telephone" name="telephone"
+                    class="wr-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-wr-dark placeholder-slate-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                    placeholder="+32 4 70 12 34 56" />
+                </div>
+                <div>
+                  <label for="email" class="block text-sm font-semibold text-slate-700 mb-2">Adresse email *</label>
+                  <input type="email" id="email" name="email" required
+                    class="wr-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-wr-dark placeholder-slate-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                    placeholder="j.dupont@dupont-industries.be" />
+                </div>
+              </div>
+
+              <div>
+                <label for="surface" class="block text-sm font-semibold text-slate-700 mb-2">Surface estimée de la toiture (m²) *</label>
+                <input type="number" id="surface" name="surface" min="0" required
+                  class="wr-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-wr-dark placeholder-slate-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                  placeholder="ex. 1000" />
+              </div>
+
+              <div>
+                <label for="message" class="block text-sm font-semibold text-slate-700 mb-2">Message</label>
+                <textarea id="message" name="message" rows="4"
+                  class="wr-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-wr-dark placeholder-slate-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 resize-none"
+                  placeholder="Décrivez votre projet, votre bâtiment, vos contraintes thermiques ou d'étanchéité..."></textarea>
+              </div>
+
+              <!-- Honeypot anti-spam -->
+              <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off" />
+
+              <button type="submit"
+                class="btn-shine w-full inline-flex items-center justify-center gap-3 bg-wr-blue hover:bg-wr-blue-dark text-white text-lg font-bold px-6 py-5 rounded-xl transition-all shadow-xl shadow-wr-blue/30 glow-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
+                <i data-lucide="send" class="w-5 h-5"></i>
+                Envoyer ma demande de devis gratuit
+              </button>
+
+              <p class="text-center text-xs text-slate-400 mt-4">
+                En soumettant ce formulaire, vous acceptez d'être recontacté par WhiteRoof SRL. Vos données ne sont jamais partagées.
+              </p>
+
+              <!-- Message de confirmation -->
+              <div id="formSuccess" class="hidden mt-4 p-4 bg-wr-green-pale border border-wr-green/30 rounded-xl flex items-center gap-3">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-wr-green flex-shrink-0"></i>
+                <p class="text-sm font-medium text-wr-dark">Merci ! Votre demande a bien été envoyée. Un expert WhiteRoof vous recontacte sous 48 h ouvrées.</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-wr-dark text-slate-400 pt-16 pb-8 relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 section-divider"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-10 pb-12 border-b border-white/10">
+
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-2.5 mb-5">
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-wr-blue to-wr-green flex items-center justify-center shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                <path d="M3 12L12 3l9 9"></path>
+                <path d="M5 10v10h14V10"></path>
+                <path d="M9 20v-6h6v6"></path>
+              </svg>
+            </div>
+            <div class="flex flex-col leading-none">
+              <span class="font-display font-bold text-xl text-white tracking-tight">WhiteRoof</span>
+              <span class="text-[10px] font-semibold text-slate-500 tracking-widest uppercase">Cool Roofing</span>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed max-w-xs">
+            WhiteRoof SRL applique des revêtements blancs thermo-réflectifs haute performance pour toitures industrielles et commerciales.
+          </p>
+        </div>
+
+        <!-- Navigation -->
+        <div>
+          <p class="text-xs font-bold text-white uppercase tracking-widest mb-5">Navigation</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="#accueil" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Accueil</a></li>
+            <li><a href="#choc-thermique" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Choc Thermique</a></li>
+            <li><a href="#profil" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Notre Profil</a></li>
+            <li><a href="#calculateur" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Calculateur d'économies</a></li>
+            <li><a href="#devis" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Devis gratuit</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <p class="text-xs font-bold text-white uppercase tracking-widest mb-5">Contact</p>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-center gap-3">
+              <i data-lucide="map-pin" class="w-4 h-4 text-wr-green-soft flex-shrink-0"></i>
+              <span>Belgique — Interventions dans tout le pays</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="mail" class="w-4 h-4 text-wr-green-soft flex-shrink-0 mt-0.5"></i>
+              <a href="mailto:contact@whiteroof.be" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">contact@whiteroof.be</a>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="message-square" class="w-4 h-4 text-wr-green-soft flex-shrink-0 mt-0.5"></i>
+              <a href="#devis" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Premier contact via le formulaire de devis</a>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="clock" class="w-4 h-4 text-wr-green-soft flex-shrink-0 mt-0.5"></i>
+              <span>Réponse sous 48 h ouvrées</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+        <p>© <span id="currentYear">2026</span> WhiteRoof SRL. Tous droits réservés.</p>
+        <div class="flex items-center gap-6">
+          <a href="mentions-legales.html" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Mentions légales</a>
+          <a href="conditions.html" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Conditions générales</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ SCRIPTS ============ -->
+  <script>
+    // ===== Lucide icons init =====
+    lucide.createIcons();
+
+    // ===== Current year =====
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // ===== Mobile menu toggle =====
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+    menuToggle.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      menuToggle.innerHTML = menuOpen
+        ? '<i data-lucide="x" class="w-6 h-6 text-wr-dark"></i>'
+        : '<i data-lucide="menu" class="w-6 h-6 text-wr-dark"></i>';
+      lucide.createIcons();
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuOpen = false;
+        mobileMenu.classList.remove('open');
+        menuToggle.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-wr-dark"></i>';
+        lucide.createIcons();
+      });
+    });
+
+    // ===== Header shadow on scroll =====
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('shadow-lg', 'shadow-wr-dark/5');
+      } else {
+        header.classList.remove('shadow-lg', 'shadow-wr-dark/5');
+      }
+    });
+
+    // ===== Reveal on scroll =====
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // ===== Calculateur d'économies =====
+    // Fourchette : 3 € à 5 € d'économie par m² par an
+    const surfaceInput = document.getElementById('surfaceInput');
+    const surfaceSlider = document.getElementById('surfaceSlider');
+    const savingsMin = document.getElementById('savingsMin');
+    const savingsMax = document.getElementById('savingsMax');
+
+    const MIN_PER_M2 = 3; // € / m² / an
+    const MAX_PER_M2 = 5; // € / m² / an
+
+    function formatEuro(n) {
+      return new Intl.NumberFormat('fr-BE').format(Math.round(n));
+    }
+
+    function animateNumber(element, target) {
+      const current = parseFloat(element.textContent.replace(/\s/g, '').replace(/\u00A0/g, '')) || 0;
+      const duration = 600;
+      const start = performance.now();
+
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+        const value = current + (target - current) * eased;
+        element.textContent = formatEuro(value);
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    function updateCalc(source) {
+      let surface = parseFloat(source === 'input' ? surfaceInput.value : surfaceSlider.value);
+      if (isNaN(surface) || surface < 0) surface = 0;
+      if (surface > 50000) surface = 50000;
+
+      // Synchroniser input + slider
+      if (source === 'input') {
+        surfaceSlider.value = Math.min(surface, 50000);
+      } else {
+        surfaceInput.value = surface;
+      }
+
+      // Calcul de la fourchette d'économies
+      const minSavings = surface * MIN_PER_M2;
+      const maxSavings = surface * MAX_PER_M2;
+
+      animateNumber(savingsMin, minSavings);
+      animateNumber(savingsMax, maxSavings);
+    }
+
+    surfaceInput.addEventListener('input', () => updateCalc('input'));
+    surfaceSlider.addEventListener('input', () => updateCalc('slider'));
+
+    updateCalc('input');
+
+    // ===== Form submission (demo handler) =====
+    const devisForm = document.getElementById('devisForm');
+    const formSuccess = document.getElementById('formSuccess');
+    devisForm.addEventListener('submit', (e) => {
+      if (devisForm.action.includes('votre-id-formspree')) {
+        e.preventDefault();
+        formSuccess.classList.remove('hidden');
+        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+
+    // ===== Smooth scroll pour ancres (avec offset header) =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          const headerHeight = header.offsetHeight;
+          const targetPos = targetEl.getBoundingClientRect().top + window.scrollY - headerHeight + 1;
+          window.scrollTo({ top: targetPos, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

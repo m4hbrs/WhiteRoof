@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Conditions générales d'utilisation du site WhiteRoof et de ses demandes de devis pour des prestations de cool roofing et nettoyage de toiture en Belgique." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="WhiteRoof — Conditions générales" />
+  <meta property="og:description" content="Conditions générales d'utilisation du site whiteroof.be et des demandes de devis." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_BE" />
+  <!-- TODO : remplacez l'URL ci-dessous par l'URL définitive de votre site en production -->
+  <meta property="og:url" content="https://www.whiteroof.be/conditions.html" />
+  <!-- TODO : remplacez le chemin ci-dessous par votre image de prévisualisation (1200x630 px recommandé) -->
+  <meta property="og:image" content="img/og-preview.jpg" />
+  <title>Conditions générales — WhiteRoof</title>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'wr-dark': '#0f172a',
+            'wr-blue': '#2563eb',
+            'wr-blue-dark': '#1d4ed8',
+            'wr-blue-light': '#3b82f6',
+            'wr-green': '#10b981',
+            'wr-green-soft': '#34d399',
+            'wr-green-pale': '#ecfdf5',
+            'wr-heat': '#ef4444',
+            'wr-heat-dark': '#b91c1c',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+            display: ['Sora', 'Inter', 'sans-serif'],
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-12px)' },
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .font-display { font-family: 'Sora', 'Inter', sans-serif; }
+
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #2563eb, #10b981);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .mobile-menu.open { max-height: 500px; }
+
+    .section-divider {
+      background: linear-gradient(90deg, transparent 0%, rgba(37, 99, 235, 0.3) 50%, transparent 100%);
+      height: 1px;
+    }
+
+    .btn-shine { position: relative; overflow: hidden; }
+    .btn-shine::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      transition: left 0.6s ease;
+    }
+    .btn-shine:hover::before { left: 100%; }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-wr-dark antialiased">
+
+  <!-- ============ HEADER / NAVIGATION ============ -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/85 backdrop-blur-lg border-b border-slate-200/60">
+    <nav class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <!-- Logo -->
+        <a href="index.html#accueil" class="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded-xl">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-wr-blue to-wr-green flex items-center justify-center shadow-lg shadow-wr-blue/30 group-hover:scale-105 transition-transform">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+              <path d="M3 12L12 3l9 9"></path>
+              <path d="M5 10v10h14V10"></path>
+              <path d="M9 20v-6h6v6"></path>
+            </svg>
+          </div>
+          <div class="flex flex-col leading-none">
+            <span class="font-display font-bold text-xl text-wr-dark tracking-tight">WhiteRoof</span>
+            <span class="text-[10px] font-semibold text-slate-500 tracking-widest uppercase">Cool Roofing</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden lg:flex items-center gap-9">
+          <a href="index.html#accueil" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Accueil</a>
+          <a href="index.html#choc-thermique" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Choc Thermique</a>
+          <a href="index.html#profil" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Notre Profil</a>
+          <a href="index.html#calculateur" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Calculateur</a>
+          <a href="index.html#devis" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Devis</a>
+        </div>
+
+        <!-- CTA + Mobile toggle -->
+        <div class="flex items-center gap-3">
+          <a href="index.html#devis" class="hidden sm:inline-flex btn-shine items-center gap-2 bg-wr-dark hover:bg-slate-800 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all shadow-lg shadow-wr-dark/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
+            <i data-lucide="thermometer-sun" class="w-4 h-4 text-wr-green-soft"></i>
+            Devis Gratuit
+          </a>
+          <button id="menuToggle" class="lg:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2" aria-label="Menu">
+            <i data-lucide="menu" class="w-6 h-6 text-wr-dark"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="mobile-menu lg:hidden">
+        <div class="py-4 space-y-1 border-t border-slate-200">
+          <a href="index.html#accueil" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Accueil</a>
+          <a href="index.html#choc-thermique" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Choc Thermique</a>
+          <a href="index.html#profil" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Notre Profil</a>
+          <a href="index.html#calculateur" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Calculateur</a>
+          <a href="index.html#devis" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Devis</a>
+          <a href="index.html#devis" class="block mt-2 mx-3 text-center bg-wr-dark text-white text-sm font-semibold px-5 py-3 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">Devis Gratuit</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============ CONTENU : CONDITIONS GÉNÉRALES ============ -->
+  <main class="pt-32 pb-24 lg:pt-40 lg:pb-32">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+
+      <!-- Fil d'ariane -->
+      <nav class="mb-8" aria-label="Fil d'ariane">
+        <ol class="flex items-center gap-2 text-xs text-slate-500 font-medium">
+          <li>
+            <a href="index.html#accueil" class="hover:text-wr-blue transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Accueil</a>
+          </li>
+          <li><i data-lucide="chevron-right" class="w-3 h-3"></i></li>
+          <li class="text-wr-dark font-semibold">Conditions générales</li>
+        </ol>
+      </nav>
+
+      <!-- En-tête de page -->
+      <div class="mb-10">
+        <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4">Informations légales</span>
+        <h1 class="font-display text-3xl lg:text-5xl font-bold text-wr-dark leading-tight tracking-tight">
+          Conditions générales
+        </h1>
+        <p class="mt-4 text-sm text-slate-500">
+          Dernière mise à jour : <span id="currentDate">2026</span>
+        </p>
+      </div>
+
+      <!-- Contenu article -->
+      <article class="bg-white rounded-3xl shadow-xl shadow-wr-dark/5 border border-slate-100 p-8 lg:p-12 space-y-10">
+
+        <!-- Article 1 : Objet -->
+        <section>
+          <div class="flex items-start gap-4 mb-4">
+            <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-wr-blue/10 flex items-center justify-center font-display font-bold text-wr-blue text-sm">01</span>
+            <h2 class="font-display text-xl font-bold text-wr-dark mt-1.5">Objet</h2>
+          </div>
+          <p class="text-slate-700 leading-relaxed pl-14">
+            Les présentes conditions générales régissent l'utilisation du site <strong class="text-wr-dark">whiteroof.be</strong> et les demandes de devis formulées par les utilisateurs pour des prestations de <strong class="text-wr-dark">cool roofing et de nettoyage de toiture en Belgique</strong>.
+          </p>
+        </section>
+
+        <!-- Article 2 : Demandes de devis -->
+        <section>
+          <div class="flex items-start gap-4 mb-4">
+            <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-wr-blue/10 flex items-center justify-center font-display font-bold text-wr-blue text-sm">02</span>
+            <h2 class="font-display text-xl font-bold text-wr-dark mt-1.5">Demandes de devis</h2>
+          </div>
+          <p class="text-slate-700 leading-relaxed pl-14">
+            Les estimations fournies par le calculateur en ligne sont <strong class="text-wr-dark">purement indicatives</strong> et ne l'engagent en aucun cas contractuellement. Seul un <strong class="text-wr-dark">devis signé après visite technique</strong> fait foi.
+          </p>
+        </section>
+
+        <!-- Article 3 : Propriété intellectuelle -->
+        <section>
+          <div class="flex items-start gap-4 mb-4">
+            <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-wr-blue/10 flex items-center justify-center font-display font-bold text-wr-blue text-sm">03</span>
+            <h2 class="font-display text-xl font-bold text-wr-dark mt-1.5">Propriété intellectuelle</h2>
+          </div>
+          <p class="text-slate-700 leading-relaxed pl-14">
+            L'ensemble des contenus, designs et visuels du site est la propriété exclusive de <strong class="text-wr-dark">WhiteRoof</strong>.
+          </p>
+        </section>
+
+        <!-- Article 4 : Protection des données (RGPD) -->
+        <section>
+          <div class="flex items-start gap-4 mb-4">
+            <span class="flex-shrink-0 w-10 h-10 rounded-xl bg-wr-blue/10 flex items-center justify-center font-display font-bold text-wr-blue text-sm">04</span>
+            <h2 class="font-display text-xl font-bold text-wr-dark mt-1.5">Protection des données (RGPD)</h2>
+          </div>
+          <p class="text-slate-700 leading-relaxed pl-14">
+            Les données collectées via le formulaire de contact (nom, email, message) sont traitées en toute confidentialité dans le seul but de répondre aux demandes de devis. Elles ne sont <strong class="text-wr-dark">jamais transmises à des tiers</strong>. Conformément au RGPD, vous disposez d'un droit d'accès et de suppression en écrivant à notre adresse de contact.
+          </p>
+        </section>
+
+      </article>
+
+      <!-- Lien retour -->
+      <div class="mt-10 text-center">
+        <a href="index.html#accueil" class="inline-flex items-center gap-2 text-sm font-semibold text-wr-blue hover:text-wr-blue-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          Retour à l'accueil
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-wr-dark text-slate-400 pt-16 pb-8 relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 section-divider"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-10 pb-12 border-b border-white/10">
+
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-2.5 mb-5">
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-wr-blue to-wr-green flex items-center justify-center shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                <path d="M3 12L12 3l9 9"></path>
+                <path d="M5 10v10h14V10"></path>
+                <path d="M9 20v-6h6v6"></path>
+              </svg>
+            </div>
+            <div class="flex flex-col leading-none">
+              <span class="font-display font-bold text-xl text-white tracking-tight">WhiteRoof</span>
+              <span class="text-[10px] font-semibold text-slate-500 tracking-widest uppercase">Cool Roofing</span>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed max-w-xs">
+            WhiteRoof SRL applique des revêtements blancs thermo-réflectifs haute performance pour toitures industrielles et commerciales.
+          </p>
+        </div>
+
+        <!-- Navigation -->
+        <div>
+          <p class="text-xs font-bold text-white uppercase tracking-widest mb-5">Navigation</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="index.html#accueil" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Accueil</a></li>
+            <li><a href="index.html#choc-thermique" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Choc Thermique</a></li>
+            <li><a href="index.html#profil" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Notre Profil</a></li>
+            <li><a href="index.html#calculateur" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Calculateur d'économies</a></li>
+            <li><a href="index.html#devis" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Devis gratuit</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <p class="text-xs font-bold text-white uppercase tracking-widest mb-5">Contact</p>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-start gap-3">
+              <i data-lucide="map-pin" class="w-4 h-4 text-wr-green-soft flex-shrink-0 mt-0.5"></i>
+              <span>Belgique — Interventions dans tout le pays</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="mail" class="w-4 h-4 text-wr-green-soft flex-shrink-0 mt-0.5"></i>
+              <a href="mailto:contact@whiteroof.be" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">contact@whiteroof.be</a>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="message-square" class="w-4 h-4 text-wr-green-soft flex-shrink-0 mt-0.5"></i>
+              <a href="index.html#devis" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Premier contact via le formulaire de devis</a>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="clock" class="w-4 h-4 text-wr-green-soft flex-shrink-0 mt-0.5"></i>
+              <span>Réponse sous 48 h ouvrées</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+        <p>© <span id="currentYear">2026</span> WhiteRoof SRL. Tous droits réservés.</p>
+        <div class="flex items-center gap-6">
+          <a href="mentions-legales.html" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Mentions légales</a>
+          <a href="conditions.html" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded" aria-current="page">Conditions générales</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ SCRIPTS ============ -->
+  <script>
+    // ===== Lucide icons init =====
+    lucide.createIcons();
+
+    // ===== Current year & date =====
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    const now = new Date();
+    const dateFormatter = new Intl.DateTimeFormat('fr-BE', { day: '2-digit', month: 'long', year: 'numeric' });
+    document.getElementById('currentDate').textContent = dateFormatter.format(now);
+
+    // ===== Mobile menu toggle =====
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+    menuToggle.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      menuToggle.innerHTML = menuOpen
+        ? '<i data-lucide="x" class="w-6 h-6 text-wr-dark"></i>'
+        : '<i data-lucide="menu" class="w-6 h-6 text-wr-dark"></i>';
+      lucide.createIcons();
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuOpen = false;
+        mobileMenu.classList.remove('open');
+        menuToggle.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-wr-dark"></i>';
+        lucide.createIcons();
+      });
+    });
+
+    // ===== Header shadow on scroll =====
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('shadow-lg', 'shadow-wr-dark/5');
+      } else {
+        header.classList.remove('shadow-lg', 'shadow-wr-dark/5');
+      }
+    });
+  </script>
+
+</body>
+</html>
