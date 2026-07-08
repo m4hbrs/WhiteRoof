@@ -203,30 +203,6 @@
     .cool-aura {
       background: radial-gradient(circle at center, rgba(37, 99, 235, 0.25) 0%, rgba(16, 185, 129, 0.12) 40%, transparent 70%);
     }
-
-    @keyframes raysDown {
-      0%, 100% { opacity: 0.85; }
-      50% { opacity: 0.4; }
-    }
-    .sun-ray { animation: raysDown 2.5s ease-in-out infinite; }
-
-    @keyframes heatWave {
-      0% { transform: translateY(0) scaleX(1); opacity: 0; }
-      30% { opacity: 0.8; }
-      100% { transform: translateY(-30px) scaleX(1.3); opacity: 0; }
-    }
-    .heat-wave-1 { animation: heatWave 3s ease-out infinite; }
-    .heat-wave-2 { animation: heatWave 3s ease-out infinite; animation-delay: 0.8s; }
-    .heat-wave-3 { animation: heatWave 3s ease-out infinite; animation-delay: 1.6s; }
-
-    @keyframes reflectRay {
-      0% { transform: translateY(20px); opacity: 0; }
-      40% { opacity: 1; }
-      100% { transform: translateY(-40px); opacity: 0; }
-    }
-    .reflect-ray-1 { animation: reflectRay 2.4s ease-out infinite; }
-    .reflect-ray-2 { animation: reflectRay 2.4s ease-out infinite; animation-delay: 0.6s; }
-    .reflect-ray-3 { animation: reflectRay 2.4s ease-out infinite; animation-delay: 1.2s; }
   </style>
 </head>
 
@@ -241,9 +217,20 @@
         <a href="#accueil" class="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded-xl">
           <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-wr-blue to-wr-green flex items-center justify-center shadow-lg shadow-wr-blue/30 group-hover:scale-105 transition-transform">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
-              <path d="M3 12L12 3l9 9"></path>
-              <path d="M5 10v10h14V10"></path>
-              <path d="M9 20v-6h6v6"></path>
+              <!-- Rayons solaires descendants -->
+              <line x1="7" y1="3" x2="7" y2="7"></line>
+              <line x1="12" y1="3" x2="12" y2="7"></line>
+              <line x1="17" y1="3" x2="17" y2="7"></line>
+              <!-- Toiture plate horizontale -->
+              <line x1="2" y1="9" x2="22" y2="9"></line>
+              <!-- Flèches de réflexion (vers le haut) -->
+              <path d="M4 7 L6 5 L8 7"></path>
+              <path d="M16 7 L18 5 L20 7"></path>
+              <!-- Corps du bâtiment plat -->
+              <rect x="3" y="11" width="18" height="9" rx="1"></rect>
+              <!-- Ouverture (style fenêtre industriel) -->
+              <line x1="7" y1="15" x2="10" y2="15"></line>
+              <line x1="14" y1="15" x2="17" y2="15"></line>
             </svg>
           </div>
           <div class="flex flex-col leading-none">
@@ -255,9 +242,9 @@
         <!-- Desktop Nav -->
         <div class="hidden lg:flex items-center gap-9">
           <a href="#accueil" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Accueil</a>
-          <a href="#choc-thermique" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Choc Thermique</a>
-          <a href="#profil" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Notre Profil</a>
+          <a href="#choc-thermique" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Solution</a>
           <a href="#calculateur" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Calculateur</a>
+          <a href="#profil" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Notre Profil</a>
           <a href="#devis" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Devis</a>
         </div>
 
@@ -277,9 +264,9 @@
       <div id="mobileMenu" class="mobile-menu lg:hidden">
         <div class="py-4 space-y-1 border-t border-slate-200">
           <a href="#accueil" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Accueil</a>
-          <a href="#choc-thermique" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Choc Thermique</a>
-          <a href="#profil" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Notre Profil</a>
+          <a href="#choc-thermique" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Solution</a>
           <a href="#calculateur" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Calculateur</a>
+          <a href="#profil" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Notre Profil</a>
           <a href="#devis" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Devis</a>
           <a href="#devis" class="block mt-2 mx-3 text-center bg-wr-dark text-white text-sm font-semibold px-5 py-3 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">Devis Gratuit</a>
         </div>
@@ -320,17 +307,40 @@
           </h1>
 
           <p class="mt-7 text-lg text-slate-600 leading-relaxed max-w-2xl">
-            WhiteRoof applique un revêtement blanc thermo-réflectif qui <strong class="text-wr-dark">réfléchit les rayons du soleil</strong> au lieu de les absorber. Votre toiture cesse de fonctionner comme un radiateur : la charge sur la climatisation, la ventilation et la préservation de vos équipements chute drastiquement.
+            Réduisez la chaleur qui s'accumule dans votre bâtiment grâce à un revêtement réfléchissant appliqué directement sur votre toiture existante.
           </p>
 
-          <div class="mt-9 flex flex-col sm:flex-row gap-4">
-            <a href="#calculateur" class="btn-shine inline-flex items-center justify-center gap-2 bg-wr-blue hover:bg-wr-blue-dark text-white text-base font-semibold px-7 py-4 rounded-xl transition-all shadow-xl shadow-wr-blue/30 glow-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
-              <i data-lucide="calculator" class="w-5 h-5"></i>
-              Calculer mes économies en 10 secondes
+          <!-- CTA principal : Nous contacter par téléphone -->
+          <div class="mt-9">
+            <a href="tel:+32498012569" class="btn-shine inline-flex items-center justify-center gap-2 bg-wr-blue hover:bg-wr-blue-dark text-white text-base font-semibold px-7 py-4 rounded-xl transition-all shadow-xl shadow-wr-blue/30 glow-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
+              <i data-lucide="phone-call" class="w-5 h-5"></i>
+              Nous contacter par téléphone
             </a>
-            <a href="#choc-thermique" class="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-wr-dark text-base font-semibold px-7 py-4 rounded-xl border border-slate-200 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
-              Voir le choc thermique
-              <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          </div>
+
+          <!-- Blocs contacts directs chargés d'affaires -->
+          <div class="mt-6 grid sm:grid-cols-2 gap-4 max-w-2xl">
+            <!-- Mehdi Bourass -->
+            <a href="tel:+32498012569" class="group flex items-center gap-4 bg-white hover:bg-slate-50 border border-slate-200 hover:border-wr-blue/40 rounded-2xl p-4 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
+              <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-wr-blue to-wr-blue-dark flex items-center justify-center shadow-md shadow-wr-blue/30">
+                <i data-lucide="user" class="w-6 h-6 text-white"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Chargé d'affaires</p>
+                <p class="font-bold text-wr-dark text-sm leading-tight">Mehdi Bourass</p>
+                <p class="text-sm text-wr-blue font-semibold mt-0.5 group-hover:text-wr-blue-dark transition-colors">+32 498 01 25 69</p>
+              </div>
+            </a>
+            <!-- Delil Benjamin Odun -->
+            <a href="tel:+32495637701" class="group flex items-center gap-4 bg-white hover:bg-slate-50 border border-slate-200 hover:border-wr-green/40 rounded-2xl p-4 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
+              <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-wr-green to-emerald-600 flex items-center justify-center shadow-md shadow-wr-green/30">
+                <i data-lucide="user" class="w-6 h-6 text-white"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Chargé d'affaires</p>
+                <p class="font-bold text-wr-dark text-sm leading-tight">Delil Benjamin Odun</p>
+                <p class="text-sm text-wr-blue font-semibold mt-0.5 group-hover:text-wr-blue-dark transition-colors">+32 495 63 77 01</p>
+              </div>
             </a>
           </div>
 
@@ -373,7 +383,7 @@
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-wr-heat-dark to-wr-heat rounded-full" style="height: 95%;"></div>
                     <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-16 h-16 bg-wr-heat rounded-full border-4 border-white shadow-lg animate-pulse-heat"></div>
                   </div>
-                  <p class="mt-8 text-2xl font-bold text-wr-heat stat-number">~80°C</p>
+                  <p class="mt-8 text-2xl font-bold text-wr-heat stat-number">85°C</p>
                   <p class="text-xs text-slate-500">Absorption maximale</p>
                 </div>
 
@@ -433,17 +443,17 @@
     </div>
   </section>
 
-  <!-- ============ CHOC THERMIQUE (Avant / Après) ============ -->
+  <!-- ============ COMMENT ÇA MARCHE (Avant / Après) ============ -->
   <section id="choc-thermique" class="py-24 lg:py-32 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
       <div class="text-center max-w-3xl mx-auto reveal">
-        <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4">Le choc thermique</span>
+        <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4">Comment ça marche</span>
         <h2 class="font-display text-3xl lg:text-5xl font-bold text-wr-dark leading-tight tracking-tight">
-          Jusqu'à 80°C en surface. Voilà ce que subit votre toiture en été.
+          Comment WhiteRoof réduit la chaleur dans votre bâtiment.
         </h2>
         <p class="mt-5 text-lg text-slate-600 leading-relaxed">
-          Selon l'ensoleillement, une toiture foncée standard absorbe massivement le rayonnement solaire et monte jusqu'à <strong class="text-wr-dark">~80°C</strong>. Elle devient un véritable radiateur au-dessus de vos ateliers, stocks et machines. Le revêtement blanc WhiteRoof <strong class="text-wr-dark">réfléchit les rayons du soleil</strong> et fait chuter cette température drastiquement, protégeant la structure et bloquant l'entrée de la chaleur dans le bâtiment.
+          Une toiture foncée <strong class="text-wr-dark">absorbe</strong> la chaleur. Une toiture blanche WhiteRoof la <strong class="text-wr-dark">réfléchit</strong>. C'est tout simple — et les économies sont immédiates.
         </p>
       </div>
 
@@ -463,53 +473,61 @@
                   <p class="font-bold text-wr-dark">Toiture foncée standard</p>
                 </div>
               </div>
-              <span class="text-xs font-bold text-wr-heat bg-wr-heat/10 px-3 py-1.5 rounded-full">Jusqu'à ~80°C</span>
+              <span class="text-xs font-bold text-wr-heat bg-wr-heat/10 px-3 py-1.5 rounded-full whitespace-nowrap">Jusqu'à 85°C</span>
             </div>
 
-            <!-- Visual: roof + sun + heat -->
-            <div class="relative h-56 rounded-2xl bg-gradient-to-b from-sky-50 to-slate-100 overflow-hidden border border-slate-100">
-              <!-- Sun -->
-              <div class="absolute top-4 right-6 w-14 h-14 rounded-full bg-gradient-to-br from-yellow-300 to-orange-400 shadow-lg shadow-orange-300/50 flex items-center justify-center">
-                <i data-lucide="sun" class="w-7 h-7 text-white"></i>
-              </div>
+            <!-- Schéma vertical simple : Soleil → Toit foncé → Chaleur transmise → Bâtiment chaud -->
+            <div class="rounded-2xl bg-gradient-to-b from-sky-50 to-slate-100 border border-slate-100 p-6">
+              <div class="flex flex-col items-center gap-3">
 
-              <!-- Sun rays hitting the roof -->
-              <svg class="absolute top-12 right-12 w-32 h-24 sun-ray" viewBox="0 0 100 60" fill="none">
-                <line x1="10" y1="0" x2="20" y2="50" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-                <line x1="40" y1="0" x2="50" y2="50" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-                <line x1="70" y1="0" x2="80" y2="50" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-              </svg>
+                <!-- 1. Soleil -->
+                <div class="flex flex-col items-center">
+                  <div class="w-14 h-14 rounded-full bg-gradient-to-br from-yellow-300 to-orange-400 shadow-lg shadow-orange-300/50 flex items-center justify-center">
+                    <i data-lucide="sun" class="w-7 h-7 text-white"></i>
+                  </div>
+                  <p class="text-xs font-semibold text-slate-500 mt-2">Soleil</p>
+                </div>
 
-              <!-- Heat waves rising -->
-              <svg class="absolute bottom-20 left-1/2 -translate-x-1/2 w-32 h-12" viewBox="0 0 100 30" fill="none">
-                <path class="heat-wave-1" d="M20 30 Q15 15 20 0 Q25 15 20 30" stroke="#ef4444" stroke-width="2" fill="none" opacity="0.6"/>
-                <path class="heat-wave-2" d="M50 30 Q45 15 50 0 Q55 15 50 30" stroke="#ef4444" stroke-width="2" fill="none" opacity="0.6"/>
-                <path class="heat-wave-3" d="M80 30 Q75 15 80 0 Q85 15 80 30" stroke="#ef4444" stroke-width="2" fill="none" opacity="0.6"/>
-              </svg>
+                <!-- Flèche descendante -->
+                <i data-lucide="arrow-down" class="w-6 h-6 text-slate-400"></i>
 
-              <!-- Dark roof -->
-              <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-slate-800 to-slate-900 relative">
-                <div class="absolute inset-0 heat-aura"></div>
-                <div class="absolute inset-0 opacity-20" style="background-image: repeating-linear-gradient(90deg, transparent, transparent 12px, rgba(0,0,0,0.4) 12px, rgba(0,0,0,0.4) 13px);"></div>
-              </div>
+                <!-- 2. Toiture foncée -->
+                <div class="w-full max-w-xs">
+                  <div class="h-10 bg-gradient-to-b from-slate-800 to-slate-900 rounded-lg relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-25" style="background-image: repeating-linear-gradient(90deg, transparent, transparent 12px, rgba(0,0,0,0.6) 12px, rgba(0,0,0,0.6) 13px);"></div>
+                  </div>
+                  <p class="text-xs font-semibold text-slate-600 text-center mt-2">Toiture foncée</p>
+                </div>
 
-              <div class="absolute bottom-0 left-0 right-0 h-16 flex items-end justify-center pb-1">
-                <span class="text-[10px] font-bold text-white/70 bg-black/40 px-2 py-0.5 rounded">Chaleur transmise au bâtiment</span>
+                <!-- Flèche descendante + indicateur chaleur -->
+                <div class="flex flex-col items-center">
+                  <i data-lucide="arrow-down" class="w-6 h-6 text-wr-heat"></i>
+                  <span class="text-[10px] font-bold text-wr-heat bg-wr-heat/10 px-2 py-0.5 rounded mt-1">Chaleur transmise au bâtiment</span>
+                </div>
+
+                <!-- 3. Bâtiment chaud -->
+                <div class="w-full max-w-xs mt-1">
+                  <div class="bg-wr-heat/10 border-2 border-wr-heat/30 rounded-lg p-3 flex items-center justify-center gap-2">
+                    <i data-lucide="factory" class="w-5 h-5 text-wr-heat"></i>
+                    <span class="text-sm font-bold text-wr-heat">Bâtiment qui chauffe</span>
+                  </div>
+                </div>
+
               </div>
             </div>
 
             <ul class="mt-6 space-y-3 text-sm">
               <li class="flex items-start gap-3 text-slate-600">
                 <i data-lucide="x-circle" class="w-5 h-5 text-wr-heat flex-shrink-0 mt-0.5"></i>
-                <span>Absorption massive du rayonnement solaire</span>
+                <span>La toiture accumule la chaleur</span>
               </li>
               <li class="flex items-start gap-3 text-slate-600">
                 <i data-lucide="x-circle" class="w-5 h-5 text-wr-heat flex-shrink-0 mt-0.5"></i>
-                <span>Vieillissement accéléré des membranes sous l'effet thermique</span>
+                <span>La chaleur accélère l'usure de la toiture</span>
               </li>
               <li class="flex items-start gap-3 text-slate-600">
                 <i data-lucide="x-circle" class="w-5 h-5 text-wr-heat flex-shrink-0 mt-0.5"></i>
-                <span>Surcharge des systèmes CVC et pics de consommation</span>
+                <span>La climatisation consomme davantage</span>
               </li>
             </ul>
           </div>
@@ -528,104 +546,68 @@
                   <p class="font-bold text-wr-dark">Revêtement blanc WhiteRoof</p>
                 </div>
               </div>
-              <span class="text-xs font-bold text-wr-blue bg-wr-blue/10 px-3 py-1.5 rounded-full">~40°C</span>
+              <span class="text-xs font-bold text-wr-blue bg-wr-blue/10 px-3 py-1.5 rounded-full whitespace-nowrap">Jusqu'à 40°C de moins</span>
             </div>
 
-            <!-- Visual: roof + sun + reflected rays -->
-            <div class="relative h-56 rounded-2xl bg-gradient-to-b from-sky-50 to-white overflow-hidden border border-slate-100">
-              <!-- Sun -->
-              <div class="absolute top-4 right-6 w-14 h-14 rounded-full bg-gradient-to-br from-yellow-300 to-orange-400 shadow-lg shadow-orange-300/50 flex items-center justify-center">
-                <i data-lucide="sun" class="w-7 h-7 text-white"></i>
-              </div>
+            <!-- Schéma vertical simple : Soleil → Toit blanche → Chaleur réfléchie → Bâtiment frais -->
+            <div class="rounded-2xl bg-gradient-to-b from-sky-50 to-white border border-slate-100 p-6">
+              <div class="flex flex-col items-center gap-3">
 
-              <!-- Incoming sun rays -->
-              <svg class="absolute top-12 right-12 w-32 h-24 sun-ray" viewBox="0 0 100 60" fill="none">
-                <line x1="10" y1="0" x2="20" y2="50" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-                <line x1="40" y1="0" x2="50" y2="50" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-                <line x1="70" y1="0" x2="80" y2="50" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-              </svg>
+                <!-- 1. Soleil -->
+                <div class="flex flex-col items-center">
+                  <div class="w-14 h-14 rounded-full bg-gradient-to-br from-yellow-300 to-orange-400 shadow-lg shadow-orange-300/50 flex items-center justify-center">
+                    <i data-lucide="sun" class="w-7 h-7 text-white"></i>
+                  </div>
+                  <p class="text-xs font-semibold text-slate-500 mt-2">Soleil</p>
+                </div>
 
-              <!-- Reflected rays bouncing off -->
-              <svg class="absolute top-0 left-1/3 w-32 h-32" viewBox="0 0 100 100" fill="none">
-                <line class="reflect-ray-1" x1="80" y1="80" x2="20" y2="20" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
-                <line class="reflect-ray-2" x1="70" y1="80" x2="10" y2="30" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
-                <line class="reflect-ray-3" x1="60" y1="80" x2="5" y2="45" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
-              </svg>
+                <!-- Flèche descendante -->
+                <i data-lucide="arrow-down" class="w-6 h-6 text-slate-400"></i>
 
-              <!-- Cool aura -->
-              <div class="absolute bottom-16 left-0 right-0 h-16 cool-aura"></div>
+                <!-- 2. Toiture blanche + chaleur réfléchie (latérale) -->
+                <div class="w-full max-w-xs relative">
+                  <!-- Flèches de réflexion (latérales) -->
+                  <div class="absolute -top-2 left-0 right-0 flex justify-between px-2">
+                    <i data-lucide="arrow-up-left" class="w-5 h-5 text-wr-blue"></i>
+                    <i data-lucide="arrow-up-right" class="w-5 h-5 text-wr-blue"></i>
+                  </div>
+                  <div class="h-10 bg-gradient-to-b from-slate-50 to-white border-2 border-wr-blue/30 rounded-lg relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-50" style="background: linear-gradient(90deg, transparent, rgba(37,99,235,0.12), transparent); background-size: 200% 100%; animation: shimmer 3s linear infinite;"></div>
+                  </div>
+                  <p class="text-xs font-semibold text-slate-600 text-center mt-2">Revêtement blanc WhiteRoof</p>
+                </div>
 
-              <!-- White roof -->
-              <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-slate-50 to-white border-t-2 border-slate-100">
-                <div class="absolute inset-0 opacity-40" style="background: linear-gradient(90deg, transparent, rgba(37,99,235,0.08), transparent); background-size: 200% 100%; animation: shimmer 3s linear infinite;"></div>
-              </div>
+                <!-- Indicateur : chaleur réfléchie -->
+                <span class="text-[10px] font-bold text-wr-blue bg-wr-blue/10 px-2 py-0.5 rounded">Chaleur réfléchie vers l'extérieur</span>
 
-              <div class="absolute bottom-0 left-0 right-0 h-16 flex items-end justify-center pb-1">
-                <span class="text-[10px] font-bold text-wr-blue bg-wr-blue/10 px-2 py-0.5 rounded">Chaleur bloquée à l'extérieur</span>
+                <!-- Flèche descendante -->
+                <i data-lucide="arrow-down" class="w-6 h-6 text-wr-green"></i>
+
+                <!-- 3. Bâtiment frais -->
+                <div class="w-full max-w-xs">
+                  <div class="bg-wr-green-pale border-2 border-wr-green/30 rounded-lg p-3 flex items-center justify-center gap-2">
+                    <i data-lucide="factory" class="w-5 h-5 text-wr-green"></i>
+                    <span class="text-sm font-bold text-wr-green">Bâtiment plus frais</span>
+                  </div>
+                </div>
+
               </div>
             </div>
 
             <ul class="mt-6 space-y-3 text-sm">
               <li class="flex items-start gap-3 text-slate-600">
                 <i data-lucide="check-circle-2" class="w-5 h-5 text-wr-green flex-shrink-0 mt-0.5"></i>
-                <span>Réflexion élevée du rayonnement solaire</span>
+                <span>La chaleur est renvoyée vers l'extérieur</span>
               </li>
               <li class="flex items-start gap-3 text-slate-600">
                 <i data-lucide="check-circle-2" class="w-5 h-5 text-wr-green flex-shrink-0 mt-0.5"></i>
-                <span>Protection des membranes contre le vieillissement thermique</span>
+                <span>La toiture dure plus longtemps</span>
               </li>
               <li class="flex items-start gap-3 text-slate-600">
                 <i data-lucide="check-circle-2" class="w-5 h-5 text-wr-green flex-shrink-0 mt-0.5"></i>
-                <span>Baisse drastique de la charge CVC et stabilisation des coûts</span>
+                <span>Moins de climatisation nécessaire</span>
               </li>
             </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bandeau indicateurs B2B -->
-      <div class="mt-16 reveal">
-        <div class="bg-wr-dark rounded-3xl p-8 lg:p-10">
-          <div class="flex items-center gap-3 mb-7">
-            <div class="w-11 h-11 rounded-xl bg-wr-green/20 flex items-center justify-center flex-shrink-0">
-              <i data-lucide="bar-chart-3" class="w-5 h-5 text-wr-green-soft"></i>
-            </div>
-            <div>
-              <p class="font-display font-bold text-white text-xl">Des indicateurs de performance, pas du ressenti.</p>
-              <p class="text-slate-400 text-sm mt-1">Trois leviers concrets et mesurables pour un directeur de site.</p>
-            </div>
-          </div>
-
-          <div class="grid md:grid-cols-3 gap-6">
-            <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
-              <div class="flex items-center gap-3 mb-3">
-                <i data-lucide="users" class="w-5 h-5 text-wr-green-soft"></i>
-                <p class="font-bold text-white text-sm">Maintien de la productivité</p>
-              </div>
-              <p class="text-sm text-slate-300 leading-relaxed">
-                Maintien de la productivité lors des canicules : la baisse de température intérieure limite les ralentissements d'activité et les arrêts liés aux seuils réglementaires en atelier.
-              </p>
-            </div>
-
-            <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
-              <div class="flex items-center gap-3 mb-3">
-                <i data-lucide="package" class="w-5 h-5 text-wr-green-soft"></i>
-                <p class="font-bold text-white text-sm">Protection des stocks & machines</p>
-              </div>
-              <p class="text-sm text-slate-300 leading-relaxed">
-                Protection des stocks et machines contre la surchauffe : température de toiture stabilisée, moindres écarts thermiques, réduction des risques d'arrêt technique et de dégradation des produits stockés.
-              </p>
-            </div>
-
-            <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
-              <div class="flex items-center gap-3 mb-3">
-                <i data-lucide="scale" class="w-5 h-5 text-wr-green-soft"></i>
-                <p class="font-bold text-white text-sm">Conformité réglementaire</p>
-              </div>
-              <p class="text-sm text-slate-300 leading-relaxed">
-                Conformité des conditions de travail : respect plus facile des seuils de température en zone de production et meilleure maîtrise du Code du bien-être au travail.
-              </p>
-            </div>
           </div>
         </div>
       </div>
@@ -634,81 +616,305 @@
 
   <!-- ============ NOTRE PROFIL ============ -->
   <section id="profil" class="py-24 lg:py-32 bg-white relative">
+    <div class="max-w-5xl mx-auto px-6 lg:px-8">
+
+      <div class="text-center max-w-2xl mx-auto reveal">
+        <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4">Notre profil</span>
+        <h2 class="font-display text-2xl lg:text-4xl font-bold text-wr-dark leading-tight tracking-tight">
+          Une approche combinant expertise terrain et connaissance technique des bâtiments industriels.
+        </h2>
+      </div>
+
+      <!-- Founder cards -->
+      <div class="mt-12 grid sm:grid-cols-2 gap-6 reveal" style="transition-delay: 0.1s;">
+        <div class="flex items-center gap-5 bg-slate-50 hover:bg-white card-lift rounded-2xl p-6 border border-slate-100">
+          <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-wr-blue to-wr-blue-dark flex items-center justify-center shadow-lg shadow-wr-blue/30">
+            <span class="text-white font-display font-bold text-xl">MB</span>
+          </div>
+          <div>
+            <p class="font-bold text-wr-dark text-lg">Mehdi Bourass</p>
+            <p class="text-sm text-slate-500 font-medium">Chargé d'affaires</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-5 bg-slate-50 hover:bg-white card-lift rounded-2xl p-6 border border-slate-100">
+          <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-wr-green to-emerald-600 flex items-center justify-center shadow-lg shadow-wr-green/30">
+            <span class="text-white font-display font-bold text-xl">DO</span>
+          </div>
+          <div>
+            <p class="font-bold text-wr-dark text-lg">Delil Odun</p>
+            <p class="text-sm text-slate-500 font-medium">Ingénieur Process &amp; Maintenance</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BÉNÉFICES ============ -->
+  <section id="benefices" class="py-24 lg:py-32 bg-gradient-to-b from-white to-slate-50 relative">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
 
-        <!-- Left: Founders -->
-        <div class="reveal">
-          <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4">Notre profil</span>
-          <h2 class="font-display text-3xl lg:text-5xl font-bold text-wr-dark leading-tight tracking-tight">
-            La rigueur de l'ingénierie, alliée à une application de précision.
-          </h2>
+      <div class="text-center max-w-3xl mx-auto reveal">
+        <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4">Ce que vous gagnez</span>
+        <h2 class="font-display text-3xl lg:text-5xl font-bold text-wr-dark leading-tight tracking-tight">
+          Des résultats concrets, visibles dès le premier été.
+        </h2>
+      </div>
 
-          <p class="mt-6 text-slate-600 text-lg leading-relaxed">
-            WhiteRoof réunit deux profils complémentaires : la direction opérationnelle d'un côté, l'expertise technique d'un <strong class="text-wr-dark">ingénieur de maintenance</strong> de l'autre. Chaque chantier démarre par l'analyse des contraintes industrielles du bâtiment avant de déclencher une application Airless calibrée.
+      <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="reveal bg-white rounded-2xl p-7 border border-slate-100 card-lift">
+          <div class="w-12 h-12 rounded-xl bg-wr-blue/10 flex items-center justify-center mb-4">
+            <i data-lucide="snowflake" class="w-6 h-6 text-wr-blue"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-wr-dark mb-2">Moins de chaleur</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Baisse de 6 à 10°C à l'intérieur du bâtiment, immédiatement ressentie.</p>
+        </div>
+
+        <div class="reveal bg-white rounded-2xl p-7 border border-slate-100 card-lift" style="transition-delay: 0.05s;">
+          <div class="w-12 h-12 rounded-xl bg-wr-green/10 flex items-center justify-center mb-4">
+            <i data-lucide="trending-down" class="w-6 h-6 text-wr-green"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-wr-dark mb-2">Réduction des coûts de climatisation</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Jusqu'à 30-50% d'économies sur vos factures d'énergie globales.</p>
+        </div>
+
+        <div class="reveal bg-white rounded-2xl p-7 border border-slate-100 card-lift" style="transition-delay: 0.1s;">
+          <div class="w-12 h-12 rounded-xl bg-wr-blue/10 flex items-center justify-center mb-4">
+            <i data-lucide="shield-check" class="w-6 h-6 text-wr-blue"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-wr-dark mb-2">Toiture protégée plus longtemps</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Durée de vie de la toiture prolongée, à fraction du coût d'un remplacement.</p>
+        </div>
+
+        <div class="reveal bg-white rounded-2xl p-7 border border-slate-100 card-lift" style="transition-delay: 0.15s;">
+          <div class="w-12 h-12 rounded-xl bg-wr-green/10 flex items-center justify-center mb-4">
+            <i data-lucide="layers" class="w-6 h-6 text-wr-green"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-wr-dark mb-2">Application sur toiture existante</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Pas de remplacement complet nécessaire. On applique sur ce que vous avez déjà.</p>
+        </div>
+
+        <div class="reveal bg-white rounded-2xl p-7 border border-slate-100 card-lift" style="transition-delay: 0.2s;">
+          <div class="w-12 h-12 rounded-xl bg-wr-blue/10 flex items-center justify-center mb-4">
+            <i data-lucide="piggy-bank" class="w-6 h-6 text-wr-blue"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-wr-dark mb-2">Retour sur investissement rapide</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Amortissement rapide grâce aux économies d'énergie dès la première année.</p>
+        </div>
+
+        <div class="reveal bg-white rounded-2xl p-7 border border-slate-100 card-lift" style="transition-delay: 0.25s;">
+          <div class="w-12 h-12 rounded-xl bg-wr-green/10 flex items-center justify-center mb-4">
+            <i data-lucide="clock" class="w-6 h-6 text-wr-green"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-wr-dark mb-2">Sans interruption d'activité</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Application par l'extérieur. Vos équipes et machines continuent de travailler.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SUPPORTS ADMISSIBLES ============ -->
+  <section id="supports" class="py-24 lg:py-32 bg-gradient-to-b from-white to-slate-50 relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+      <div class="text-center max-w-3xl mx-auto reveal">
+        <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4">Compatibilité</span>
+        <h2 class="font-display text-3xl lg:text-5xl font-bold text-wr-dark leading-tight tracking-tight">
+          S'applique sur tous les types de toitures.
+        </h2>
+        <p class="mt-5 text-lg text-slate-600 leading-relaxed">
+          Que votre toiture soit en bitume, en acier ou en membrane synthétique, WhiteRoof dispose d'une formule adaptée. <strong class="text-wr-dark">Pas de remplacement complet nécessaire.</strong>
+        </p>
+      </div>
+
+      <!-- Grille de badges techniques -->
+      <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Membranes synthétiques -->
+        <div class="reveal bg-white rounded-2xl p-7 border border-slate-100 card-lift">
+          <div class="w-12 h-12 rounded-xl bg-wr-blue/10 flex items-center justify-center mb-4">
+            <i data-lucide="layers" class="w-6 h-6 text-wr-blue"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-wr-dark mb-3">Membranes synthétiques</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Membranes EPDM et PVC. Le revêtement adhère durablement, sans délaminage.
           </p>
+        </div>
 
-          <!-- Founder cards -->
-          <div class="mt-10 space-y-5">
-            <div class="flex items-center gap-5 bg-slate-50 hover:bg-white card-lift rounded-2xl p-5 border border-slate-100">
-              <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-wr-blue to-wr-blue-dark flex items-center justify-center shadow-lg shadow-wr-blue/30">
-                <span class="text-white font-display font-bold text-xl">MB</span>
-              </div>
-              <div>
-                <p class="font-bold text-wr-dark text-lg">Mehdi Bourass</p>
-                <p class="text-sm text-slate-500 font-medium">Co-fondateur — Direction opérationnelle</p>
-              </div>
+        <!-- Toitures bitumineuses -->
+        <div class="reveal bg-white rounded-2xl p-7 border border-slate-100 card-lift" style="transition-delay: 0.05s;">
+          <div class="w-12 h-12 rounded-xl bg-wr-green/10 flex items-center justify-center mb-4">
+            <i data-lucide="flame" class="w-6 h-6 text-wr-green"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-wr-dark mb-3">Toitures bitumineuses</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Bitume, Calandrite, Asphalte et Shingle. La toiture est protégée des UV et dure plus longtemps.
+          </p>
+        </div>
+
+        <!-- Toitures métalliques & Bac Acier -->
+        <div class="reveal bg-white rounded-2xl p-7 border border-slate-100 card-lift" style="transition-delay: 0.1s;">
+          <div class="w-12 h-12 rounded-xl bg-wr-blue/10 flex items-center justify-center mb-4">
+            <i data-lucide="grid-3x3" class="w-6 h-6 text-wr-blue"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-wr-dark mb-3">Toitures métalliques & Bac Acier</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Zinc, Acier, Tôles aluminium, Cuivre et Plomb — avec <strong class="text-wr-dark">traitement anti-corrosion</strong> inclus.
+          </p>
+        </div>
+
+        <!-- Toitures minérales -->
+        <div class="reveal bg-white rounded-2xl p-7 border border-slate-100 card-lift" style="transition-delay: 0.15s;">
+          <div class="w-12 h-12 rounded-xl bg-wr-green/10 flex items-center justify-center mb-4">
+            <i data-lucide="mountain" class="w-6 h-6 text-wr-green"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-wr-dark mb-3">Toitures minérales</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Tuiles béton, tuiles terre cuite et ardoises.
+          </p>
+        </div>
+
+        <!-- Plaques ondulées & Fibrociment -->
+        <div class="reveal bg-white rounded-2xl p-7 border border-slate-100 card-lift" style="transition-delay: 0.2s;">
+          <div class="w-12 h-12 rounded-xl bg-wr-blue/10 flex items-center justify-center mb-4">
+            <i data-lucide="waves" class="w-6 h-6 text-wr-blue"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-wr-dark mb-3">Plaques ondulées & Fibrociment</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Y compris <strong class="text-wr-dark">encapsulage du fibrociment amianté</strong> — procédure sécurisée, sans désamiantage.
+          </p>
+        </div>
+
+        <!-- Toits plats et terrasses sans pente -->
+        <div class="reveal bg-white rounded-2xl p-7 border border-slate-100 card-lift" style="transition-delay: 0.25s;">
+          <div class="w-12 h-12 rounded-xl bg-wr-green/10 flex items-center justify-center mb-4">
+            <i data-lucide="square" class="w-6 h-6 text-wr-green"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-wr-dark mb-3">Toits plats & terrasses sans pente</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Technologie spécifique <strong class="text-wr-dark">résistante à la stagnation d'eau</strong> et à l'humidité constante.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SPÉCIFICATIONS TECHNIQUES ============ -->
+  <section id="specifications" class="py-24 lg:py-32 bg-white relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+      <div class="text-center max-w-3xl mx-auto reveal">
+        <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4">La technologie WhiteRoof</span>
+        <h2 class="font-display text-3xl lg:text-5xl font-bold text-wr-dark leading-tight tracking-tight">
+          Une peinture qui réfléchit la chaleur au lieu de l'absorber.
+        </h2>
+        <p class="mt-5 text-lg text-slate-600 leading-relaxed">
+          Quatre propriétés qui font la différence sur les bâtiments industriels et commerciaux.
+        </p>
+      </div>
+
+      <!-- Cards grid -->
+      <div class="mt-14 grid sm:grid-cols-2 gap-6">
+
+        <!-- Spec 1 : Peinture thermique réfléchissante -->
+        <div class="reveal bg-gradient-to-br from-slate-50 to-white rounded-2xl p-7 lg:p-8 border border-slate-100 card-lift">
+          <div class="flex items-start gap-5">
+            <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-wr-blue/10 flex items-center justify-center">
+              <i data-lucide="thermometer-sun" class="w-7 h-7 text-wr-blue"></i>
             </div>
-
-            <div class="flex items-center gap-5 bg-slate-50 hover:bg-white card-lift rounded-2xl p-5 border border-slate-100">
-              <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-wr-green to-emerald-600 flex items-center justify-center shadow-lg shadow-wr-green/30">
-                <span class="text-white font-display font-bold text-xl">DB</span>
-              </div>
-              <div>
-                <p class="font-bold text-wr-dark text-lg">Delil Benjamin Odun</p>
-                <p class="text-sm text-slate-500 font-medium">Co-fondateur — Ingénieur de maintenance</p>
-              </div>
+            <div>
+              <h3 class="font-display font-bold text-lg text-wr-dark mb-2">Réfléchit la chaleur au lieu de l'absorber</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                Conçue pour réduire fortement la température intérieure des locaux et entrepôts. La surface renvoie l'énergie solaire au lieu de la stocker : votre toit cesse de fonctionner comme un radiateur.
+              </p>
             </div>
           </div>
         </div>
 
-        <!-- Right: Method card -->
-        <div class="reveal" style="transition-delay: 0.1s;">
-          <div class="relative bg-gradient-to-br from-wr-dark to-slate-800 rounded-3xl p-8 lg:p-10 shadow-2xl shadow-wr-dark/30 overflow-hidden">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-wr-blue/20 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 w-48 h-48 bg-wr-green/10 rounded-full blur-3xl"></div>
+        <!-- Spec 2 : Hydrofuge & étanchéité -->
+        <div class="reveal bg-gradient-to-br from-slate-50 to-white rounded-2xl p-7 lg:p-8 border border-slate-100 card-lift" style="transition-delay: 0.05s;">
+          <div class="flex items-start gap-5">
+            <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-wr-green/10 flex items-center justify-center">
+              <i data-lucide="droplets" class="w-7 h-7 text-wr-green"></i>
+            </div>
+            <div>
+              <h3 class="font-display font-bold text-lg text-wr-dark mb-2">Toiture rendue étanche</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                Le revêtement forme une <strong class="text-wr-dark">membrane continue sans joint</strong> ni raccord. Votre toiture est protégée des infiltrations, des UV et des intempéries.
+              </p>
+            </div>
+          </div>
+        </div>
 
-            <div class="relative">
-              <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur flex items-center justify-center mb-6 border border-white/10">
-                <i data-lucide="settings-2" class="w-7 h-7 text-wr-green-soft"></i>
+        <!-- Spec 3 : Technologie SILOXANE & autonettoyant -->
+        <div class="reveal bg-gradient-to-br from-slate-50 to-white rounded-2xl p-7 lg:p-8 border border-slate-100 card-lift" style="transition-delay: 0.1s;">
+          <div class="flex items-start gap-5">
+            <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-wr-blue/10 flex items-center justify-center">
+              <i data-lucide="sparkles" class="w-7 h-7 text-wr-blue"></i>
+            </div>
+            <div>
+              <h3 class="font-display font-bold text-lg text-wr-dark mb-2">S'auto-nettoie avec la pluie</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                Empêche le développement des mousses et lichens et <strong class="text-wr-dark">se nettoie à l'eau de pluie</strong>. La performance reste optimale dans le temps, sans entretien lourd.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spec 4 : Amortissement immédiat -->
+        <div class="reveal bg-gradient-to-br from-slate-50 to-white rounded-2xl p-7 lg:p-8 border border-slate-100 card-lift" style="transition-delay: 0.15s;">
+          <div class="flex items-start gap-5">
+            <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-wr-green/10 flex items-center justify-center">
+              <i data-lucide="piggy-bank" class="w-7 h-7 text-wr-green"></i>
+            </div>
+            <div>
+              <h3 class="font-display font-bold text-lg text-wr-dark mb-2">Évite un remplacement complet de toiture</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                Pas besoin de lourds travaux d'isolation ou de réfection. WhiteRoof <strong class="text-wr-dark">prolonge la durée de vie</strong> de votre toiture existante à fraction du coût d'un remplacement.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bloc Garanties -->
+      <div class="mt-16 reveal">
+        <div class="bg-wr-dark rounded-3xl p-8 lg:p-10 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-wr-green/10 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="relative">
+            <div class="flex items-center gap-3 mb-8">
+              <div class="w-12 h-12 rounded-xl bg-wr-green/20 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="badge-check" class="w-6 h-6 text-wr-green-soft"></i>
+              </div>
+              <div>
+                <p class="font-display font-bold text-white text-xl">Nos garanties.</p>
+                <p class="text-slate-400 text-sm mt-0.5">Deux niveaux de couverture pour sécuriser votre investissement.</p>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <!-- Garantie 1 : Application / Main d'œuvre -->
+              <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
+                <div class="flex items-center justify-between mb-4">
+                  <p class="font-bold text-white">Garantie Application / Main d'œuvre</p>
+                  <span class="font-display text-2xl font-bold text-wr-green-soft">10 ans</span>
+                </div>
+                <p class="text-sm text-slate-300 leading-relaxed">
+                  Offerte par WhiteRoof sur l'ensemble de nos interventions. Couvre la pose, l'adhérence et la continuité de la membrane appliquée.
+                </p>
               </div>
 
-              <p class="text-xl lg:text-2xl text-white font-medium leading-relaxed">
-                La rigueur de l'ingénierie alliée à une application <span class="text-wr-green-soft font-semibold">Airless de précision</span>, pour une efficacité maximale et une étanchéité durable.
-              </p>
-
-              <div class="mt-8 pt-8 border-t border-white/10 space-y-5">
-                <div class="flex items-start gap-4">
-                  <span class="flex-shrink-0 w-9 h-9 rounded-xl bg-wr-green/20 flex items-center justify-center font-display font-bold text-wr-green-soft text-sm">01</span>
-                  <div>
-                    <p class="font-bold text-white">Analyse des contraintes industrielles</p>
-                    <p class="text-sm text-slate-300 mt-1">Type de membrane, isolation, exposition, charges CVC, sensibilité des stocks.</p>
-                  </div>
+              <!-- Garantie 2 : Fabricant -->
+              <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
+                <div class="flex items-center justify-between mb-4">
+                  <p class="font-bold text-white">Garantie Fabricant</p>
+                  <span class="font-display text-xl font-bold text-wr-green-soft">Incluse</span>
                 </div>
-                <div class="flex items-start gap-4">
-                  <span class="flex-shrink-0 w-9 h-9 rounded-xl bg-wr-green/20 flex items-center justify-center font-display font-bold text-wr-green-soft text-sm">02</span>
-                  <div>
-                    <p class="font-bold text-white">Application Airless de précision</p>
-                    <p class="text-sm text-slate-300 mt-1">Couche homogène et étanche, calibrée selon le support et l'ensoleillement.</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-4">
-                  <span class="flex-shrink-0 w-9 h-9 rounded-xl bg-wr-green/20 flex items-center justify-center font-display font-bold text-wr-green-soft text-sm">03</span>
-                  <div>
-                    <p class="font-bold text-white">Contrôle & réception d'étanchéité</p>
-                    <p class="text-sm text-slate-300 mt-1">Vérification de la couverture, des points singuliers et de la continuité.</p>
-                  </div>
-                </div>
+                <p class="text-sm text-slate-300 leading-relaxed">
+                  Provenant d'un <strong class="text-white">grand laboratoire industriel français spécialisé</strong>. Couvre les propriétés thermiques et l'étanchéité du produit lui-même.
+                </p>
               </div>
             </div>
           </div>
@@ -727,10 +933,10 @@
       <div class="text-center max-w-3xl mx-auto reveal">
         <span class="inline-block text-xs font-bold text-wr-green-soft uppercase tracking-widest mb-4">Calculateur d'économies</span>
         <h2 class="font-display text-3xl lg:text-5xl font-bold text-white leading-tight tracking-tight">
-          Vos économies estimées, en 10 secondes.
+          Combien votre bâtiment pourrait-il économiser ?
         </h2>
         <p class="mt-5 text-lg text-slate-300">
-          Entrez la surface de votre toit plat. Le calculateur affiche instantanément la baisse de température de surface et la fourchette d'économies d'énergie annuelles estimée.
+          Entrez la surface de votre toit. Vous obtenez immédiatement une estimation des économies d'énergie annuelles.
         </p>
       </div>
 
@@ -815,7 +1021,7 @@
                     <span class="text-sm font-semibold text-slate-300">sur le toit en plein soleil</span>
                   </div>
                   <div class="mt-2 flex items-center gap-2 text-xs">
-                    <span class="text-slate-400">Toit foncé : ~80°C</span>
+                    <span class="text-slate-400">Toit foncé : 85°C</span>
                     <i data-lucide="arrow-right" class="w-3 h-3 text-slate-500"></i>
                     <span class="text-wr-green-soft font-bold">WhiteRoof : ~40°C</span>
                   </div>
@@ -848,6 +1054,109 @@
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Encadré simulation de rentabilité (sans prix fixe) -->
+      <div class="mt-12 max-w-5xl mx-auto reveal">
+        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-8 lg:p-10">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-11 h-11 rounded-xl bg-wr-green/20 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="line-chart" class="w-5 h-5 text-wr-green-soft"></i>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-wr-green-soft uppercase tracking-wider">Simulation de rentabilité</p>
+              <p class="font-bold text-white">Exemple pour 1 000 m² — amortissement rapide</p>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-6">
+            <!-- Surface exemple -->
+            <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
+              <p class="text-xs text-slate-400 mb-1">Surface exemple</p>
+              <p class="font-display text-2xl font-bold text-white stat-number">1 000 m²</p>
+            </div>
+            <!-- Économie annuelle -->
+            <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
+              <p class="text-xs text-slate-400 mb-1">Économie d'énergie annuelle estimée</p>
+              <p class="font-display text-2xl font-bold text-wr-green-soft stat-number">Jusqu'à 4 000 € / an</p>
+            </div>
+            <!-- Amortissement -->
+            <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
+              <p class="text-xs text-slate-400 mb-1">Amortissement</p>
+              <p class="font-display text-base font-bold text-white leading-tight">Rapidement rentabilisé</p>
+              <p class="text-xs text-slate-400 mt-1">Grâce aux gains immédiats sur la climatisation et la protection du bâti.</p>
+            </div>
+          </div>
+
+          <p class="mt-6 text-xs text-slate-400 leading-relaxed flex items-start gap-2">
+            <i data-lucide="info" class="w-4 h-4 flex-shrink-0 mt-0.5"></i>
+            <span>Aucun coût de projet n'est affiché ici : un devis personnalisé est obligatoire pour chiffrer précisément votre intervention (surface réelle, type de support, accès, primaires spécifiques).</span>
+          </p>
+
+          <!-- Bouton CTA -->
+          <div class="mt-7">
+            <button id="openLeadForm" class="btn-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-wr-blue hover:bg-wr-blue-dark text-white font-bold text-sm px-6 py-4 rounded-xl transition-all shadow-xl shadow-wr-blue/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 focus-visible:ring-offset-wr-dark">
+              <i data-lucide="user-plus" class="w-4 h-4"></i>
+              Recevoir mon étude personnalisée & devis gratuit
+            </button>
+          </div>
+
+          <!-- Mini-formulaire rapide (caché par défaut, révélé au clic) -->
+          <div id="leadFormContainer" class="hidden mt-6 bg-white rounded-2xl p-6 lg:p-7">
+            <div class="flex items-center justify-between mb-5">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-wr-blue/10 flex items-center justify-center">
+                  <i data-lucide="send" class="w-4 h-4 text-wr-blue"></i>
+                </div>
+                <p class="font-bold text-wr-dark text-sm">Demande rapide d'étude personnalisée</p>
+              </div>
+              <button id="closeLeadForm" class="p-1.5 rounded-lg hover:bg-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600" aria-label="Fermer">
+                <i data-lucide="x" class="w-5 h-5 text-slate-500"></i>
+              </button>
+            </div>
+
+            <!-- Remplacer l'action ci-dessous par votre endpoint Formspree : https://formspree.io/forms -->
+            <form id="leadForm" action="https://formspree.io/f/votre-id-formspree" method="POST" class="grid sm:grid-cols-3 gap-4">
+              <div>
+                <label for="leadNom" class="block text-xs font-semibold text-slate-700 mb-1.5">Nom *</label>
+                <input type="text" id="leadNom" name="nom" required
+                  class="wr-input w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-sm text-wr-dark placeholder-slate-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                  placeholder="Jean Dupont" />
+              </div>
+              <div>
+                <label for="leadEmail" class="block text-xs font-semibold text-slate-700 mb-1.5">Email *</label>
+                <input type="email" id="leadEmail" name="email" required
+                  class="wr-input w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-sm text-wr-dark placeholder-slate-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                  placeholder="j.dupont@societe.be" />
+              </div>
+              <div>
+                <label for="leadTel" class="block text-xs font-semibold text-slate-700 mb-1.5">Téléphone</label>
+                <input type="tel" id="leadTel" name="telephone"
+                  class="wr-input w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-sm text-wr-dark placeholder-slate-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                  placeholder="+32 4 70 12 34 56" />
+              </div>
+
+              <!-- Honeypot anti-spam -->
+              <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off" />
+              <!-- Contexte envoyé avec le form -->
+              <input type="hidden" name="source" value="Mini-formulaire simulateur ROI" />
+
+              <div class="sm:col-span-3 flex flex-col sm:flex-row items-center gap-4 mt-1">
+                <button type="submit"
+                  class="btn-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-wr-green hover:bg-wr-green-soft text-wr-dark font-bold text-sm px-6 py-3 rounded-lg transition-all shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
+                  <i data-lucide="send" class="w-4 h-4"></i>
+                  Recevoir mon étude gratuite
+                </button>
+                <p class="text-xs text-slate-400">Réponse sous 48 h ouvrées. Aucun engagement.</p>
+              </div>
+
+              <div id="leadFormSuccess" class="hidden sm:col-span-3 p-3 bg-wr-green-pale border border-wr-green/30 rounded-lg flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-wr-green flex-shrink-0"></i>
+                <p class="text-xs font-medium text-wr-dark">Merci ! Un expert WhiteRoof vous recontacte sous 48 h.</p>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -975,6 +1284,137 @@
     </div>
   </section>
 
+  <!-- ============ FAQ ============ -->
+  <section id="faq" class="py-24 lg:py-32 bg-gradient-to-b from-slate-50 to-white relative">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+
+      <div class="text-center max-w-3xl mx-auto reveal">
+        <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4">Foire aux questions</span>
+        <h2 class="font-display text-3xl lg:text-5xl font-bold text-wr-dark leading-tight tracking-tight">
+          Tout ce que vous devez savoir avant de décider.
+        </h2>
+        <p class="mt-5 text-lg text-slate-600 leading-relaxed">
+          Les réponses techniques aux questions les plus fréquentes de nos clients industriels et commerciaux.
+        </p>
+      </div>
+
+      <!-- Accordion FAQ -->
+      <div class="mt-14 space-y-4 reveal">
+
+        <!-- Q1 -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full flex items-center justify-between gap-4 p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-inset" aria-expanded="false">
+            <span class="font-display font-bold text-wr-dark text-base lg:text-lg flex items-center gap-3">
+              <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-wr-blue/10 flex items-center justify-center text-wr-blue text-xs font-bold">Q1</span>
+              Est-ce que cela fonctionne sur une toiture ancienne ?
+            </span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform faq-icon"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+            <p class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed">
+              <strong class="text-wr-dark">Oui.</strong> Le revêtement s'applique sur la toiture existante, sans remplacement. C'est même l'un de ses principaux atouts : prolonger la durée de vie d'une toiture vieillissante à fraction du coût d'une réfection complète.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full flex items-center justify-between gap-4 p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-inset" aria-expanded="false">
+            <span class="font-display font-bold text-wr-dark text-base lg:text-lg flex items-center gap-3">
+              <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-wr-blue/10 flex items-center justify-center text-wr-blue text-xs font-bold">Q2</span>
+              Vais-je devoir arrêter mon activité pendant les travaux ?
+            </span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform faq-icon"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+            <p class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed">
+              <strong class="text-wr-dark">Non.</strong> L'application se fait par l'extérieur, au pistolet Airless (jusqu'à 200 m²/h par opérateur). Aucun impact sur l'activité intérieure : vos équipes, stocks et machines continuent de travailler normalement.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full flex items-center justify-between gap-4 p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-inset" aria-expanded="false">
+            <span class="font-display font-bold text-wr-dark text-base lg:text-lg flex items-center gap-3">
+              <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-wr-blue/10 flex items-center justify-center text-wr-blue text-xs font-bold">Q3</span>
+              Quelle est la durée de vie du revêtement ?
+            </span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform faq-icon"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+            <p class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed">
+              Plus de <strong class="text-wr-dark">15 à 20 ans</strong>, couverts par nos garanties : 10 ans sur la main d'œuvre (WhiteRoof) et garantie fabricant incluse.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full flex items-center justify-between gap-4 p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-inset" aria-expanded="false">
+            <span class="font-display font-bold text-wr-dark text-base lg:text-lg flex items-center gap-3">
+              <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-wr-blue/10 flex items-center justify-center text-wr-blue text-xs font-bold">Q4</span>
+              Le produit résiste-t-il aux intempéries ?
+            </span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform faq-icon"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+            <p class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed">
+              <strong class="text-wr-dark">Oui.</strong> Le revêtement forme une membrane continue, sans joint ni raccord. Il résiste à la pluie, au gel, aux UV et à la stagnation d'eau sur toits plats. Il protège même votre toiture existante des intempéries.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full flex items-center justify-between gap-4 p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-inset" aria-expanded="false">
+            <span class="font-display font-bold text-wr-dark text-base lg:text-lg flex items-center gap-3">
+              <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-wr-blue/10 flex items-center justify-center text-wr-blue text-xs font-bold">Q5</span>
+              Est-ce rentable pour mon bâtiment ?
+            </span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform faq-icon"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+            <p class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed">
+              <strong class="text-wr-dark">Oui.</strong> Vous économisez 30 à 50% sur vos factures d'énergie (climatisation, ventilation, équipements). L'amortissement est rapide, et vous évitez un remplacement complet de toiture. Utilisez notre calculateur pour estimer vos gains.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full flex items-center justify-between gap-4 p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-inset" aria-expanded="false">
+            <span class="font-display font-bold text-wr-dark text-base lg:text-lg flex items-center gap-3">
+              <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-wr-blue/10 flex items-center justify-center text-wr-blue text-xs font-bold">Q6</span>
+              Sur quels types de toitures peut-il être appliqué ?
+            </span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform faq-icon"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+            <p class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed">
+              Sur <strong class="text-wr-dark">tous les supports courants</strong> : membranes EPDM et PVC, bitume, bac acier, zinc, tôles aluminium, fibrociment, tuiles, ardoises, toits plats sans pente. Chaque support dispose d'un primaire d'accroche spécifique.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA bas de FAQ -->
+      <div class="mt-12 text-center reveal">
+        <p class="text-slate-600 mb-5">Une autre question ? Parlons-en directement.</p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#devis" class="btn-shine inline-flex items-center justify-center gap-2 bg-wr-blue hover:bg-wr-blue-dark text-white font-semibold text-sm px-6 py-3.5 rounded-xl transition-all shadow-lg shadow-wr-blue/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
+            <i data-lucide="file-text" class="w-4 h-4"></i>
+            Poser ma question via le formulaire
+          </a>
+          <a href="tel:+32498012569" class="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-wr-dark font-semibold text-sm px-6 py-3.5 rounded-xl border border-slate-200 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
+            <i data-lucide="phone" class="w-4 h-4 text-wr-blue"></i>
+            Appeler un expert
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ FOOTER ============ -->
   <footer class="bg-wr-dark text-slate-400 pt-16 pb-8 relative overflow-hidden">
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 section-divider"></div>
@@ -987,9 +1427,20 @@
           <div class="flex items-center gap-2.5 mb-5">
             <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-wr-blue to-wr-green flex items-center justify-center shadow-lg">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
-                <path d="M3 12L12 3l9 9"></path>
-                <path d="M5 10v10h14V10"></path>
-                <path d="M9 20v-6h6v6"></path>
+                <!-- Rayons solaires descendants -->
+                <line x1="7" y1="3" x2="7" y2="7"></line>
+                <line x1="12" y1="3" x2="12" y2="7"></line>
+                <line x1="17" y1="3" x2="17" y2="7"></line>
+                <!-- Toiture plate horizontale -->
+                <line x1="2" y1="9" x2="22" y2="9"></line>
+                <!-- Flèches de réflexion (vers le haut) -->
+                <path d="M4 7 L6 5 L8 7"></path>
+                <path d="M16 7 L18 5 L20 7"></path>
+                <!-- Corps du bâtiment plat -->
+                <rect x="3" y="11" width="18" height="9" rx="1"></rect>
+                <!-- Ouverture (style fenêtre industriel) -->
+                <line x1="7" y1="15" x2="10" y2="15"></line>
+                <line x1="14" y1="15" x2="17" y2="15"></line>
               </svg>
             </div>
             <div class="flex flex-col leading-none">
@@ -1007,9 +1458,9 @@
           <p class="text-xs font-bold text-white uppercase tracking-widest mb-5">Navigation</p>
           <ul class="space-y-3 text-sm">
             <li><a href="#accueil" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Accueil</a></li>
-            <li><a href="#choc-thermique" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Choc Thermique</a></li>
+            <li><a href="#choc-thermique" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Solution</a></li>
+            <li><a href="#calculateur" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Calculateur</a></li>
             <li><a href="#profil" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Notre Profil</a></li>
-            <li><a href="#calculateur" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Calculateur d'économies</a></li>
             <li><a href="#devis" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Devis gratuit</a></li>
           </ul>
         </div>
@@ -1017,18 +1468,37 @@
         <!-- Contact -->
         <div>
           <p class="text-xs font-bold text-white uppercase tracking-widest mb-5">Contact</p>
-          <ul class="space-y-3 text-sm">
-            <li class="flex items-center gap-3">
-              <i data-lucide="map-pin" class="w-4 h-4 text-wr-green-soft flex-shrink-0"></i>
+          <ul class="space-y-4 text-sm">
+            <li class="flex items-start gap-3">
+              <i data-lucide="map-pin" class="w-4 h-4 text-wr-green-soft flex-shrink-0 mt-0.5"></i>
               <span>Belgique — Interventions dans tout le pays</span>
             </li>
+
+            <!-- Mehdi Bourass -->
+            <li class="flex items-start gap-3">
+              <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-wr-blue/20 flex items-center justify-center mt-0.5">
+                <span class="text-[10px] font-bold text-wr-blue-light">MB</span>
+              </div>
+              <div>
+                <p class="text-slate-400 text-xs">Mehdi Bourass — Chargé d'affaires</p>
+                <a href="tel:+32498012569" class="font-semibold text-white hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">+32 498 01 25 69</a>
+              </div>
+            </li>
+
+            <!-- Delil Benjamin Odun -->
+            <li class="flex items-start gap-3">
+              <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-wr-green/20 flex items-center justify-center mt-0.5">
+                <span class="text-[10px] font-bold text-wr-green-soft">DB</span>
+              </div>
+              <div>
+                <p class="text-slate-400 text-xs">Delil Benjamin Odun — Chargé d'affaires</p>
+                <a href="tel:+32495637701" class="font-semibold text-white hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">+32 495 63 77 01</a>
+              </div>
+            </li>
+
             <li class="flex items-start gap-3">
               <i data-lucide="mail" class="w-4 h-4 text-wr-green-soft flex-shrink-0 mt-0.5"></i>
               <a href="mailto:contact@whiteroof.be" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">contact@whiteroof.be</a>
-            </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="message-square" class="w-4 h-4 text-wr-green-soft flex-shrink-0 mt-0.5"></i>
-              <a href="#devis" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Premier contact via le formulaire de devis</a>
             </li>
             <li class="flex items-start gap-3">
               <i data-lucide="clock" class="w-4 h-4 text-wr-green-soft flex-shrink-0 mt-0.5"></i>
@@ -1180,6 +1650,69 @@
         }
       });
     });
+
+    // ===== FAQ accordéon =====
+    document.querySelectorAll('.faq-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('.faq-icon');
+        const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+        // Fermer tous les autres
+        document.querySelectorAll('.faq-content').forEach(c => {
+          c.style.maxHeight = '0px';
+        });
+        document.querySelectorAll('.faq-icon').forEach(i => {
+          i.style.transform = 'rotate(0deg)';
+        });
+        document.querySelectorAll('.faq-toggle').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+        });
+
+        // Ouvrir celui cliqué (s'il était fermé)
+        if (!isOpen) {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          if (icon) icon.style.transform = 'rotate(180deg)';
+          button.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // ===== Mini-formulaire lead (simulateur ROI) =====
+    const openLeadForm = document.getElementById('openLeadForm');
+    const closeLeadForm = document.getElementById('closeLeadForm');
+    const leadFormContainer = document.getElementById('leadFormContainer');
+    const leadForm = document.getElementById('leadForm');
+    const leadFormSuccess = document.getElementById('leadFormSuccess');
+
+    if (openLeadForm && leadFormContainer) {
+      openLeadForm.addEventListener('click', () => {
+        leadFormContainer.classList.remove('hidden');
+        // Petite animation de défilement vers le formulaire
+        setTimeout(() => {
+          leadFormContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 50);
+        // Re-init les icônes lucide si le contenu était caché
+        lucide.createIcons();
+      });
+    }
+
+    if (closeLeadForm && leadFormContainer) {
+      closeLeadForm.addEventListener('click', () => {
+        leadFormContainer.classList.add('hidden');
+        leadFormSuccess.classList.add('hidden');
+      });
+    }
+
+    if (leadForm) {
+      leadForm.addEventListener('submit', (e) => {
+        if (leadForm.action.includes('votre-id-formspree')) {
+          e.preventDefault();
+          leadFormSuccess.classList.remove('hidden');
+          leadFormSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    }
   </script>
 
 </body>
