@@ -742,7 +742,7 @@
           Une surface hautement réfléchissante, des résultats mesurables.
         </h2>
         <p class="mt-6 text-lg text-slate-300 leading-relaxed">
-          WhiteRoof réduit la chaleur absorbée par votre toiture grâce à une surface blanc hautement réfléchissante. Résultat direct : <strong class="text-white">vos coûts énergétiques baissent</strong>, le confort thermique du bâtiment s'améliore et la structure est protégée durablement.
+          WhiteRoof réduit la chaleur absorbée par votre toiture grâce à une surface blanc hautement réfléchissante. Résultat direct : <strong class="text-white">vos coûts énergétiques baissent</strong>, le confort thermique du bâtiment s'améliore, la structure est protégée durablement et votre empreinte carbone diminue.
         </p>
       </div>
 
@@ -791,6 +791,18 @@
           <p class="mt-1 text-xs font-bold text-slate-400 uppercase tracking-wider">Durabilité</p>
           <p class="mt-4 text-sm text-slate-300 leading-relaxed">
             Une durabilité jusqu'à 20 ans. Un investissement durable qui protège votre bâtiment et vos économies sur le long terme.
+          </p>
+        </div>
+
+        <!-- Perf 6 : Impact CO₂ -->
+        <div class="bg-gradient-to-br from-wr-green/10 to-wr-green/5 backdrop-blur border border-wr-green/30 rounded-2xl p-7 card-lift" style="transition-delay: 0.25s;">
+          <div class="flex items-center gap-2 mb-1">
+            <i data-lucide="leaf" class="w-5 h-5 text-wr-green-soft"></i>
+            <p class="text-xs font-bold text-wr-green-soft uppercase tracking-wider">Empreinte carbone</p>
+          </div>
+          <p class="font-display text-3xl lg:text-4xl font-bold text-wr-green-soft stat-number leading-tight mt-2">CO₂ ↓</p>
+          <p class="mt-4 text-sm text-slate-300 leading-relaxed">
+            Chaque kWh économisé réduit directement vos émissions de CO₂. Un bénéfice environnemental mesurable, en plus de vos économies financières.
           </p>
         </div>
 
@@ -861,7 +873,7 @@
               <div>
                 <h4 class="font-display font-bold text-base text-white mb-2">Évite un remplacement complet de toiture</h4>
                 <p class="text-slate-300 text-sm leading-relaxed">
-                  Aucun remplacement complet nécessaire. WhiteRoof <strong class="text-white">prolonge la durée de vie</strong> de votre toiture existante à fraction du coût d'un remplacement.
+                  Aucun remplacement complet nécessaire. WhiteRoof <strong class="text-white">prolonge la durée de vie</strong> de votre toiture existante à fraction du coût d'un remplacement — et limite ainsi les déchets de chantier.
                 </p>
               </div>
             </div>
@@ -1186,6 +1198,22 @@
                   </p>
                 </div>
 
+                <!-- Carte impact environnemental (CO₂ évité) -->
+                <div class="mb-7 p-3 lg:p-4 bg-gradient-to-br from-wr-green/10 to-wr-green/5 border border-wr-green/30 rounded-xl">
+                  <div class="flex items-center gap-2 mb-2">
+                    <i data-lucide="leaf" class="w-4 h-4 text-wr-green-soft"></i>
+                    <p class="text-xs font-bold text-wr-green-soft uppercase tracking-wider">Impact environnemental estimé</p>
+                  </div>
+                  <div class="flex items-baseline gap-1 lg:gap-1.5 flex-nowrap whitespace-nowrap">
+                    <span class="text-slate-300 text-sm">≈</span>
+                    <strong id="co2Min" class="font-display text-2xl lg:text-3xl font-bold text-wr-green-soft stat-number">3</strong>
+                    <span class="text-slate-300 font-semibold text-sm lg:text-base">à</span>
+                    <strong id="co2Max" class="font-display text-2xl lg:text-3xl font-bold text-wr-green-soft stat-number">4</strong>
+                    <span class="text-slate-300 font-semibold text-xs lg:text-sm whitespace-nowrap">tonnes de CO₂ / an</span>
+                  </div>
+                  <p class="text-xs text-slate-400 mt-2 leading-relaxed">Émissions évitées grâce à la baisse de votre consommation électrique (facteur mix énergétique Belgique).</p>
+                </div>
+
                 <!-- CTA direct -->
                 <a href="#devis" class="btn-shine w-full inline-flex items-center justify-center gap-2 bg-wr-green hover:bg-wr-green-soft text-wr-dark font-bold text-sm px-5 py-4 rounded-xl transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
                   <i data-lucide="file-signature" class="w-4 h-4"></i>
@@ -1472,6 +1500,27 @@
             </p>
           </div>
         </div>
+
+        <!-- Q8 : Environnement -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button class="faq-toggle w-full flex items-center justify-between gap-4 p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-inset" aria-expanded="false">
+            <span class="font-display font-bold text-wr-dark text-base lg:text-lg flex items-center gap-3">
+              <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-wr-green/10 flex items-center justify-center text-wr-green text-xs font-bold">Q8</span>
+              Quel est l'impact environnemental du revêtement WhiteRoof ?
+            </span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform faq-icon"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed space-y-3">
+              <p>
+                <strong class="text-wr-dark">Positif et mesurable.</strong> En réduisant vos besoins en climatisation, WhiteRoof diminue directement votre consommation électrique et les émissions de CO₂ qui y sont liées.
+              </p>
+              <p>
+                La prolongation de la durée de vie de votre toiture existante évite également des rénovations précoces et limite les déchets de chantier. Le revêtement participe par ailleurs à la réduction des îlots de chaleur urbains en réfléchissant le rayonnement solaire au lieu de le stocker.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- CTA bas de FAQ -->
@@ -1639,11 +1688,14 @@
     const savingsMax = document.getElementById('savingsMax');
     const kwhMin = document.getElementById('kwhMin');
     const kwhMax = document.getElementById('kwhMax');
+    const co2Min = document.getElementById('co2Min');
+    const co2Max = document.getElementById('co2Max');
 
     const MIN_PER_M2 = 3;   // € / m² / an
     const MAX_PER_M2 = 5;   // € / m² / an
     const KWH_MIN_PER_M2 = 15; // kWh / m² / an (borne basse - climatisation)
     const KWH_MAX_PER_M2 = 22; // kWh / m² / an (borne haute - climatisation)
+    const CO2_KG_PER_KWH = 0.18; // kg CO₂ / kWh — facteur mix énergétique Belgique
 
     function formatNumber(n) {
       return new Intl.NumberFormat('fr-BE').format(Math.round(n));
@@ -1684,11 +1736,18 @@
       const minKwh = surface * KWH_MIN_PER_M2;
       const maxKwh = surface * KWH_MAX_PER_M2;
 
-      // Animation synchronisée € + kWh
+      // Calcul de la fourchette d'émissions CO₂ évitées (tonnes)
+      // kWh économisés × facteur CO₂ (kg/kWh) / 1000 = tonnes
+      const minCo2 = (minKwh * CO2_KG_PER_KWH) / 1000;
+      const maxCo2 = (maxKwh * CO2_KG_PER_KWH) / 1000;
+
+      // Animation synchronisée € + kWh + CO₂
       animateNumber(savingsMin, minSavings);
       animateNumber(savingsMax, maxSavings);
       animateNumber(kwhMin, minKwh);
       animateNumber(kwhMax, maxKwh);
+      animateNumber(co2Min, minCo2);
+      animateNumber(co2Max, maxCo2);
     }
 
     surfaceInput.addEventListener('input', () => updateCalc('input'));
