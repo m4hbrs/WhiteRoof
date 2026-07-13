@@ -1206,9 +1206,9 @@
                   </div>
                   <div class="flex items-baseline gap-1 lg:gap-1.5 flex-nowrap whitespace-nowrap">
                     <span class="text-slate-300 text-sm">≈</span>
-                    <strong id="co2Min" class="font-display text-2xl lg:text-3xl font-bold text-wr-green-soft stat-number">3</strong>
+                    <strong id="co2Min" class="font-display text-2xl lg:text-3xl font-bold text-wr-green-soft stat-number">2,7</strong>
                     <span class="text-slate-300 font-semibold text-sm lg:text-base">à</span>
-                    <strong id="co2Max" class="font-display text-2xl lg:text-3xl font-bold text-wr-green-soft stat-number">4</strong>
+                    <strong id="co2Max" class="font-display text-2xl lg:text-3xl font-bold text-wr-green-soft stat-number">4,0</strong>
                     <span class="text-slate-300 font-semibold text-xs lg:text-sm whitespace-nowrap">tonnes de CO₂ / an</span>
                   </div>
                   <p class="text-xs text-slate-400 mt-2 leading-relaxed">Émissions évitées grâce à la baisse de votre consommation électrique (facteur mix énergétique Belgique).</p>
@@ -1697,12 +1697,24 @@
     const KWH_MAX_PER_M2 = 22; // kWh / m² / an (borne haute - climatisation)
     const CO2_KG_PER_KWH = 0.18; // kg CO₂ / kWh — facteur mix énergétique Belgique
 
+    // Formatage entier pour € et kWh (jamais de décimales)
     function formatNumber(n) {
       return new Intl.NumberFormat('fr-BE').format(Math.round(n));
     }
 
-    function animateNumber(element, target) {
-      const current = parseFloat(element.textContent.replace(/\s/g, '').replace(/\u00A0/g, '').replace(/,/g, '')) || 0;
+    // Formatage CO₂ : 1 décimale si < 10 tonnes, sinon entier
+    function formatCo2(n) {
+      if (n < 10) {
+        return new Intl.NumberFormat('fr-BE', { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(n);
+      }
+      return new Intl.NumberFormat('fr-BE').format(Math.round(n));
+    }
+
+    function animateNumber(element, target, formatter) {
+      // Parse la valeur actuelle en gérant le séparateur décimal français (virgule)
+      const raw = element.textContent.replace(/\s/g, '').replace(/\u00A0/g, '').replace(',', '.');
+      const current = parseFloat(raw) || 0;
+      const fmt = formatter || formatNumber;
       const duration = 600;
       const start = performance.now();
 
@@ -1710,7 +1722,7 @@
         const progress = Math.min((now - start) / duration, 1);
         const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
         const value = current + (target - current) * eased;
-        element.textContent = formatNumber(value);
+        element.textContent = fmt(value);
         if (progress < 1) requestAnimationFrame(step);
       }
       requestAnimationFrame(step);
@@ -1741,13 +1753,13 @@
       const minCo2 = (minKwh * CO2_KG_PER_KWH) / 1000;
       const maxCo2 = (maxKwh * CO2_KG_PER_KWH) / 1000;
 
-      // Animation synchronisée € + kWh + CO₂
+      // Animation synchronisée € + kWh (entiers) + CO₂ (décimales adaptatives)
       animateNumber(savingsMin, minSavings);
       animateNumber(savingsMax, maxSavings);
       animateNumber(kwhMin, minKwh);
       animateNumber(kwhMax, maxKwh);
-      animateNumber(co2Min, minCo2);
-      animateNumber(co2Max, maxCo2);
+      animateNumber(co2Min, minCo2, formatCo2);
+      animateNumber(co2Max, maxCo2, formatCo2);
     }
 
     surfaceInput.addEventListener('input', () => updateCalc('input'));
