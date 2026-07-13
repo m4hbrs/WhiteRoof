@@ -778,10 +778,10 @@
 
         <!-- Perf 4 : Indice SRI -->
         <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-7 card-lift" style="transition-delay: 0.15s;">
-          <p class="font-display text-4xl font-bold text-wr-green-soft stat-number">107</p>
+          <p class="font-display text-3xl lg:text-4xl font-bold text-wr-green-soft stat-number whitespace-nowrap">106 à 112</p>
           <p class="mt-1 text-xs font-bold text-slate-400 uppercase tracking-wider">Indice SRI</p>
           <p class="mt-4 text-sm text-slate-300 leading-relaxed">
-            Un indice SRI de 107 classe WhiteRoof parmi les revêtements les plus performants du marché. La toiture reste froide même en plein été.
+            Un indice SRI entre 106 et 112 classe WhiteRoof parmi les revêtements les plus performants du marché. La toiture reste froide même en plein été.
           </p>
         </div>
 
@@ -1778,7 +1778,8 @@
       }
     }
 
-    // ===== Smooth scroll pour ancres (avec offset header) =====
+    // ===== Smooth scroll (sans modification d'URL) =====
+    // Single-page : l'URL reste sur whiteroof.be/ peu importe la section
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         const targetId = this.getAttribute('href');
@@ -1789,6 +1790,13 @@
           const headerHeight = header.offsetHeight;
           const targetPos = targetEl.getBoundingClientRect().top + window.scrollY - headerHeight + 1;
           window.scrollTo({ top: targetPos, behavior: 'smooth' });
+          // Fermer le menu mobile si ouvert
+          if (menuOpen) {
+            menuOpen = false;
+            mobileMenu.classList.remove('open');
+            menuToggle.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-wr-dark"></i>';
+            lucide.createIcons();
+          }
         }
       });
     });
