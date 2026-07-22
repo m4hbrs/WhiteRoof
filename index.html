@@ -3,20 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="WhiteRoof — Revêtement blanc thermo-réflectif pour toitures industrielles. Baissez vos factures d'énergie de 30 à 50% et votre température intérieure de 6 à 10°C. Interventions en Belgique et au Luxembourg." />
-  <meta name="keywords" content="cool roofing, toiture réflective, revêtement thermique, économie d'énergie, toiture industrielle, Belgique, Luxembourg, application Airless" />
+
+  <!-- ===== SEO multilingue : hreflang fr-BE / nl-BE / de-BE ===== -->
+  <!-- TODO : remplacez https://www.whiteroof.be/ par l'URL définitive en production -->
+  <link rel="alternate" hreflang="fr-BE" href="https://www.whiteroof.be/" />
+  <link rel="alternate" hreflang="nl-BE" href="https://www.whiteroof.be/?lang=nl" />
+  <link rel="alternate" hreflang="de-BE" href="https://www.whiteroof.be/?lang=de" />
+  <link rel="alternate" hreflang="x-default" href="https://www.whiteroof.be/" />
+
+  <!-- Meta description multilingue (mise à jour dynamiquement par i18n.js) -->
+  <meta name="description" data-i18n-meta="description" content="WhiteRoof — Revêtement blanc thermo-réflectif pour toitures industrielles. Baissez vos factures d'énergie de 30 à 50% et votre température intérieure de 6 à 10°C. Interventions en Belgique et au Luxembourg." />
+  <meta name="keywords" data-i18n-meta="keywords" content="cool roofing, toiture réflective, revêtement thermique, économie d'énergie, toiture industrielle, Belgique, Luxembourg, application Airless" />
   <meta name="author" content="WhiteRoof SRL" />
-  <meta property="og:title" content="WhiteRoof — Revêtement thermo-réflectif pour toitures industrielles" />
-  <meta property="og:description" content="Jusqu'à -40°C sur votre toit, 6 à 10°C à l'intérieur, 30 à 50% sur vos factures d'énergie." />
+  <meta property="og:title" data-i18n-meta="og.title" content="WhiteRoof — Revêtement thermo-réflectif pour toitures industrielles" />
+  <meta property="og:description" data-i18n-meta="og.description" content="Jusqu'à -40°C sur votre toit, 6 à 10°C à l'intérieur, 30 à 50% sur vos factures d'énergie." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_BE" />
+  <meta property="og:locale:alternate" content="nl_BE" />
+  <meta property="og:locale:alternate" content="de_BE" />
   <!-- TODO : remplacez l'URL ci-dessous par l'URL définitive de votre site en production -->
   <meta property="og:url" content="https://www.whiteroof.be/" />
   <!-- TODO : remplacez le chemin ci-dessous par votre image de prévisualisation (1200x630 px recommandé) -->
   <meta property="og:image" content="img/og-preview.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="img/og-preview.jpg" />
-  <title>WhiteRoof — Revêtement thermo-réflectif pour toitures industrielles</title>
+  <title data-i18n-meta="title">WhiteRoof — Revêtement thermo-réflectif pour toitures industrielles</title>
   <link rel="icon" type="image/png" sizes="32x32" href="logofonce.png">
   <link rel="icon" type="image/png" sizes="16x16" href="logofonce.png">
   <link rel="apple-touch-icon" sizes="180x180" href="logofonce.png">
@@ -206,6 +217,75 @@
     .cool-aura {
       background: radial-gradient(circle at center, rgba(37, 99, 235, 0.25) 0%, rgba(16, 185, 129, 0.12) 40%, transparent 70%);
     }
+
+    /* ===== Language selector ===== */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      background: rgba(248, 250, 252, 0.8);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 9999px;
+      padding: 0.25rem;
+      backdrop-filter: blur(6px);
+    }
+    .lang-switch__btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2.25rem;
+      padding: 0.30rem 0.55rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #475569;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      line-height: 1;
+    }
+    .lang-switch__btn:hover {
+      color: #0f172a;
+      background: rgba(255, 255, 255, 0.7);
+    }
+    .lang-switch__btn.is-active {
+      background: linear-gradient(90deg, #2563eb, #10b981);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+    .lang-switch__btn:focus-visible {
+      outline: 2px solid #2563eb;
+      outline-offset: 2px;
+    }
+    .lang-switch__globe {
+      width: 1rem;
+      height: 1rem;
+      color: #64748b;
+      margin-right: 0.25rem;
+    }
+
+    /* Mobile lang switch (full-width inside hamburger) */
+    .lang-switch--mobile {
+      width: 100%;
+      justify-content: space-between;
+      padding: 0.35rem;
+    }
+    .lang-switch--mobile .lang-switch__btn {
+      flex: 1;
+      padding: 0.55rem 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    /* Fade transition when language changes */
+    body.i18n-transitioning [data-i18n],
+    body.i18n-transitioning [data-i18n-html],
+    body.i18n-transitioning [data-i18n-placeholder],
+    body.i18n-transitioning [data-i18n-aria-label] {
+      transition: opacity 0.15s ease;
+      opacity: 0.55;
+    }
   </style>
 </head>
 
@@ -227,20 +307,32 @@
 
         <!-- Desktop Nav -->
         <div class="hidden lg:flex items-center gap-9">
-          <a href="#accueil" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Accueil</a>
-          <a href="#choc-thermique" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Solution</a>
-          <a href="#calculateur" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Calculateur</a>
-          <a href="#profil" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Notre Profil</a>
-          <a href="#devis" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">Devis</a>
+          <a href="#accueil" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded" data-i18n="nav.accueil">Accueil</a>
+          <a href="#choc-thermique" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded" data-i18n="nav.solution">Solution</a>
+          <a href="#calculateur" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded" data-i18n="nav.calculateur">Calculateur</a>
+          <a href="#profil" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded" data-i18n="nav.profil">Notre Profil</a>
+          <a href="#devis" class="nav-link text-sm font-semibold text-slate-700 hover:text-wr-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded" data-i18n="nav.devis">Devis</a>
         </div>
 
-        <!-- CTA + Mobile toggle -->
+        <!-- CTA + Language selector + Mobile toggle -->
         <div class="flex items-center gap-3">
+          <!-- Desktop language selector : FR | NL | DE -->
+          <div class="hidden lg:inline-flex lang-switch" role="group" aria-label="Language selector">
+            <svg class="lang-switch__globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            <button type="button" class="lang-switch__btn" data-lang="fr" aria-label="Français" aria-pressed="true">FR</button>
+            <button type="button" class="lang-switch__btn" data-lang="nl" aria-label="Nederlands" aria-pressed="false">NL</button>
+            <button type="button" class="lang-switch__btn" data-lang="de" aria-label="Deutsch" aria-pressed="false">DE</button>
+          </div>
+
           <a href="#devis" class="hidden sm:inline-flex btn-shine items-center gap-2 bg-wr-dark hover:bg-slate-800 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all shadow-lg shadow-wr-dark/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
             <i data-lucide="thermometer-sun" class="w-4 h-4 text-wr-green-soft"></i>
-            Devis Gratuit
+            <span data-i18n="cta.devis_gratuit">Devis Gratuit</span>
           </a>
-          <button id="menuToggle" class="lg:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2" aria-label="Menu">
+          <button id="menuToggle" class="lg:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2" aria-label="Menu" data-i18n-aria-label="aria.menu">
             <i data-lucide="menu" class="w-6 h-6 text-wr-dark"></i>
           </button>
         </div>
@@ -249,12 +341,23 @@
       <!-- Mobile Menu -->
       <div id="mobileMenu" class="mobile-menu lg:hidden">
         <div class="py-4 space-y-1 border-t border-slate-200">
-          <a href="#accueil" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Accueil</a>
-          <a href="#choc-thermique" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Solution</a>
-          <a href="#calculateur" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Calculateur</a>
-          <a href="#profil" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Notre Profil</a>
-          <a href="#devis" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">Devis</a>
-          <a href="#devis" class="block mt-2 mx-3 text-center bg-wr-dark text-white text-sm font-semibold px-5 py-3 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">Devis Gratuit</a>
+          <a href="#accueil" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600" data-i18n="nav.accueil">Accueil</a>
+          <a href="#choc-thermique" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600" data-i18n="nav.solution">Solution</a>
+          <a href="#calculateur" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600" data-i18n="nav.calculateur">Calculateur</a>
+          <a href="#profil" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600" data-i18n="nav.profil">Notre Profil</a>
+          <a href="#devis" class="block px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600" data-i18n="nav.devis">Devis</a>
+
+          <!-- Mobile language selector (visible in hamburger menu) -->
+          <div class="px-3 pt-3 pb-1">
+            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2" data-i18n="nav.language_label">Langue</p>
+            <div class="lang-switch lang-switch--mobile" role="group" aria-label="Language selector">
+              <button type="button" class="lang-switch__btn" data-lang="fr" data-lang-mobile="1" aria-label="Français" aria-pressed="true">FR</button>
+              <button type="button" class="lang-switch__btn" data-lang="nl" data-lang-mobile="1" aria-label="Nederlands" aria-pressed="false">NL</button>
+              <button type="button" class="lang-switch__btn" data-lang="de" data-lang-mobile="1" aria-label="Deutsch" aria-pressed="false">DE</button>
+            </div>
+          </div>
+
+          <a href="#devis" class="block mt-2 mx-3 text-center bg-wr-dark text-white text-sm font-semibold px-5 py-3 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2" data-i18n="cta.devis_gratuit">Devis Gratuit</a>
         </div>
       </div>
     </nav>
@@ -275,10 +378,10 @@
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-wr-green opacity-75"></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-wr-green"></span>
             </span>
-            <span class="text-xs font-semibold text-wr-dark tracking-wide">Revêtement blanc thermo-réflectif haute performance</span>
+            <span class="text-xs font-semibold text-wr-dark tracking-wide" data-i18n="hero.badge">Revêtement blanc thermo-réflectif haute performance</span>
           </div>
 
-          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight text-wr-dark">
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight text-wr-dark" data-i18n-html="hero.title">
             Baissez vos factures d'énergie de
             <span class="relative inline-block">
               <span class="relative z-10 bg-gradient-to-r from-wr-blue to-wr-green bg-clip-text text-transparent">30 à 50%</span>
@@ -292,7 +395,7 @@
             </span>
           </h1>
 
-          <p class="mt-7 text-lg text-slate-600 leading-relaxed max-w-2xl">
+          <p class="mt-7 text-lg text-slate-600 leading-relaxed max-w-2xl" data-i18n="hero.subtitle">
             Réduisez la chaleur qui s'accumule dans votre bâtiment grâce à un revêtement réfléchissant appliqué directement sur votre toiture existante.
           </p>
 
@@ -300,7 +403,7 @@
           <div class="mt-9">
             <a href="tel:+32495637701" class="btn-shine inline-flex items-center justify-center gap-2 bg-wr-blue hover:bg-wr-blue-dark text-white text-base font-semibold px-7 py-4 rounded-xl transition-all shadow-xl shadow-wr-blue/30 glow-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
               <i data-lucide="phone-call" class="w-5 h-5"></i>
-              Nous contacter par téléphone
+              <span data-i18n="hero.cta_phone">Nous contacter par téléphone</span>
             </a>
           </div>
 
@@ -312,7 +415,7 @@
                 <i data-lucide="user" class="w-6 h-6 text-white"></i>
               </div>
               <div class="min-w-0">
-                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Ingénieur Process &amp; Maintenance</p>
+                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide" data-i18n="team.delil_role">Ingénieur Process &amp; Maintenance</p>
                 <p class="font-bold text-wr-dark text-sm leading-tight">Delil Benjamin Odun</p>
                 <p class="text-sm text-wr-blue font-semibold mt-0.5 group-hover:text-wr-blue-dark transition-colors">+32 495 63 77 01</p>
               </div>
@@ -323,7 +426,7 @@
                 <i data-lucide="user" class="w-6 h-6 text-white"></i>
               </div>
               <div class="min-w-0">
-                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Chargé d'affaires</p>
+                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide" data-i18n="team.mehdi_role">Chargé d'affaires</p>
                 <p class="font-bold text-wr-dark text-sm leading-tight">Mehdi Bourass</p>
                 <p class="text-sm text-wr-blue font-semibold mt-0.5 group-hover:text-wr-blue-dark transition-colors">+32 498 01 25 69</p>
               </div>
@@ -334,15 +437,15 @@
           <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-slate-500">
             <div class="flex items-center gap-2">
               <i data-lucide="shield-check" class="w-4 h-4 text-wr-green"></i>
-              <span class="font-medium">Étanchéité renforcée</span>
+              <span class="font-medium" data-i18n="hero.badge_water">Étanchéité renforcée</span>
             </div>
             <div class="flex items-center gap-2">
               <i data-lucide="building-2" class="w-4 h-4 text-wr-green"></i>
-              <span class="font-medium">Interventions en Belgique et au Luxembourg</span>
+              <span class="font-medium" data-i18n="hero.badge_geo">Interventions en Belgique et au Luxembourg</span>
             </div>
             <div class="flex items-center gap-2">
               <i data-lucide="award" class="w-4 h-4 text-wr-green"></i>
-              <span class="font-medium">Application Airless de précision</span>
+              <span class="font-medium" data-i18n="hero.badge_airless">Application Airless de précision</span>
             </div>
           </div>
         </div>
@@ -353,8 +456,8 @@
             <div class="relative bg-white rounded-3xl shadow-2xl shadow-wr-dark/10 p-6 lg:p-8 border border-slate-100">
               <div class="flex items-center justify-between mb-6">
                 <div>
-                  <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Comparaison thermique</p>
-                  <p class="text-sm font-bold text-wr-dark mt-1">Surface du toit en été</p>
+                  <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider" data-i18n="hero.compare_label">Comparaison thermique</p>
+                  <p class="text-sm font-bold text-wr-dark mt-1" data-i18n="hero.compare_title">Surface du toit en été</p>
                 </div>
                 <div class="w-10 h-10 rounded-full bg-wr-green-pale flex items-center justify-center">
                   <i data-lucide="thermometer-sun" class="w-5 h-5 text-wr-green"></i>
@@ -364,31 +467,31 @@
               <div class="grid grid-cols-2 gap-4">
                 <!-- Before: black roof -->
                 <div class="text-center">
-                  <p class="text-xs font-semibold text-slate-500 mb-2">Toiture foncée standard</p>
+                  <p class="text-xs font-semibold text-slate-500 mb-2" data-i18n="hero.standard_roof">Toiture foncée standard</p>
                   <div class="relative h-40 w-12 mx-auto bg-slate-100 rounded-full overflow-hidden border-2 border-slate-200">
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-wr-heat-dark to-wr-heat rounded-full" style="height: 95%;"></div>
                     <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-16 h-16 bg-wr-heat rounded-full border-4 border-white shadow-lg animate-pulse-heat"></div>
                   </div>
                   <p class="mt-8 text-2xl font-bold text-wr-heat stat-number">85°C</p>
-                  <p class="text-xs text-slate-500">Absorption maximale</p>
+                  <p class="text-xs text-slate-500" data-i18n="hero.absorption">Absorption maximale</p>
                 </div>
 
                 <!-- After: WhiteRoof -->
                 <div class="text-center">
-                  <p class="text-xs font-semibold text-wr-blue mb-2">Revêtement WhiteRoof</p>
+                  <p class="text-xs font-semibold text-wr-blue mb-2" data-i18n="hero.wr_roof">Revêtement WhiteRoof</p>
                   <div class="relative h-40 w-12 mx-auto bg-slate-100 rounded-full overflow-hidden border-2 border-slate-200">
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-wr-blue to-wr-green-soft rounded-full" style="height: 32%;"></div>
                     <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-16 h-16 bg-wr-blue rounded-full border-4 border-white shadow-lg"></div>
                   </div>
-                  <p class="mt-8 text-2xl font-bold text-wr-blue stat-number whitespace-nowrap">Jusqu'à -40°C</p>
-                  <p class="text-xs text-slate-500">Réflexion solaire élevée</p>
+                  <p class="mt-8 text-2xl font-bold text-wr-blue stat-number whitespace-nowrap" data-i18n="hero.upto_minus40">Jusqu'à -40°C</p>
+                  <p class="text-xs text-slate-500" data-i18n="hero.solar_reflection">Réflexion solaire élevée</p>
                 </div>
               </div>
 
               <div class="mt-6 pt-5 border-t border-slate-100">
                 <div class="flex items-center justify-between text-sm">
-                  <span class="text-slate-500 font-medium">Baisse de température de surface</span>
-                  <span class="font-bold text-wr-green bg-wr-green-pale px-3 py-1 rounded-full whitespace-nowrap">Jusqu'à -40°C</span>
+                  <span class="text-slate-500 font-medium" data-i18n="hero.surface_drop">Baisse de température de surface</span>
+                  <span class="font-bold text-wr-green bg-wr-green-pale px-3 py-1 rounded-full whitespace-nowrap" data-i18n="hero.upto_minus40_short">Jusqu'à -40°C</span>
                 </div>
               </div>
             </div>
@@ -398,8 +501,8 @@
               <div class="flex items-center gap-2">
                 <i data-lucide="trending-down" class="w-5 h-5 text-wr-green-soft"></i>
                 <div>
-                  <p class="text-[10px] uppercase tracking-wider text-slate-400">Factures énergie</p>
-                  <p class="text-sm font-bold">−30 à −50%</p>
+                  <p class="text-[10px] uppercase tracking-wider text-slate-400" data-i18n="hero.energy_bills">Factures énergie</p>
+                  <p class="text-sm font-bold" data-i18n="hero.minus_30_50">−30 à −50%</p>
                 </div>
               </div>
             </div>
@@ -410,22 +513,22 @@
       <!-- Trust metrics bar -->
       <div class="mt-16 lg:mt-24 grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 bg-white rounded-2xl shadow-lg shadow-wr-dark/5 border border-slate-100 p-8">
         <div class="text-center lg:text-left">
-          <p class="font-display text-3xl lg:text-4xl font-bold text-wr-dark stat-number">Jusqu'à -40°C</p>
-          <p class="text-sm text-slate-500 mt-1">Sur la surface du toit</p>
+          <p class="font-display text-3xl lg:text-4xl font-bold text-wr-dark stat-number" data-i18n="metric.upto_minus40">Jusqu'à -40°C</p>
+          <p class="text-sm text-slate-500 mt-1" data-i18n="metric.roof_surface">Sur la surface du toit</p>
         </div>
         <div class="text-center lg:text-left">
           <p class="font-display text-3xl lg:text-4xl font-bold text-wr-dark stat-number">6 à 10°C</p>
-          <p class="text-sm text-slate-500 mt-1">baisse de température intérieure</p>
+          <p class="text-sm text-slate-500 mt-1" data-i18n="metric.indoor_drop">baisse de température intérieure</p>
         </div>
         <div class="text-center lg:text-left">
           <p class="font-display text-3xl lg:text-4xl font-bold text-wr-dark stat-number">30 à 50%</p>
-          <p class="text-sm text-slate-500 mt-1">Sur les factures d'énergie</p>
+          <p class="text-sm text-slate-500 mt-1" data-i18n="metric.energy_bills">Sur les factures d'énergie</p>
         </div>
         <div class="text-center lg:text-left">
           <p class="font-display text-3xl lg:text-4xl font-bold text-wr-dark stat-number">
-            20 ans<a href="#durabilite" class="text-wr-blue text-base align-super font-bold ml-0.5 hover:text-wr-blue-dark transition-colors" aria-label="Voir les détails de la durabilité">*</a>
+            20 ans<a href="#durabilite" class="text-wr-blue text-base align-super font-bold ml-0.5 hover:text-wr-blue-dark transition-colors" aria-label="Voir les détails de la durabilité" data-i18n-aria-label="metric.lifespan_link_aria">*</a>
           </p>
-          <p class="text-sm text-slate-500 mt-1">Durée de vie du revêtement</p>
+          <p class="text-sm text-slate-500 mt-1" data-i18n="metric.coating_lifespan">Durée de vie du revêtement</p>
         </div>
       </div>
     </div>
@@ -441,11 +544,11 @@
 
         <!-- Texte à gauche (desktop) / au-dessus (mobile) -->
         <div class="reveal">
-          <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4">Cool Roofing en images</span>
-          <h2 class="font-display text-3xl lg:text-4xl font-bold text-wr-dark leading-tight tracking-tight">
+          <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4" data-i18n="coolroof.eyebrow">Cool Roofing en images</span>
+          <h2 class="font-display text-3xl lg:text-4xl font-bold text-wr-dark leading-tight tracking-tight" data-i18n="coolroof.title">
             Une toiture qui réfléchit la chaleur au lieu de l'absorber.
           </h2>
-          <p class="mt-6 text-lg text-slate-600 leading-relaxed">
+          <p class="mt-6 text-lg text-slate-600 leading-relaxed" data-i18n="coolroof.subtitle">
             Le revêtement WhiteRoof réduit l'accumulation de chaleur sur la toiture et limite les besoins en climatisation tout en améliorant le confort thermique du bâtiment.
           </p>
 
@@ -456,8 +559,8 @@
                 <i data-lucide="check" class="w-4 h-4 text-wr-green"></i>
               </div>
               <div>
-                <p class="font-bold text-wr-dark">Réfléchit le rayonnement solaire</p>
-                <p class="text-sm text-slate-500 mt-0.5">La chaleur est renvoyée vers l'extérieur au lieu d'être absorbée par la toiture.</p>
+                <p class="font-bold text-wr-dark" data-i18n="coolroof.b1_title">Réfléchit le rayonnement solaire</p>
+                <p class="text-sm text-slate-500 mt-0.5" data-i18n="coolroof.b1_desc">La chaleur est renvoyée vers l'extérieur au lieu d'être absorbée par la toiture.</p>
               </div>
             </li>
             <li class="flex items-start gap-3">
@@ -465,8 +568,8 @@
                 <i data-lucide="check" class="w-4 h-4 text-wr-green"></i>
               </div>
               <div>
-                <p class="font-bold text-wr-dark">Réduit la surchauffe du bâtiment</p>
-                <p class="text-sm text-slate-500 mt-0.5">Des locaux plus frais et un meilleur confort thermique pendant les périodes chaudes.</p>
+                <p class="font-bold text-wr-dark" data-i18n="coolroof.b2_title">Réduit la surchauffe du bâtiment</p>
+                <p class="text-sm text-slate-500 mt-0.5" data-i18n="coolroof.b2_desc">Des locaux plus frais et un meilleur confort thermique pendant les périodes chaudes.</p>
               </div>
             </li>
             <li class="flex items-start gap-3">
@@ -474,8 +577,8 @@
                 <i data-lucide="check" class="w-4 h-4 text-wr-green"></i>
               </div>
               <div>
-                <p class="font-bold text-wr-dark">Protège la toiture</p>
-                <p class="text-sm text-slate-500 mt-0.5">Moins de contraintes thermiques et une durée de vie prolongée de la toiture.</p>
+                <p class="font-bold text-wr-dark" data-i18n="coolroof.b3_title">Protège la toiture</p>
+                <p class="text-sm text-slate-500 mt-0.5" data-i18n="coolroof.b3_desc">Moins de contraintes thermiques et une durée de vie prolongée de la toiture.</p>
               </div>
             </li>
           </ul>
@@ -483,7 +586,7 @@
           <!-- CTA secondaire -->
           <div class="mt-10">
             <a href="#calculateur" class="inline-flex items-center gap-2 text-sm font-semibold text-wr-blue hover:text-wr-blue-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">
-              Estimer mes économies d'énergie
+              <span data-i18n="coolroof.cta">Estimer mes économies d'énergie</span>
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
           </div>
@@ -503,13 +606,14 @@
                 class="w-full h-auto object-cover aspect-[4/3]"
                 loading="lazy"
                 decoding="async"
+                data-i18n-alt="coolroof.img_alt"
               />
               <!-- Bandeau flottant légende -->
               <div class="absolute bottom-4 left-4 right-4 flex items-center gap-3 bg-white/90 backdrop-blur-md rounded-xl px-4 py-3 shadow-lg border border-white/40">
                 <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-gradient-to-br from-wr-blue to-wr-green flex items-center justify-center">
                   <i data-lucide="thermometer-sun" class="w-5 h-5 text-white"></i>
                 </div>
-                <p class="text-sm font-semibold text-wr-dark leading-tight">
+                <p class="text-sm font-semibold text-wr-dark leading-tight" data-i18n="coolroof.caption">
                   Une toiture plus fraîche, sans remplacement complet.
                 </p>
               </div>
@@ -526,11 +630,11 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
       <div class="text-center max-w-3xl mx-auto reveal">
-        <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4">Comment ça marche</span>
-        <h2 class="font-display text-3xl lg:text-5xl font-bold text-wr-dark leading-tight tracking-tight">
+        <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4" data-i18n="howitworks.eyebrow">Comment ça marche</span>
+        <h2 class="font-display text-3xl lg:text-5xl font-bold text-wr-dark leading-tight tracking-tight" data-i18n="howitworks.title">
           Comment WhiteRoof réduit la chaleur dans votre bâtiment.
         </h2>
-        <p class="mt-5 text-lg text-slate-600 leading-relaxed">
+        <p class="mt-5 text-lg text-slate-600 leading-relaxed" data-i18n-html="howitworks.subtitle">
           Une toiture foncée <strong class="text-wr-dark">absorbe</strong> la chaleur. Une toiture blanche WhiteRoof la <strong class="text-wr-dark">réfléchit</strong>. C'est tout simple — et les économies sont immédiates.
         </p>
       </div>
@@ -547,11 +651,11 @@
                   <i data-lucide="flame" class="w-5 h-5 text-wr-heat"></i>
                 </div>
                 <div>
-                  <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Avant</p>
-                  <p class="font-bold text-wr-dark">Toiture foncée standard</p>
+                  <p class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="howitworks.before">Avant</p>
+                  <p class="font-bold text-wr-dark" data-i18n="howitworks.standard_roof">Toiture foncée standard</p>
                 </div>
               </div>
-              <span class="text-xs font-bold text-wr-heat bg-wr-heat/10 px-3 py-1.5 rounded-full whitespace-nowrap">Jusqu'à 85°C</span>
+              <span class="text-xs font-bold text-wr-heat bg-wr-heat/10 px-3 py-1.5 rounded-full whitespace-nowrap" data-i18n="howitworks.upto_85">Jusqu'à 85°C</span>
             </div>
 
             <!-- Schéma vertical simple : Soleil → Toit foncé → Chaleur transmise → Bâtiment chaud -->
@@ -563,7 +667,7 @@
                   <div class="w-14 h-14 rounded-full bg-gradient-to-br from-yellow-300 to-orange-400 shadow-lg shadow-orange-300/50 flex items-center justify-center">
                     <i data-lucide="sun" class="w-7 h-7 text-white"></i>
                   </div>
-                  <p class="text-xs font-semibold text-slate-500 mt-2">Soleil</p>
+                  <p class="text-xs font-semibold text-slate-500 mt-2" data-i18n="howitworks.sun">Soleil</p>
                 </div>
 
                 <!-- Flèche descendante -->
@@ -574,20 +678,20 @@
                   <div class="h-10 bg-gradient-to-b from-slate-800 to-slate-900 rounded-lg relative overflow-hidden">
                     <div class="absolute inset-0 opacity-25" style="background-image: repeating-linear-gradient(90deg, transparent, transparent 12px, rgba(0,0,0,0.6) 12px, rgba(0,0,0,0.6) 13px);"></div>
                   </div>
-                  <p class="text-xs font-semibold text-slate-600 text-center mt-2">Toiture foncée</p>
+                  <p class="text-xs font-semibold text-slate-600 text-center mt-2" data-i18n="howitworks.dark_roof">Toiture foncée</p>
                 </div>
 
                 <!-- Flèche descendante + indicateur chaleur -->
                 <div class="flex flex-col items-center">
                   <i data-lucide="arrow-down" class="w-6 h-6 text-wr-heat"></i>
-                  <span class="text-[10px] font-bold text-wr-heat bg-wr-heat/10 px-2 py-0.5 rounded mt-1">Chaleur transmise au bâtiment</span>
+                  <span class="text-[10px] font-bold text-wr-heat bg-wr-heat/10 px-2 py-0.5 rounded mt-1" data-i18n="howitworks.heat_transmitted">Chaleur transmise au bâtiment</span>
                 </div>
 
                 <!-- 3. Bâtiment chaud -->
                 <div class="w-full max-w-xs mt-1">
                   <div class="bg-wr-heat/10 border-2 border-wr-heat/30 rounded-lg p-3 flex items-center justify-center gap-2">
                     <i data-lucide="factory" class="w-5 h-5 text-wr-heat"></i>
-                    <span class="text-sm font-bold text-wr-heat">Bâtiment qui chauffe</span>
+                    <span class="text-sm font-bold text-wr-heat" data-i18n="howitworks.hot_building">Bâtiment qui chauffe</span>
                   </div>
                 </div>
 
@@ -597,15 +701,15 @@
             <ul class="mt-6 space-y-3 text-sm">
               <li class="flex items-start gap-3 text-slate-600">
                 <i data-lucide="x-circle" class="w-5 h-5 text-wr-heat flex-shrink-0 mt-0.5"></i>
-                <span>La toiture accumule la chaleur</span>
+                <span data-i18n="howitworks.before_b1">La toiture accumule la chaleur</span>
               </li>
               <li class="flex items-start gap-3 text-slate-600">
                 <i data-lucide="x-circle" class="w-5 h-5 text-wr-heat flex-shrink-0 mt-0.5"></i>
-                <span>La chaleur accélère l'usure de la toiture</span>
+                <span data-i18n="howitworks.before_b2">La chaleur accélère l'usure de la toiture</span>
               </li>
               <li class="flex items-start gap-3 text-slate-600">
                 <i data-lucide="x-circle" class="w-5 h-5 text-wr-heat flex-shrink-0 mt-0.5"></i>
-                <span>La climatisation consomme davantage</span>
+                <span data-i18n="howitworks.before_b3">La climatisation consomme davantage</span>
               </li>
             </ul>
           </div>
@@ -620,11 +724,11 @@
                   <i data-lucide="snowflake" class="w-5 h-5 text-wr-blue"></i>
                 </div>
                 <div>
-                  <p class="text-xs font-bold text-wr-blue uppercase tracking-wider">Après</p>
-                  <p class="font-bold text-wr-dark">Revêtement blanc WhiteRoof</p>
+                  <p class="text-xs font-bold text-wr-blue uppercase tracking-wider" data-i18n="howitworks.after">Après</p>
+                  <p class="font-bold text-wr-dark" data-i18n="howitworks.wr_coating">Revêtement blanc WhiteRoof</p>
                 </div>
               </div>
-              <span class="text-xs font-bold text-wr-blue bg-wr-blue/10 px-3 py-1.5 rounded-full whitespace-nowrap">Jusqu'à 40°C de moins</span>
+              <span class="text-xs font-bold text-wr-blue bg-wr-blue/10 px-3 py-1.5 rounded-full whitespace-nowrap" data-i18n="howitworks.upto_40_less">Jusqu'à 40°C de moins</span>
             </div>
 
             <!-- Schéma vertical simple : Soleil → Toit blanche → Chaleur réfléchie → Bâtiment frais -->
@@ -636,7 +740,7 @@
                   <div class="w-14 h-14 rounded-full bg-gradient-to-br from-yellow-300 to-orange-400 shadow-lg shadow-orange-300/50 flex items-center justify-center">
                     <i data-lucide="sun" class="w-7 h-7 text-white"></i>
                   </div>
-                  <p class="text-xs font-semibold text-slate-500 mt-2">Soleil</p>
+                  <p class="text-xs font-semibold text-slate-500 mt-2" data-i18n="howitworks.sun">Soleil</p>
                 </div>
 
                 <!-- Flèche descendante -->
@@ -652,11 +756,11 @@
                   <div class="h-10 bg-gradient-to-b from-slate-50 to-white border-2 border-wr-blue/30 rounded-lg relative overflow-hidden">
                     <div class="absolute inset-0 opacity-50" style="background: linear-gradient(90deg, transparent, rgba(37,99,235,0.12), transparent); background-size: 200% 100%; animation: shimmer 3s linear infinite;"></div>
                   </div>
-                  <p class="text-xs font-semibold text-slate-600 text-center mt-2">Revêtement blanc WhiteRoof</p>
+                  <p class="text-xs font-semibold text-slate-600 text-center mt-2" data-i18n="howitworks.wr_coating">Revêtement blanc WhiteRoof</p>
                 </div>
 
                 <!-- Indicateur : chaleur réfléchie -->
-                <span class="text-[10px] font-bold text-wr-blue bg-wr-blue/10 px-2 py-0.5 rounded">Chaleur réfléchie vers l'extérieur</span>
+                <span class="text-[10px] font-bold text-wr-blue bg-wr-blue/10 px-2 py-0.5 rounded" data-i18n="howitworks.heat_reflected">Chaleur réfléchie vers l'extérieur</span>
 
                 <!-- Flèche descendante -->
                 <i data-lucide="arrow-down" class="w-6 h-6 text-wr-green"></i>
@@ -665,7 +769,7 @@
                 <div class="w-full max-w-xs">
                   <div class="bg-wr-green-pale border-2 border-wr-green/30 rounded-lg p-3 flex items-center justify-center gap-2">
                     <i data-lucide="factory" class="w-5 h-5 text-wr-green"></i>
-                    <span class="text-sm font-bold text-wr-green">Bâtiment plus frais</span>
+                    <span class="text-sm font-bold text-wr-green" data-i18n="howitworks.cool_building">Bâtiment plus frais</span>
                   </div>
                 </div>
 
@@ -675,15 +779,15 @@
             <ul class="mt-6 space-y-3 text-sm">
               <li class="flex items-start gap-3 text-slate-600">
                 <i data-lucide="check-circle-2" class="w-5 h-5 text-wr-green flex-shrink-0 mt-0.5"></i>
-                <span>La chaleur est renvoyée vers l'extérieur</span>
+                <span data-i18n="howitworks.after_b1">La chaleur est renvoyée vers l'extérieur</span>
               </li>
               <li class="flex items-start gap-3 text-slate-600">
                 <i data-lucide="check-circle-2" class="w-5 h-5 text-wr-green flex-shrink-0 mt-0.5"></i>
-                <span>La toiture dure plus longtemps</span>
+                <span data-i18n="howitworks.after_b2">La toiture dure plus longtemps</span>
               </li>
               <li class="flex items-start gap-3 text-slate-600">
                 <i data-lucide="check-circle-2" class="w-5 h-5 text-wr-green flex-shrink-0 mt-0.5"></i>
-                <span>Moins de climatisation nécessaire</span>
+                <span data-i18n="howitworks.after_b3">Moins de climatisation nécessaire</span>
               </li>
             </ul>
           </div>
@@ -697,8 +801,8 @@
     <div class="max-w-5xl mx-auto px-6 lg:px-8">
 
       <div class="text-center max-w-2xl mx-auto reveal">
-        <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4">Notre profil</span>
-        <h2 class="font-display text-2xl lg:text-4xl font-bold text-wr-dark leading-tight tracking-tight">
+        <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4" data-i18n="profile.eyebrow">Notre profil</span>
+        <h2 class="font-display text-2xl lg:text-4xl font-bold text-wr-dark leading-tight tracking-tight" data-i18n="profile.title">
           Une approche combinant expertise terrain et connaissance technique des bâtiments industriels.
         </h2>
       </div>
@@ -711,7 +815,7 @@
           </div>
           <div>
             <p class="font-bold text-wr-dark text-lg">Delil Benjamin Odun</p>
-            <p class="text-sm text-slate-500 font-medium">Ingénieur Process &amp; Maintenance</p>
+            <p class="text-sm text-slate-500 font-medium" data-i18n="team.delil_role">Ingénieur Process &amp; Maintenance</p>
           </div>
         </div>
 
@@ -721,7 +825,7 @@
           </div>
           <div>
             <p class="font-bold text-wr-dark text-lg">Mehdi Bourass</p>
-            <p class="text-sm text-slate-500 font-medium">Chargé d'affaires</p>
+            <p class="text-sm text-slate-500 font-medium" data-i18n="team.mehdi_role">Chargé d'affaires</p>
           </div>
         </div>
       </div>
@@ -737,11 +841,11 @@
 
       <!-- 1. Introduction -->
       <div class="text-center max-w-3xl mx-auto reveal">
-        <span class="inline-block text-xs font-bold text-wr-green-soft uppercase tracking-widest mb-4">Solution technique &amp; performances</span>
-        <h2 class="font-display text-3xl lg:text-5xl font-bold text-white leading-tight tracking-tight">
+        <span class="inline-block text-xs font-bold text-wr-green-soft uppercase tracking-widest mb-4" data-i18n="perf.eyebrow">Solution technique &amp; performances</span>
+        <h2 class="font-display text-3xl lg:text-5xl font-bold text-white leading-tight tracking-tight" data-i18n="perf.title">
           Une surface hautement réfléchissante, des résultats mesurables.
         </h2>
-        <p class="mt-6 text-lg text-slate-300 leading-relaxed">
+        <p class="mt-6 text-lg text-slate-300 leading-relaxed" data-i18n-html="perf.subtitle">
           WhiteRoof réduit la chaleur absorbée par votre toiture grâce à une surface blanc hautement réfléchissante. Résultat direct : <strong class="text-white">vos coûts énergétiques baissent</strong>, le confort thermique du bâtiment s'améliore, la structure est protégée durablement et votre empreinte carbone diminue.
         </p>
       </div>
@@ -752,8 +856,8 @@
         <!-- Perf 1 : Économies climatisation -->
         <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-7 card-lift">
           <p class="font-display text-4xl font-bold text-wr-green-soft stat-number">50%</p>
-          <p class="mt-1 text-xs font-bold text-slate-400 uppercase tracking-wider">Économies sur la climatisation</p>
-          <p class="mt-4 text-sm text-slate-300 leading-relaxed">
+          <p class="mt-1 text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="perf.p1_label">Économies sur la climatisation</p>
+          <p class="mt-4 text-sm text-slate-300 leading-relaxed" data-i18n="perf.p1_desc">
             Jusqu'à 50 % d'économies sur votre climatisation. La charge thermique du bâtiment chute, vos factures d'électricité aussi.
           </p>
         </div>
@@ -761,8 +865,8 @@
         <!-- Perf 2 : Baisse température intérieure -->
         <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-7 card-lift" style="transition-delay: 0.05s;">
           <p class="font-display text-4xl font-bold text-wr-green-soft stat-number">−10°C</p>
-          <p class="mt-1 text-xs font-bold text-slate-400 uppercase tracking-wider">À l'intérieur du bâtiment</p>
-          <p class="mt-4 text-sm text-slate-300 leading-relaxed">
+          <p class="mt-1 text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="perf.p2_label">À l'intérieur du bâtiment</p>
+          <p class="mt-4 text-sm text-slate-300 leading-relaxed" data-i18n="perf.p2_desc">
             Jusqu'à 10 °C de moins à l'intérieur du bâtiment. Le confort thermique de vos équipes et de vos stocks s'améliore immédiatement.
           </p>
         </div>
@@ -770,8 +874,8 @@
         <!-- Perf 3 : Réflectance solaire -->
         <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-7 card-lift" style="transition-delay: 0.1s;">
           <p class="font-display text-4xl font-bold text-wr-green-soft stat-number">85%</p>
-          <p class="mt-1 text-xs font-bold text-slate-400 uppercase tracking-wider">Réflectance solaire</p>
-          <p class="mt-4 text-sm text-slate-300 leading-relaxed">
+          <p class="mt-1 text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="perf.p3_label">Réflectance solaire</p>
+          <p class="mt-4 text-sm text-slate-300 leading-relaxed" data-i18n="perf.p3_desc">
             85 % du rayonnement solaire est réfléchi avant d'être absorbé par la toiture. La surface ne chauffe plus, le bâtiment non plus.
           </p>
         </div>
@@ -779,8 +883,8 @@
         <!-- Perf 4 : Indice SRI -->
         <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-7 card-lift" style="transition-delay: 0.15s;">
           <p class="font-display text-3xl lg:text-4xl font-bold text-wr-green-soft stat-number whitespace-nowrap">106 à 112</p>
-          <p class="mt-1 text-xs font-bold text-slate-400 uppercase tracking-wider">Indice SRI</p>
-          <p class="mt-4 text-sm text-slate-300 leading-relaxed">
+          <p class="mt-1 text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="perf.p4_label">Indice SRI</p>
+          <p class="mt-4 text-sm text-slate-300 leading-relaxed" data-i18n="perf.p4_desc">
             Un indice SRI entre 106 et 112 classe WhiteRoof parmi les revêtements les plus performants du marché. La toiture reste froide même en plein été.
           </p>
         </div>
@@ -788,8 +892,8 @@
         <!-- Perf 5 : Durabilité -->
         <div id="durabilite" class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-7 card-lift scroll-mt-28" style="transition-delay: 0.2s;">
           <p class="font-display text-4xl font-bold text-wr-green-soft stat-number">20 ans</p>
-          <p class="mt-1 text-xs font-bold text-slate-400 uppercase tracking-wider">Durabilité</p>
-          <p class="mt-4 text-sm text-slate-300 leading-relaxed">
+          <p class="mt-1 text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="perf.p5_label">Durabilité</p>
+          <p class="mt-4 text-sm text-slate-300 leading-relaxed" data-i18n="perf.p5_desc">
             Une durabilité jusqu'à 20 ans. Un investissement durable qui protège votre bâtiment et vos économies sur le long terme.
           </p>
         </div>
@@ -798,10 +902,10 @@
         <div class="bg-gradient-to-br from-wr-green/10 to-wr-green/5 backdrop-blur border border-wr-green/30 rounded-2xl p-7 card-lift" style="transition-delay: 0.25s;">
           <div class="flex items-center gap-2 mb-1">
             <i data-lucide="leaf" class="w-5 h-5 text-wr-green-soft"></i>
-            <p class="text-xs font-bold text-wr-green-soft uppercase tracking-wider">Empreinte carbone</p>
+            <p class="text-xs font-bold text-wr-green-soft uppercase tracking-wider" data-i18n="perf.p6_label">Empreinte carbone</p>
           </div>
           <p class="font-display text-3xl lg:text-4xl font-bold text-wr-green-soft stat-number leading-tight mt-2">CO₂ ↓</p>
-          <p class="mt-4 text-sm text-slate-300 leading-relaxed">
+          <p class="mt-4 text-sm text-slate-300 leading-relaxed" data-i18n="perf.p6_desc">
             Chaque kWh économisé réduit directement vos émissions de CO₂. Un bénéfice environnemental mesurable, en plus de vos économies financières.
           </p>
         </div>
@@ -814,7 +918,7 @@
           <div class="w-10 h-10 rounded-xl bg-wr-blue/20 flex items-center justify-center">
             <i data-lucide="settings-2" class="w-5 h-5 text-wr-blue-light"></i>
           </div>
-          <h3 class="font-display text-xl font-bold text-white">Comment ça fonctionne</h3>
+          <h3 class="font-display text-xl font-bold text-white" data-i18n="perf.how_title">Comment ça fonctionne</h3>
         </div>
 
         <div class="grid sm:grid-cols-2 gap-5">
@@ -826,8 +930,8 @@
                 <i data-lucide="thermometer-sun" class="w-6 h-6 text-wr-blue-light"></i>
               </div>
               <div>
-                <h4 class="font-display font-bold text-base text-white mb-2">Réfléchit la chaleur au lieu de l'absorber</h4>
-                <p class="text-slate-300 text-sm leading-relaxed">
+                <h4 class="font-display font-bold text-base text-white mb-2" data-i18n="perf.prop1_title">Réfléchit la chaleur au lieu de l'absorber</h4>
+                <p class="text-slate-300 text-sm leading-relaxed" data-i18n="perf.prop1_desc">
                   La surface renvoie l'énergie solaire au lieu de la stocker : votre toit cesse de fonctionner comme un radiateur.
                 </p>
               </div>
@@ -841,8 +945,8 @@
                 <i data-lucide="droplets" class="w-6 h-6 text-wr-green-soft"></i>
               </div>
               <div>
-                <h4 class="font-display font-bold text-base text-white mb-2">Toiture rendue étanche</h4>
-                <p class="text-slate-300 text-sm leading-relaxed">
+                <h4 class="font-display font-bold text-base text-white mb-2" data-i18n="perf.prop2_title">Toiture rendue étanche</h4>
+                <p class="text-slate-300 text-sm leading-relaxed" data-i18n-html="perf.prop2_desc">
                   Une <strong class="text-white">couche protectrice continue</strong> sans joint ni raccord. Votre toiture est protégée des infiltrations, des UV et des intempéries.
                 </p>
               </div>
@@ -856,8 +960,8 @@
                 <i data-lucide="sparkles" class="w-6 h-6 text-wr-blue-light"></i>
               </div>
               <div>
-                <h4 class="font-display font-bold text-base text-white mb-2">S'auto-nettoie avec la pluie</h4>
-                <p class="text-slate-300 text-sm leading-relaxed">
+                <h4 class="font-display font-bold text-base text-white mb-2" data-i18n="perf.prop3_title">S'auto-nettoie avec la pluie</h4>
+                <p class="text-slate-300 text-sm leading-relaxed" data-i18n-html="perf.prop3_desc">
                   Empêche le développement des mousses et lichens et <strong class="text-white">se nettoie à l'eau de pluie</strong>. La performance reste optimale dans le temps.
                 </p>
               </div>
@@ -871,8 +975,8 @@
                 <i data-lucide="piggy-bank" class="w-6 h-6 text-wr-green-soft"></i>
               </div>
               <div>
-                <h4 class="font-display font-bold text-base text-white mb-2">Évite un remplacement complet de toiture</h4>
-                <p class="text-slate-300 text-sm leading-relaxed">
+                <h4 class="font-display font-bold text-base text-white mb-2" data-i18n="perf.prop4_title">Évite un remplacement complet de toiture</h4>
+                <p class="text-slate-300 text-sm leading-relaxed" data-i18n-html="perf.prop4_desc">
                   Aucun remplacement complet nécessaire. WhiteRoof <strong class="text-white">prolonge la durée de vie</strong> de votre toiture existante à fraction du coût d'un remplacement — et limite ainsi les déchets de chantier.
                 </p>
               </div>
@@ -893,12 +997,12 @@
                 <div class="w-11 h-11 rounded-xl bg-wr-green/20 flex items-center justify-center">
                   <i data-lucide="badge-check" class="w-5 h-5 text-wr-green-soft"></i>
                 </div>
-                <p class="text-xs font-bold text-wr-green-soft uppercase tracking-widest">Certifications &amp; conformité</p>
+                <p class="text-xs font-bold text-wr-green-soft uppercase tracking-widest" data-i18n="perf.cert_eyebrow">Certifications &amp; conformité</p>
               </div>
-              <h3 class="font-display text-2xl font-bold text-white leading-tight">
+              <h3 class="font-display text-2xl font-bold text-white leading-tight" data-i18n="perf.cert_title">
                 Des performances certifiées, une conformité professionnelle.
               </h3>
-              <p class="mt-4 text-sm text-slate-300 leading-relaxed">
+              <p class="mt-4 text-sm text-slate-300 leading-relaxed" data-i18n="perf.cert_desc">
                 Nos classifications AFNOR garantissent la qualité, la fiabilité et la conformité de chaque application. La preuve d'un produit sérieux, défendable techniquement et durable.
               </p>
             </div>
@@ -940,8 +1044,8 @@
               <i data-lucide="badge-check" class="w-6 h-6 text-wr-green-soft"></i>
             </div>
             <div>
-              <p class="font-display font-bold text-white text-xl">Nos garanties.</p>
-              <p class="text-slate-400 text-sm mt-0.5">Deux niveaux de couverture pour sécuriser votre investissement.</p>
+              <p class="font-display font-bold text-white text-xl" data-i18n="perf.warranty_title">Nos garanties.</p>
+              <p class="text-slate-400 text-sm mt-0.5" data-i18n="perf.warranty_subtitle">Deux niveaux de couverture pour sécuriser votre investissement.</p>
             </div>
           </div>
 
@@ -949,10 +1053,10 @@
             <!-- Garantie 1 : Application / Main d'œuvre -->
             <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
               <div class="flex items-center justify-between mb-4">
-                <p class="font-bold text-white">Garantie Application / Main d'œuvre</p>
-                <span class="font-display text-2xl font-bold text-wr-green-soft">10 ans</span>
+                <p class="font-bold text-white" data-i18n="perf.w1_title">Garantie Application / Main d'œuvre</p>
+                <span class="font-display text-2xl font-bold text-wr-green-soft" data-i18n="perf.w1_value">10 ans</span>
               </div>
-              <p class="text-sm text-slate-300 leading-relaxed">
+              <p class="text-sm text-slate-300 leading-relaxed" data-i18n="perf.w1_desc">
                 Offerte par WhiteRoof sur l'ensemble de nos interventions. Couvre la pose, l'adhérence et la continuité de la protection appliquée.
               </p>
             </div>
@@ -960,10 +1064,10 @@
             <!-- Garantie 2 : Fabricant -->
             <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
               <div class="flex items-center justify-between mb-4">
-                <p class="font-bold text-white">Garantie Fabricant</p>
-                <span class="font-display text-xl font-bold text-wr-green-soft">Incluse</span>
+                <p class="font-bold text-white" data-i18n="perf.w2_title">Garantie Fabricant</p>
+                <span class="font-display text-xl font-bold text-wr-green-soft" data-i18n="perf.w2_value">Incluse</span>
               </div>
-              <p class="text-sm text-slate-300 leading-relaxed">
+              <p class="text-sm text-slate-300 leading-relaxed" data-i18n-html="perf.w2_desc">
                 Provenant d'un <strong class="text-white">grand laboratoire industriel français spécialisé</strong>. Couvre les propriétés thermiques et l'étanchéité du produit lui-même.
               </p>
             </div>
@@ -981,12 +1085,12 @@
               <div class="w-11 h-11 rounded-xl bg-wr-blue/20 flex items-center justify-center">
                 <i data-lucide="activity" class="w-5 h-5 text-wr-blue-light"></i>
               </div>
-              <p class="text-xs font-bold text-wr-green-soft uppercase tracking-widest">Suivi de performance</p>
+              <p class="text-xs font-bold text-wr-green-soft uppercase tracking-widest" data-i18n="perf.monitor_eyebrow">Suivi de performance</p>
             </div>
-            <h3 class="font-display text-2xl font-bold text-white leading-tight">
+            <h3 class="font-display text-2xl font-bold text-white leading-tight" data-i18n="perf.monitor_title">
               Un investissement durable, des performances maintenues dans le temps.
             </h3>
-            <p class="mt-4 text-sm text-slate-300 leading-relaxed">
+            <p class="mt-4 text-sm text-slate-300 leading-relaxed" data-i18n="perf.monitor_desc">
               Pour préserver les performances réfléchissantes de votre toiture sur le long terme, WhiteRoof recommande un suivi simple et périodique. L'objectif : garantir une efficacité constante pendant de nombreuses années.
             </p>
           </div>
@@ -997,22 +1101,22 @@
               <div class="w-10 h-10 rounded-lg bg-wr-blue/20 flex items-center justify-center mx-auto mb-3">
                 <i data-lucide="search" class="w-5 h-5 text-wr-blue-light"></i>
               </div>
-              <p class="text-sm font-bold text-white">Inspection périodique</p>
-              <p class="text-xs text-slate-400 mt-1">Vérifier l'état général du revêtement.</p>
+              <p class="text-sm font-bold text-white" data-i18n="perf.m1_title">Inspection périodique</p>
+              <p class="text-xs text-slate-400 mt-1" data-i18n="perf.m1_desc">Vérifier l'état général du revêtement.</p>
             </div>
             <div class="bg-white/5 rounded-xl p-5 border border-white/10 text-center">
               <div class="w-10 h-10 rounded-lg bg-wr-blue/20 flex items-center justify-center mx-auto mb-3">
                 <i data-lucide="droplets" class="w-5 h-5 text-wr-blue-light"></i>
               </div>
-              <p class="text-sm font-bold text-white">Nettoyage doux</p>
-              <p class="text-xs text-slate-400 mt-1">Un lavage doux lorsque nécessaire.</p>
+              <p class="text-sm font-bold text-white" data-i18n="perf.m2_title">Nettoyage doux</p>
+              <p class="text-xs text-slate-400 mt-1" data-i18n="perf.m2_desc">Un lavage doux lorsque nécessaire.</p>
             </div>
             <div class="bg-white/5 rounded-xl p-5 border border-white/10 text-center">
               <div class="w-10 h-10 rounded-lg bg-wr-blue/20 flex items-center justify-center mx-auto mb-3">
                 <i data-lucide="clipboard-check" class="w-5 h-5 text-wr-blue-light"></i>
               </div>
-              <p class="text-sm font-bold text-white">Contrôle d'état</p>
-              <p class="text-xs text-slate-400 mt-1">Contrôler la continuité de la protection.</p>
+              <p class="text-sm font-bold text-white" data-i18n="perf.m3_title">Contrôle d'état</p>
+              <p class="text-xs text-slate-400 mt-1" data-i18n="perf.m3_desc">Contrôler la continuité de la protection.</p>
             </div>
           </div>
 
@@ -1027,11 +1131,11 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
       <div class="text-center max-w-3xl mx-auto reveal">
-        <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4">Compatibilité</span>
-        <h2 class="font-display text-3xl lg:text-5xl font-bold text-wr-dark leading-tight tracking-tight">
+        <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4" data-i18n="supports.eyebrow">Compatibilité</span>
+        <h2 class="font-display text-3xl lg:text-5xl font-bold text-wr-dark leading-tight tracking-tight" data-i18n="supports.title">
           S'applique sur tous les types de toitures.
         </h2>
-        <p class="mt-5 text-lg text-slate-600 leading-relaxed">
+        <p class="mt-5 text-lg text-slate-600 leading-relaxed" data-i18n="supports.subtitle">
           Que votre toiture soit en bitume, en acier ou en membrane synthétique, WhiteRoof dispose d'une formule adaptée.
         </p>
       </div>
@@ -1044,8 +1148,8 @@
           <div class="w-12 h-12 rounded-xl bg-wr-blue/10 flex items-center justify-center mb-4">
             <i data-lucide="layers" class="w-6 h-6 text-wr-blue"></i>
           </div>
-          <h3 class="font-display font-bold text-lg text-wr-dark mb-3">Membranes synthétiques</h3>
-          <p class="text-slate-600 text-sm leading-relaxed">
+          <h3 class="font-display font-bold text-lg text-wr-dark mb-3" data-i18n="supports.s1_title">Membranes synthétiques</h3>
+          <p class="text-slate-600 text-sm leading-relaxed" data-i18n="supports.s1_desc">
             Membranes EPDM et PVC. Le revêtement adhère durablement et ne se décolle pas.
           </p>
         </div>
@@ -1055,8 +1159,8 @@
           <div class="w-12 h-12 rounded-xl bg-wr-green/10 flex items-center justify-center mb-4">
             <i data-lucide="flame" class="w-6 h-6 text-wr-green"></i>
           </div>
-          <h3 class="font-display font-bold text-lg text-wr-dark mb-3">Toitures bitumineuses</h3>
-          <p class="text-slate-600 text-sm leading-relaxed">
+          <h3 class="font-display font-bold text-lg text-wr-dark mb-3" data-i18n="supports.s2_title">Toitures bitumineuses</h3>
+          <p class="text-slate-600 text-sm leading-relaxed" data-i18n="supports.s2_desc">
             Bitume, Calandrite, Asphalte et Shingle. La toiture est protégée des UV et dure plus longtemps.
           </p>
         </div>
@@ -1066,8 +1170,8 @@
           <div class="w-12 h-12 rounded-xl bg-wr-blue/10 flex items-center justify-center mb-4">
             <i data-lucide="grid-3x3" class="w-6 h-6 text-wr-blue"></i>
           </div>
-          <h3 class="font-display font-bold text-lg text-wr-dark mb-3">Toitures métalliques & Bac Acier</h3>
-          <p class="text-slate-600 text-sm leading-relaxed">
+          <h3 class="font-display font-bold text-lg text-wr-dark mb-3" data-i18n="supports.s3_title">Toitures métalliques & Bac Acier</h3>
+          <p class="text-slate-600 text-sm leading-relaxed" data-i18n-html="supports.s3_desc">
             Zinc, Acier, Tôles aluminium, Cuivre et Plomb — avec <strong class="text-wr-dark">traitement anti-corrosion</strong> inclus.
           </p>
         </div>
@@ -1077,8 +1181,8 @@
           <div class="w-12 h-12 rounded-xl bg-wr-green/10 flex items-center justify-center mb-4">
             <i data-lucide="square" class="w-6 h-6 text-wr-green"></i>
           </div>
-          <h3 class="font-display font-bold text-lg text-wr-dark mb-3">Toits plats & terrasses sans pente</h3>
-          <p class="text-slate-600 text-sm leading-relaxed">
+          <h3 class="font-display font-bold text-lg text-wr-dark mb-3" data-i18n="supports.s4_title">Toits plats & terrasses sans pente</h3>
+          <p class="text-slate-600 text-sm leading-relaxed" data-i18n-html="supports.s4_desc">
             Technologie spécifique <strong class="text-wr-dark">résistante à la stagnation d'eau</strong> et à l'humidité constante.
           </p>
         </div>
@@ -1094,11 +1198,11 @@
 
     <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
       <div class="text-center max-w-3xl mx-auto reveal">
-        <span class="inline-block text-xs font-bold text-wr-green-soft uppercase tracking-widest mb-4">Calculateur d'économies</span>
-        <h2 class="font-display text-3xl lg:text-5xl font-bold text-white leading-tight tracking-tight">
+        <span class="inline-block text-xs font-bold text-wr-green-soft uppercase tracking-widest mb-4" data-i18n="calc.eyebrow">Calculateur d'économies</span>
+        <h2 class="font-display text-3xl lg:text-5xl font-bold text-white leading-tight tracking-tight" data-i18n="calc.title">
           Combien votre bâtiment pourrait-il économiser ?
         </h2>
-        <p class="mt-5 text-lg text-slate-300">
+        <p class="mt-5 text-lg text-slate-300" data-i18n="calc.subtitle">
           Entrez la surface de votre toit. Vous obtenez immédiatement une estimation des économies d'énergie annuelles.
         </p>
       </div>
@@ -1117,15 +1221,15 @@
                     <i data-lucide="sliders-horizontal" class="w-5 h-5 text-wr-blue"></i>
                   </div>
                   <div>
-                    <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Étape 1</p>
-                    <p class="font-bold text-wr-dark">Entrez votre surface</p>
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="calc.step1">Étape 1</p>
+                    <p class="font-bold text-wr-dark" data-i18n="calc.step1_title">Entrez votre surface</p>
                   </div>
                 </div>
                 <!-- Logo WhiteRoof (haut droit du panneau) -->
                 <img src="logo.png" alt="WhiteRoof" class="h-10 w-auto object-contain opacity-90" decoding="async" onerror="this.style.display='none'">
               </div>
 
-              <label for="surfaceInput" class="block text-sm font-semibold text-slate-700 mb-2">
+              <label for="surfaceInput" class="block text-sm font-semibold text-slate-700 mb-2" data-i18n="calc.surface_label">
                 Surface de votre toit plat (m²)
               </label>
               <div class="relative">
@@ -1152,14 +1256,14 @@
                 class="wr-slider mt-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
               />
               <div class="flex justify-between text-xs text-slate-400 mt-2 font-medium">
-                <span>50 m²</span>
-                <span>50 000 m²</span>
+                <span data-i18n="calc.min_surface">50 m²</span>
+                <span data-i18n="calc.max_surface">50 000 m²</span>
               </div>
 
               <div class="mt-8 p-4 bg-slate-50 rounded-xl border border-slate-100">
                 <div class="flex items-start gap-3">
                   <i data-lucide="info" class="w-5 h-5 text-wr-blue flex-shrink-0 mt-0.5"></i>
-                  <p class="text-xs text-slate-600 leading-relaxed">
+                  <p class="text-xs text-slate-600 leading-relaxed" data-i18n-html="calc.info_box">
                     Estimation basée sur une fourchette de <span class="font-bold text-wr-dark">3 € à 5 € d'économie par m² par an</span> (climatisation, ventilation, préservation des équipements). Le résultat réel dépend de l'isolation, de l'usage du bâtiment et de votre système de climatisation.
                   </p>
                 </div>
@@ -1176,23 +1280,23 @@
                     <i data-lucide="trending-up" class="w-5 h-5 text-wr-green-soft"></i>
                   </div>
                   <div>
-                    <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Étape 2</p>
-                    <p class="font-bold">Résultats immédiats</p>
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="calc.step2">Étape 2</p>
+                    <p class="font-bold" data-i18n="calc.step2_title">Résultats immédiats</p>
                   </div>
                 </div>
 
                 <!-- Result 2: energy savings range (€) -->
                 <div class="mb-7 p-3 lg:p-4 bg-white/5 rounded-xl border border-white/10">
-                  <p class="text-sm text-slate-400 font-medium mb-2">Économies d'énergie estimées</p>
+                  <p class="text-sm text-slate-400 font-medium mb-2" data-i18n="calc.savings_label">Économies d'énergie estimées</p>
                   <div class="flex items-baseline gap-1 lg:gap-1.5 flex-nowrap whitespace-nowrap">
                     <span id="savingsMin" class="font-display text-2xl lg:text-3xl font-bold text-wr-green-soft stat-number">3 000</span>
-                    <span class="text-slate-300 font-semibold text-sm lg:text-base">à</span>
+                    <span class="text-slate-300 font-semibold text-sm lg:text-base" data-i18n="calc.to">à</span>
                     <span id="savingsMax" class="font-display text-2xl lg:text-3xl font-bold text-wr-green-soft stat-number">5 000</span>
-                    <span class="text-slate-300 font-semibold text-xs lg:text-sm whitespace-nowrap">€ / an</span>
+                    <span class="text-slate-300 font-semibold text-xs lg:text-sm whitespace-nowrap" data-i18n="calc.per_year">€ / an</span>
                   </div>
-                  <p class="text-xs text-slate-400 mt-2">Sur la climatisation (estimation basée sur une moyenne d'économies au m²)</p>
+                  <p class="text-xs text-slate-400 mt-2" data-i18n="calc.savings_sub">Sur la climatisation (estimation basée sur une moyenne d'économies au m²)</p>
                   <!-- Ligne kWh économisés (climatisation) -->
-                  <p class="text-xs text-slate-300 mt-2 flex items-center gap-1.5">
+                  <p class="text-xs text-slate-300 mt-2 flex items-center gap-1.5" data-i18n-html="calc.kwh_line">
                     <span aria-hidden="true">⚡</span>
                     <span>Soit une réduction de <strong id="kwhMin" class="text-wr-green-soft font-semibold stat-number">15 000</strong> à <strong id="kwhMax" class="text-wr-green-soft font-semibold stat-number">22 000</strong> kWh de consommation.</span>
                   </p>
@@ -1202,22 +1306,22 @@
                 <div class="mb-7 p-3 lg:p-4 bg-gradient-to-br from-wr-green/10 to-wr-green/5 border border-wr-green/30 rounded-xl">
                   <div class="flex items-center gap-2 mb-2">
                     <i data-lucide="leaf" class="w-4 h-4 text-wr-green-soft"></i>
-                    <p class="text-xs font-bold text-wr-green-soft uppercase tracking-wider">Impact environnemental estimé</p>
+                    <p class="text-xs font-bold text-wr-green-soft uppercase tracking-wider" data-i18n="calc.impact_label">Impact environnemental estimé</p>
                   </div>
                   <div class="flex items-baseline gap-1 lg:gap-1.5 flex-nowrap whitespace-nowrap">
                     <span class="text-slate-300 text-sm">≈</span>
                     <strong id="co2Min" class="font-display text-2xl lg:text-3xl font-bold text-wr-green-soft stat-number">2,7</strong>
-                    <span class="text-slate-300 font-semibold text-sm lg:text-base">à</span>
+                    <span class="text-slate-300 font-semibold text-sm lg:text-base" data-i18n="calc.to">à</span>
                     <strong id="co2Max" class="font-display text-2xl lg:text-3xl font-bold text-wr-green-soft stat-number">4,0</strong>
-                    <span class="text-slate-300 font-semibold text-xs lg:text-sm whitespace-nowrap">tonnes de CO₂ / an</span>
+                    <span class="text-slate-300 font-semibold text-xs lg:text-sm whitespace-nowrap" data-i18n="calc.co2_per_year">tonnes de CO₂ / an</span>
                   </div>
-                  <p class="text-xs text-slate-400 mt-2 leading-relaxed">Émissions évitées grâce à la baisse de votre consommation électrique (facteur mix énergétique Belgique).</p>
+                  <p class="text-xs text-slate-400 mt-2 leading-relaxed" data-i18n="calc.co2_sub">Émissions évitées grâce à la baisse de votre consommation électrique (facteur mix énergétique Belgique).</p>
                 </div>
 
                 <!-- CTA direct -->
                 <a href="#devis" class="btn-shine w-full inline-flex items-center justify-center gap-2 bg-wr-green hover:bg-wr-green-soft text-wr-dark font-bold text-sm px-5 py-4 rounded-xl transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
                   <i data-lucide="file-signature" class="w-4 h-4"></i>
-                  Demander mon devis gratuit d'application
+                  <span data-i18n="calc.cta_quote">Demander mon devis gratuit d'application</span>
                 </a>
               </div>
             </div>
@@ -1230,7 +1334,7 @@
       <div class="mt-10 max-w-3xl mx-auto reveal">
         <div class="flex items-start gap-3 text-slate-400 text-xs leading-relaxed bg-white/5 border border-white/10 rounded-xl p-4">
           <i data-lucide="info" class="w-4 h-4 flex-shrink-0 mt-0.5 text-slate-400"></i>
-          <p>
+          <p data-i18n-html="calc.note">
             <strong class="text-slate-300">Note :</strong> Cette estimation est basée sur une moyenne d'économies d'énergie constatée au m². Le calcul exact dépend de l'isolation actuelle du bâtiment, de l'usage de la climatisation et de votre zone géographique. Une étude thermique personnalisée est nécessaire pour valider ces chiffres.
           </p>
         </div>
@@ -1245,11 +1349,11 @@
 
         <!-- Left: pitch -->
         <div class="lg:col-span-5 reveal">
-          <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4">Demande de devis gratuit</span>
-          <h2 class="font-display text-3xl lg:text-5xl font-bold text-wr-dark leading-tight tracking-tight">
+          <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4" data-i18n="devis.eyebrow">Demande de devis gratuit</span>
+          <h2 class="font-display text-3xl lg:text-5xl font-bold text-wr-dark leading-tight tracking-tight" data-i18n="devis.title">
             Recevez votre devis d'application sous 48 h.
           </h2>
-          <p class="mt-5 text-lg text-slate-600 leading-relaxed">
+          <p class="mt-5 text-lg text-slate-600 leading-relaxed" data-i18n="devis.subtitle">
             Décrivez votre projet en quelques lignes. Un expert WhiteRoof vous recontacte avec un devis d'application chiffré, détaillé et sans engagement.
           </p>
 
@@ -1259,8 +1363,8 @@
                 <i data-lucide="map-pin" class="w-5 h-5 text-wr-blue"></i>
               </div>
               <div>
-                <p class="font-bold text-wr-dark">Interventions en Belgique et au Luxembourg</p>
-                <p class="text-sm text-slate-500">Wallonie, Bruxelles, Flandre et Grand-Duché de Luxembourg — déplacement inclus.</p>
+                <p class="font-bold text-wr-dark" data-i18n="devis.f1_title">Interventions en Belgique et au Luxembourg</p>
+                <p class="text-sm text-slate-500" data-i18n="devis.f1_desc">Wallonie, Bruxelles, Flandre et Grand-Duché de Luxembourg — déplacement inclus.</p>
               </div>
             </div>
             <div class="flex items-start gap-4">
@@ -1268,8 +1372,8 @@
                 <i data-lucide="clock" class="w-5 h-5 text-wr-green"></i>
               </div>
               <div>
-                <p class="font-bold text-wr-dark">Réponse sous 48 h ouvrées</p>
-                <p class="text-sm text-slate-500">Un interlocuteur unique du diagnostic à la pose.</p>
+                <p class="font-bold text-wr-dark" data-i18n="devis.f2_title">Réponse sous 48 h ouvrées</p>
+                <p class="text-sm text-slate-500" data-i18n="devis.f2_desc">Un interlocuteur unique du diagnostic à la pose.</p>
               </div>
             </div>
             <div class="flex items-start gap-4">
@@ -1277,8 +1381,8 @@
                 <i data-lucide="file-text" class="w-5 h-5 text-wr-blue"></i>
               </div>
               <div>
-                <p class="font-bold text-wr-dark">Devis détaillé et transparent</p>
-                <p class="text-sm text-slate-500">Surface, méthode, calendrier, garanties — sans surprise.</p>
+                <p class="font-bold text-wr-dark" data-i18n="devis.f3_title">Devis détaillé et transparent</p>
+                <p class="text-sm text-slate-500" data-i18n="devis.f3_desc">Surface, méthode, calendrier, garanties — sans surprise.</p>
               </div>
             </div>
           </div>
@@ -1292,46 +1396,46 @@
 
               <div class="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label for="nom" class="block text-sm font-semibold text-slate-700 mb-2">Nom complet *</label>
+                  <label for="nom" class="block text-sm font-semibold text-slate-700 mb-2" data-i18n="form.name_label">Nom complet *</label>
                   <input type="text" id="nom" name="nom" required
                     class="wr-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-wr-dark placeholder-slate-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
-                    placeholder="Jean Dupont" />
+                    placeholder="Jean Dupont" data-i18n-placeholder="form.name_ph" />
                 </div>
                 <div>
-                  <label for="societe" class="block text-sm font-semibold text-slate-700 mb-2">Nom de la société *</label>
+                  <label for="societe" class="block text-sm font-semibold text-slate-700 mb-2" data-i18n="form.company_label">Nom de la société *</label>
                   <input type="text" id="societe" name="societe" required
                     class="wr-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-wr-dark placeholder-slate-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
-                    placeholder="Dupont Industries SA" />
+                    placeholder="Dupont Industries SA" data-i18n-placeholder="form.company_ph" />
                 </div>
               </div>
 
               <div class="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label for="telephone" class="block text-sm font-semibold text-slate-700 mb-2">Numéro de téléphone <span class="text-slate-400 font-normal">(Optionnel — pour un traitement plus rapide)</span></label>
+                  <label for="telephone" class="block text-sm font-semibold text-slate-700 mb-2" data-i18n-html="form.phone_label">Numéro de téléphone <span class="text-slate-400 font-normal">(Optionnel — pour un traitement plus rapide)</span></label>
                   <input type="tel" id="telephone" name="telephone"
                     class="wr-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-wr-dark placeholder-slate-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
-                    placeholder="+32 4 70 12 34 56" />
+                    placeholder="+32 4 70 12 34 56" data-i18n-placeholder="form.phone_ph" />
                 </div>
                 <div>
-                  <label for="email" class="block text-sm font-semibold text-slate-700 mb-2">Adresse email *</label>
+                  <label for="email" class="block text-sm font-semibold text-slate-700 mb-2" data-i18n="form.email_label">Adresse email *</label>
                   <input type="email" id="email" name="email" required
                     class="wr-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-wr-dark placeholder-slate-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
-                    placeholder="j.dupont@dupont-industries.be" />
+                    placeholder="j.dupont@dupont-industries.be" data-i18n-placeholder="form.email_ph" />
                 </div>
               </div>
 
               <div>
-                <label for="surface" class="block text-sm font-semibold text-slate-700 mb-2">Surface estimée de la toiture (m²) *</label>
+                <label for="surface" class="block text-sm font-semibold text-slate-700 mb-2" data-i18n="form.surface_label">Surface estimée de la toiture (m²) *</label>
                 <input type="number" id="surface" name="surface" min="0" required
                   class="wr-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-wr-dark placeholder-slate-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
-                  placeholder="ex. 1000" />
+                  placeholder="ex. 1000" data-i18n-placeholder="form.surface_ph" />
               </div>
 
               <div>
-                <label for="message" class="block text-sm font-semibold text-slate-700 mb-2">Message</label>
+                <label for="message" class="block text-sm font-semibold text-slate-700 mb-2" data-i18n="form.message_label">Message</label>
                 <textarea id="message" name="message" rows="4"
                   class="wr-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-wr-dark placeholder-slate-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 resize-none"
-                  placeholder="Décrivez votre projet, votre bâtiment, vos contraintes thermiques ou d'étanchéité..."></textarea>
+                  placeholder="Décrivez votre projet, votre bâtiment, vos contraintes thermiques ou d'étanchéité..." data-i18n-placeholder="form.message_ph"></textarea>
               </div>
 
               <!-- Honeypot anti-spam -->
@@ -1340,17 +1444,17 @@
               <button type="submit"
                 class="btn-shine w-full inline-flex items-center justify-center gap-3 bg-wr-blue hover:bg-wr-blue-dark text-white text-lg font-bold px-6 py-5 rounded-xl transition-all shadow-xl shadow-wr-blue/30 glow-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
                 <i data-lucide="send" class="w-5 h-5"></i>
-                Envoyer ma demande de devis gratuit
+                <span data-i18n="form.submit">Envoyer ma demande de devis gratuit</span>
               </button>
 
-              <p class="text-center text-xs text-slate-400 mt-4">
+              <p class="text-center text-xs text-slate-400 mt-4" data-i18n="form.consent">
                 En soumettant ce formulaire, vous acceptez d'être recontacté par WhiteRoof SRL. Vos données ne sont jamais partagées.
               </p>
 
               <!-- Message de confirmation -->
               <div id="formSuccess" class="hidden mt-4 p-4 bg-wr-green-pale border border-wr-green/30 rounded-xl flex items-center gap-3">
                 <i data-lucide="check-circle-2" class="w-5 h-5 text-wr-green flex-shrink-0"></i>
-                <p class="text-sm font-medium text-wr-dark">Merci ! Votre demande a bien été envoyée. Un expert WhiteRoof vous recontacte sous 48 h ouvrées.</p>
+                <p class="text-sm font-medium text-wr-dark" data-i18n="form.success">Merci ! Votre demande a bien été envoyée. Un expert WhiteRoof vous recontacte sous 48 h ouvrées.</p>
               </div>
             </form>
           </div>
@@ -1364,11 +1468,11 @@
     <div class="max-w-4xl mx-auto px-6 lg:px-8">
 
       <div class="text-center max-w-3xl mx-auto reveal">
-        <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4">Foire aux questions</span>
-        <h2 class="font-display text-3xl lg:text-5xl font-bold text-wr-dark leading-tight tracking-tight">
+        <span class="inline-block text-xs font-bold text-wr-blue uppercase tracking-widest mb-4" data-i18n="faq.eyebrow">Foire aux questions</span>
+        <h2 class="font-display text-3xl lg:text-5xl font-bold text-wr-dark leading-tight tracking-tight" data-i18n="faq.title">
           Tout ce que vous devez savoir avant de décider.
         </h2>
-        <p class="mt-5 text-lg text-slate-600 leading-relaxed">
+        <p class="mt-5 text-lg text-slate-600 leading-relaxed" data-i18n="faq.subtitle">
           Les réponses techniques aux questions les plus fréquentes de nos clients industriels et commerciaux.
         </p>
       </div>
@@ -1381,12 +1485,12 @@
           <button class="faq-toggle w-full flex items-center justify-between gap-4 p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-inset" aria-expanded="false">
             <span class="font-display font-bold text-wr-dark text-base lg:text-lg flex items-center gap-3">
               <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-wr-blue/10 flex items-center justify-center text-wr-blue text-xs font-bold">Q1</span>
-              Le revêtement WhiteRoof est-il un inconvénient en hiver ? Vais-je consommer plus de chauffage ?
+              <span data-i18n="faq.q1">Le revêtement WhiteRoof est-il un inconvénient en hiver ? Vais-je consommer plus de chauffage ?</span>
             </span>
             <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform faq-icon"></i>
           </button>
           <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-            <div class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed space-y-3">
+            <div class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed space-y-3" data-i18n-html="faq.a1">
               <p>
                 <strong class="text-wr-dark">Non.</strong> En Belgique et au Luxembourg, l'ensoleillement hivernal est faible et l'effet réfléchissant du revêtement est donc très limité durant cette période.
               </p>
@@ -1405,12 +1509,12 @@
           <button class="faq-toggle w-full flex items-center justify-between gap-4 p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-inset" aria-expanded="false">
             <span class="font-display font-bold text-wr-dark text-base lg:text-lg flex items-center gap-3">
               <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-wr-blue/10 flex items-center justify-center text-wr-blue text-xs font-bold">Q2</span>
-              Est-ce que cela fonctionne sur une toiture ancienne ?
+              <span data-i18n="faq.q2">Est-ce que cela fonctionne sur une toiture ancienne ?</span>
             </span>
             <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform faq-icon"></i>
           </button>
           <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-            <p class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed">
+            <p class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed" data-i18n-html="faq.a2">
               <strong class="text-wr-dark">Oui.</strong> Le revêtement s'applique sur la toiture existante, sans remplacement. C'est même l'un de ses principaux atouts : prolonger la durée de vie d'une toiture vieillissante à fraction du coût d'une réfection complète.
             </p>
           </div>
@@ -1421,12 +1525,12 @@
           <button class="faq-toggle w-full flex items-center justify-between gap-4 p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-inset" aria-expanded="false">
             <span class="font-display font-bold text-wr-dark text-base lg:text-lg flex items-center gap-3">
               <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-wr-blue/10 flex items-center justify-center text-wr-blue text-xs font-bold">Q3</span>
-              Vais-je devoir arrêter mon activité pendant les travaux ?
+              <span data-i18n="faq.q3">Vais-je devoir arrêter mon activité pendant les travaux ?</span>
             </span>
             <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform faq-icon"></i>
           </button>
           <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-            <p class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed">
+            <p class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed" data-i18n-html="faq.a3">
               <strong class="text-wr-dark">Non.</strong> L'application se fait par l'extérieur, au pistolet Airless (jusqu'à 200 m²/h par opérateur). Aucun impact sur l'activité intérieure : vos équipes, stocks et machines continuent de travailler normalement.
             </p>
           </div>
@@ -1437,12 +1541,12 @@
           <button class="faq-toggle w-full flex items-center justify-between gap-4 p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-inset" aria-expanded="false">
             <span class="font-display font-bold text-wr-dark text-base lg:text-lg flex items-center gap-3">
               <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-wr-blue/10 flex items-center justify-center text-wr-blue text-xs font-bold">Q4</span>
-              Quelle est la durée de vie du revêtement ?
+              <span data-i18n="faq.q4">Quelle est la durée de vie du revêtement ?</span>
             </span>
             <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform faq-icon"></i>
           </button>
           <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-            <div class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed space-y-3">
+            <div class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed space-y-3" data-i18n-html="faq.a4">
               <p>
                 Plus de <strong class="text-wr-dark">15 à 20 ans</strong>, couverts par nos garanties : 10 ans sur la main d'œuvre (WhiteRoof) et garantie fabricant incluse.
               </p>
@@ -1458,12 +1562,12 @@
           <button class="faq-toggle w-full flex items-center justify-between gap-4 p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-inset" aria-expanded="false">
             <span class="font-display font-bold text-wr-dark text-base lg:text-lg flex items-center gap-3">
               <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-wr-blue/10 flex items-center justify-center text-wr-blue text-xs font-bold">Q5</span>
-              Le produit résiste-t-il aux intempéries ?
+              <span data-i18n="faq.q5">Le produit résiste-t-il aux intempéries ?</span>
             </span>
             <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform faq-icon"></i>
           </button>
           <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-            <p class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed">
+            <p class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed" data-i18n-html="faq.a5">
               <strong class="text-wr-dark">Oui.</strong> Le revêtement forme une couche protectrice continue, sans joint ni raccord. Il résiste à la pluie, au gel, aux UV et à la stagnation d'eau sur toits plats. Il protège même votre toiture existante des intempéries.
             </p>
           </div>
@@ -1474,12 +1578,12 @@
           <button class="faq-toggle w-full flex items-center justify-between gap-4 p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-inset" aria-expanded="false">
             <span class="font-display font-bold text-wr-dark text-base lg:text-lg flex items-center gap-3">
               <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-wr-blue/10 flex items-center justify-center text-wr-blue text-xs font-bold">Q6</span>
-              Est-ce rentable pour mon bâtiment ?
+              <span data-i18n="faq.q6">Est-ce rentable pour mon bâtiment ?</span>
             </span>
             <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform faq-icon"></i>
           </button>
           <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-            <p class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed">
+            <p class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed" data-i18n-html="faq.a6">
               <strong class="text-wr-dark">Oui.</strong> Vous économisez 30 à 50% sur votre climatisation. L'amortissement est rapide, et vous évitez un remplacement complet de toiture. Utilisez notre calculateur pour estimer vos gains.
             </p>
           </div>
@@ -1490,12 +1594,12 @@
           <button class="faq-toggle w-full flex items-center justify-between gap-4 p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-inset" aria-expanded="false">
             <span class="font-display font-bold text-wr-dark text-base lg:text-lg flex items-center gap-3">
               <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-wr-blue/10 flex items-center justify-center text-wr-blue text-xs font-bold">Q7</span>
-              Sur quels types de toitures peut-il être appliqué ?
+              <span data-i18n="faq.q7">Sur quels types de toitures peut-il être appliqué ?</span>
             </span>
             <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform faq-icon"></i>
           </button>
           <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-            <p class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed">
+            <p class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed" data-i18n-html="faq.a7">
               Sur <strong class="text-wr-dark">tous les supports courants</strong> : membranes EPDM et PVC, bitume, bac acier, zinc, tôles aluminium, toits plats sans pente. Chaque support dispose d'un primaire d'accroche spécifique.
             </p>
           </div>
@@ -1506,12 +1610,12 @@
           <button class="faq-toggle w-full flex items-center justify-between gap-4 p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-inset" aria-expanded="false">
             <span class="font-display font-bold text-wr-dark text-base lg:text-lg flex items-center gap-3">
               <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-wr-green/10 flex items-center justify-center text-wr-green text-xs font-bold">Q8</span>
-              Quel est l'impact environnemental du revêtement WhiteRoof ?
+              <span data-i18n="faq.q8">Quel est l'impact environnemental du revêtement WhiteRoof ?</span>
             </span>
             <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform faq-icon"></i>
           </button>
           <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-            <div class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed space-y-3">
+            <div class="px-6 pb-6 pl-16 text-slate-600 text-sm lg:text-base leading-relaxed space-y-3" data-i18n-html="faq.a8">
               <p>
                 <strong class="text-wr-dark">Positif et mesurable.</strong> En réduisant vos besoins en climatisation, WhiteRoof diminue directement votre consommation électrique et les émissions de CO₂ qui y sont liées.
               </p>
@@ -1525,15 +1629,15 @@
 
       <!-- CTA bas de FAQ -->
       <div class="mt-12 text-center reveal">
-        <p class="text-slate-600 mb-5">Une autre question ? Parlons-en directement.</p>
+        <p class="text-slate-600 mb-5" data-i18n="faq.cta_question">Une autre question ? Parlons-en directement.</p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href="#devis" class="btn-shine inline-flex items-center justify-center gap-2 bg-wr-blue hover:bg-wr-blue-dark text-white font-semibold text-sm px-6 py-3.5 rounded-xl transition-all shadow-lg shadow-wr-blue/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
             <i data-lucide="file-text" class="w-4 h-4"></i>
-            Poser ma question via le formulaire
+            <span data-i18n="faq.cta_form">Poser ma question via le formulaire</span>
           </a>
           <a href="tel:+32495637701" class="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-wr-dark font-semibold text-sm px-6 py-3.5 rounded-xl border border-slate-200 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
             <i data-lucide="phone" class="w-4 h-4 text-wr-blue"></i>
-            Appeler un expert
+            <span data-i18n="faq.cta_call">Appeler un expert</span>
           </a>
         </div>
       </div>
@@ -1556,30 +1660,30 @@
               <span class="text-[10px] font-semibold text-slate-500 tracking-widest uppercase">Cool Roofing</span>
             </div>
           </div>
-          <p class="text-sm leading-relaxed max-w-xs">
+          <p class="text-sm leading-relaxed max-w-xs" data-i18n="footer.brand_desc">
             WhiteRoof SRL applique des revêtements blancs thermo-réflectifs haute performance pour toitures industrielles et commerciales.
           </p>
         </div>
 
         <!-- Navigation -->
         <div>
-          <p class="text-xs font-bold text-white uppercase tracking-widest mb-5">Navigation</p>
+          <p class="text-xs font-bold text-white uppercase tracking-widest mb-5" data-i18n="footer.nav_title">Navigation</p>
           <ul class="space-y-3 text-sm">
-            <li><a href="#accueil" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Accueil</a></li>
-            <li><a href="#choc-thermique" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Solution</a></li>
-            <li><a href="#calculateur" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Calculateur</a></li>
-            <li><a href="#profil" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Notre Profil</a></li>
-            <li><a href="#devis" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Devis gratuit</a></li>
+            <li><a href="#accueil" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded" data-i18n="nav.accueil">Accueil</a></li>
+            <li><a href="#choc-thermique" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded" data-i18n="nav.solution">Solution</a></li>
+            <li><a href="#calculateur" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded" data-i18n="nav.calculateur">Calculateur</a></li>
+            <li><a href="#profil" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded" data-i18n="nav.profil">Notre Profil</a></li>
+            <li><a href="#devis" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded" data-i18n="footer.devis_link">Devis gratuit</a></li>
           </ul>
         </div>
 
         <!-- Contact -->
         <div>
-          <p class="text-xs font-bold text-white uppercase tracking-widest mb-5">Contact</p>
+          <p class="text-xs font-bold text-white uppercase tracking-widest mb-5" data-i18n="footer.contact_title">Contact</p>
           <ul class="space-y-4 text-sm">
             <li class="flex items-start gap-3">
               <i data-lucide="map-pin" class="w-4 h-4 text-wr-green-soft flex-shrink-0 mt-0.5"></i>
-              <span>Belgique &amp; Luxembourg — Interventions dans les deux pays</span>
+              <span data-i18n="footer.contact_geo">Belgique &amp; Luxembourg — Interventions dans les deux pays</span>
             </li>
 
             <!-- Delil Benjamin Odun -->
@@ -1588,7 +1692,7 @@
                 <span class="text-[10px] font-bold text-wr-green-soft">DO</span>
               </div>
               <div>
-                <p class="text-slate-400 text-xs">Delil Benjamin Odun — Ingénieur Process &amp; Maintenance</p>
+                <p class="text-slate-400 text-xs" data-i18n="footer.delil_line">Delil Benjamin Odun — Ingénieur Process &amp; Maintenance</p>
                 <a href="tel:+32495637701" class="font-semibold text-white hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">+32 495 63 77 01</a>
               </div>
             </li>
@@ -1599,7 +1703,7 @@
                 <span class="text-[10px] font-bold text-wr-blue-light">MB</span>
               </div>
               <div>
-                <p class="text-slate-400 text-xs">Mehdi Bourass — Chargé d'affaires</p>
+                <p class="text-slate-400 text-xs" data-i18n="footer.mehdi_line">Mehdi Bourass — Chargé d'affaires</p>
                 <a href="tel:+32498012569" class="font-semibold text-white hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">+32 498 01 25 69</a>
               </div>
             </li>
@@ -1610,12 +1714,12 @@
             </li>
             <li class="flex items-start gap-3">
               <i data-lucide="clock" class="w-4 h-4 text-wr-green-soft flex-shrink-0 mt-0.5"></i>
-              <span>Réponse sous 48 h ouvrées</span>
+              <span data-i18n="footer.response_48h">Réponse sous 48 h ouvrées</span>
             </li>
 
             <!-- Réseaux sociaux -->
             <li class="pt-2">
-              <p class="text-slate-400 text-xs mb-3">Suivez-nous</p>
+              <p class="text-slate-400 text-xs mb-3" data-i18n="footer.follow_us">Suivez-nous</p>
               <div class="flex items-center gap-3">
                 <!-- Instagram -->
                 <a href="https://www.instagram.com/whiteroof_be?igsh=MW90aG4zNXUOd3ExZg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:bg-wr-green/20 hover:text-wr-green-soft hover:border-wr-green/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
@@ -1651,14 +1755,952 @@
 
       <!-- Bottom bar -->
       <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
-        <p>© <span id="currentYear">2026</span> WhiteRoof SRL. Tous droits réservés.</p>
+        <p data-i18n-html="footer.copyright">© <span id="currentYear">2026</span> WhiteRoof SRL. Tous droits réservés.</p>
         <div class="flex items-center gap-6">
-          <a href="mentions-legales.html" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Mentions légales</a>
-          <a href="conditions.html" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">Conditions générales</a>
+          <a href="mentions-legales.html" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded" data-i18n="footer.legal">Mentions légales</a>
+          <a href="conditions.html" class="hover:text-wr-green-soft transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded" data-i18n="footer.terms">Conditions générales</a>
         </div>
       </div>
     </div>
   </footer>
+
+  <!-- ===== Internationalization (FR / NL / DE) ===== -->
+  <script>
+// ============================================================================
+// WhiteRoof — Système multilingue (FR / NL / DE)
+// Architecture évolutive : pour ajouter une langue, ajouter une entrée dans
+// I18N.translations et dans I18N.LOCALES.
+// ============================================================================
+
+const I18N = {
+  // Langue par défaut (français — langue principale du site)
+  DEFAULT_LANG: 'fr',
+
+  // Langues supportées -> locale BCP 47 pour Intl.NumberFormat
+  LOCALES: {
+    fr: 'fr-BE',
+    nl: 'nl-BE',
+    de: 'de-BE',
+  },
+
+  // Map lang -> og:locale pour Open Graph
+  OG_LOCALES: {
+    fr: 'fr_BE',
+    nl: 'nl_BE',
+    de: 'de_BE',
+  },
+
+  // Clé localStorage pour mémoriser la langue choisie
+  STORAGE_KEY: 'whiteroof_lang',
+
+  // Langue courante (résolue au chargement)
+  current: null,
+
+  // ----------------------------------------------------------------------------
+  // Dictionnaire des traductions
+  // Une clé peut être associée à une chaîne simple (texte) ou à du HTML
+  // (utilisé via data-i18n-html). Pour les attributs : data-i18n-placeholder,
+  // data-i18n-aria-label, data-i18n-alt, data-i18n-meta.
+  // ----------------------------------------------------------------------------
+  translations: {
+    // ===================== FRANÇAIS (langue principale) =====================
+    fr: {
+      // ---- Meta / SEO ----
+      'meta.title': "WhiteRoof — Revêtement thermo-réflectif pour toitures industrielles",
+      'meta.description': "WhiteRoof — Revêtement blanc thermo-réflectif pour toitures industrielles. Baissez vos factures d'énergie de 30 à 50% et votre température intérieure de 6 à 10°C. Interventions en Belgique et au Luxembourg.",
+      'meta.keywords': "cool roofing, toiture réflective, revêtement thermique, économie d'énergie, toiture industrielle, Belgique, Luxembourg, application Airless",
+      'meta.og.title': "WhiteRoof — Revêtement thermo-réflectif pour toitures industrielles",
+      'meta.og.description': "Jusqu'à -40°C sur votre toit, 6 à 10°C à l'intérieur, 30 à 50% sur vos factures d'énergie.",
+
+      // ---- Navigation ----
+      'nav.accueil': "Accueil",
+      'nav.solution': "Solution",
+      'nav.calculateur': "Calculateur",
+      'nav.profil': "Notre Profil",
+      'nav.devis': "Devis",
+      'nav.language_label': "Langue",
+      'cta.devis_gratuit': "Devis Gratuit",
+      'aria.menu': "Menu",
+
+      // ---- Hero ----
+      'hero.badge': "Revêtement blanc thermo-réflectif haute performance",
+      'hero.title': `Baissez vos factures d'énergie de <span class="relative inline-block"><span class="relative z-10 bg-gradient-to-r from-wr-blue to-wr-green bg-clip-text text-transparent">30 à 50%</span></span> et votre température intérieure de <span class="relative inline-block"><span class="relative z-10 bg-gradient-to-r from-wr-blue to-wr-green bg-clip-text text-transparent">6 à 10°C</span><svg class="absolute -bottom-1 left-0 w-full" viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M0,8 Q50,2 100,6 T200,4" stroke="#10b981" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.5"/></svg></span>`,
+      'hero.subtitle': "Réduisez la chaleur qui s'accumule dans votre bâtiment grâce à un revêtement réfléchissant appliqué directement sur votre toiture existante.",
+      'hero.cta_phone': "Nous contacter par téléphone",
+      'team.delil_role': "Ingénieur Process & Maintenance",
+      'team.mehdi_role': "Chargé d'affaires",
+      'hero.badge_water': "Étanchéité renforcée",
+      'hero.badge_geo': "Interventions en Belgique et au Luxembourg",
+      'hero.badge_airless': "Application Airless de précision",
+      'hero.compare_label': "Comparaison thermique",
+      'hero.compare_title': "Surface du toit en été",
+      'hero.standard_roof': "Toiture foncée standard",
+      'hero.absorption': "Absorption maximale",
+      'hero.wr_roof': "Revêtement WhiteRoof",
+      'hero.upto_minus40': "Jusqu'à -40°C",
+      'hero.solar_reflection': "Réflexion solaire élevée",
+      'hero.surface_drop': "Baisse de température de surface",
+      'hero.upto_minus40_short': "Jusqu'à -40°C",
+      'hero.energy_bills': "Factures énergie",
+      'hero.minus_30_50': "−30 à −50%",
+
+      // ---- Trust metrics ----
+      'metric.upto_minus40': "Jusqu'à -40°C",
+      'metric.roof_surface': "Sur la surface du toit",
+      'metric.indoor_drop': "baisse de température intérieure",
+      'metric.energy_bills': "Sur les factures d'énergie",
+      'metric.coating_lifespan': "Durée de vie du revêtement",
+      'metric.lifespan_link_aria': "Voir les détails de la durabilité",
+
+      // ---- Cool Roofing preview ----
+      'coolroof.eyebrow': "Cool Roofing en images",
+      'coolroof.title': "Une toiture qui réfléchit la chaleur au lieu de l'absorber.",
+      'coolroof.subtitle': "Le revêtement WhiteRoof réduit l'accumulation de chaleur sur la toiture et limite les besoins en climatisation tout en améliorant le confort thermique du bâtiment.",
+      'coolroof.b1_title': "Réfléchit le rayonnement solaire",
+      'coolroof.b1_desc': "La chaleur est renvoyée vers l'extérieur au lieu d'être absorbée par la toiture.",
+      'coolroof.b2_title': "Réduit la surchauffe du bâtiment",
+      'coolroof.b2_desc': "Des locaux plus frais et un meilleur confort thermique pendant les périodes chaudes.",
+      'coolroof.b3_title': "Protège la toiture",
+      'coolroof.b3_desc': "Moins de contraintes thermiques et une durée de vie prolongée de la toiture.",
+      'coolroof.cta': "Estimer mes économies d'énergie",
+      'coolroof.caption': "Une toiture plus fraîche, sans remplacement complet.",
+      'coolroof.img_alt': "Application du revêtement cool roofing WhiteRoof sur toiture industrielle — surface blanche réfléchissante",
+
+      // ---- How it works (Avant / Après) ----
+      'howitworks.eyebrow': "Comment ça marche",
+      'howitworks.title': "Comment WhiteRoof réduit la chaleur dans votre bâtiment.",
+      'howitworks.subtitle': `Une toiture foncée <strong class="text-wr-dark">absorbe</strong> la chaleur. Une toiture blanche WhiteRoof la <strong class="text-wr-dark">réfléchit</strong>. C'est tout simple — et les économies sont immédiates.`,
+      'howitworks.before': "Avant",
+      'howitworks.standard_roof': "Toiture foncée standard",
+      'howitworks.upto_85': "Jusqu'à 85°C",
+      'howitworks.sun': "Soleil",
+      'howitworks.dark_roof': "Toiture foncée",
+      'howitworks.heat_transmitted': "Chaleur transmise au bâtiment",
+      'howitworks.hot_building': "Bâtiment qui chauffe",
+      'howitworks.before_b1': "La toiture accumule la chaleur",
+      'howitworks.before_b2': "La chaleur accélère l'usure de la toiture",
+      'howitworks.before_b3': "La climatisation consomme davantage",
+      'howitworks.after': "Après",
+      'howitworks.wr_coating': "Revêtement blanc WhiteRoof",
+      'howitworks.upto_40_less': "Jusqu'à 40°C de moins",
+      'howitworks.heat_reflected': "Chaleur réfléchie vers l'extérieur",
+      'howitworks.cool_building': "Bâtiment plus frais",
+      'howitworks.after_b1': "La chaleur est renvoyée vers l'extérieur",
+      'howitworks.after_b2': "La toiture dure plus longtemps",
+      'howitworks.after_b3': "Moins de climatisation nécessaire",
+
+      // ---- Profil ----
+      'profile.eyebrow': "Notre profil",
+      'profile.title': "Une approche combinant expertise terrain et connaissance technique des bâtiments industriels.",
+
+      // ---- Performances ----
+      'perf.eyebrow': "Solution technique & performances",
+      'perf.title': "Une surface hautement réfléchissante, des résultats mesurables.",
+      'perf.subtitle': `WhiteRoof réduit la chaleur absorbée par votre toiture grâce à une surface blanc hautement réfléchissante. Résultat direct : <strong class="text-white">vos coûts énergétiques baissent</strong>, le confort thermique du bâtiment s'améliore, la structure est protégée durablement et votre empreinte carbone diminue.`,
+      'perf.p1_label': "Économies sur la climatisation",
+      'perf.p1_desc': "Jusqu'à 50 % d'économies sur votre climatisation. La charge thermique du bâtiment chute, vos factures d'électricité aussi.",
+      'perf.p2_label': "À l'intérieur du bâtiment",
+      'perf.p2_desc': "Jusqu'à 10 °C de moins à l'intérieur du bâtiment. Le confort thermique de vos équipes et de vos stocks s'améliore immédiatement.",
+      'perf.p3_label': "Réflectance solaire",
+      'perf.p3_desc': "85 % du rayonnement solaire est réfléchi avant d'être absorbé par la toiture. La surface ne chauffe plus, le bâtiment non plus.",
+      'perf.p4_label': "Indice SRI",
+      'perf.p4_desc': "Un indice SRI entre 106 et 112 classe WhiteRoof parmi les revêtements les plus performants du marché. La toiture reste froide même en plein été.",
+      'perf.p5_label': "Durabilité",
+      'perf.p5_desc': "Une durabilité jusqu'à 20 ans. Un investissement durable qui protège votre bâtiment et vos économies sur le long terme.",
+      'perf.p6_label': "Empreinte carbone",
+      'perf.p6_desc': "Chaque kWh économisé réduit directement vos émissions de CO₂. Un bénéfice environnemental mesurable, en plus de vos économies financières.",
+      'perf.how_title': "Comment ça fonctionne",
+      'perf.prop1_title': "Réfléchit la chaleur au lieu de l'absorber",
+      'perf.prop1_desc': "La surface renvoie l'énergie solaire au lieu de la stocker : votre toit cesse de fonctionner comme un radiateur.",
+      'perf.prop2_title': "Toiture rendue étanche",
+      'perf.prop2_desc': `Une <strong class="text-white">couche protectrice continue</strong> sans joint ni raccord. Votre toiture est protégée des infiltrations, des UV et des intempéries.`,
+      'perf.prop3_title': "S'auto-nettoie avec la pluie",
+      'perf.prop3_desc': `Empêche le développement des mousses et lichens et <strong class="text-white">se nettoie à l'eau de pluie</strong>. La performance reste optimale dans le temps.`,
+      'perf.prop4_title': "Évite un remplacement complet de toiture",
+      'perf.prop4_desc': `Aucun remplacement complet nécessaire. WhiteRoof <strong class="text-white">prolonge la durée de vie</strong> de votre toiture existante à fraction du coût d'un remplacement — et limite ainsi les déchets de chantier.`,
+      'perf.cert_eyebrow': "Certifications & conformité",
+      'perf.cert_title': "Des performances certifiées, une conformité professionnelle.",
+      'perf.cert_desc': "Nos classifications AFNOR garantissent la qualité, la fiabilité et la conformité de chaque application. La preuve d'un produit sérieux, défendable techniquement et durable.",
+      'perf.warranty_title': "Nos garanties.",
+      'perf.warranty_subtitle': "Deux niveaux de couverture pour sécuriser votre investissement.",
+      'perf.w1_title': "Garantie Application / Main d'œuvre",
+      'perf.w1_value': "10 ans",
+      'perf.w1_desc': "Offerte par WhiteRoof sur l'ensemble de nos interventions. Couvre la pose, l'adhérence et la continuité de la protection appliquée.",
+      'perf.w2_title': "Garantie Fabricant",
+      'perf.w2_value': "Incluse",
+      'perf.w2_desc': `Provenant d'un <strong class="text-white">grand laboratoire industriel français spécialisé</strong>. Couvre les propriétés thermiques et l'étanchéité du produit lui-même.`,
+      'perf.monitor_eyebrow': "Suivi de performance",
+      'perf.monitor_title': "Un investissement durable, des performances maintenues dans le temps.",
+      'perf.monitor_desc': "Pour préserver les performances réfléchissantes de votre toiture sur le long terme, WhiteRoof recommande un suivi simple et périodique. L'objectif : garantir une efficacité constante pendant de nombreuses années.",
+      'perf.m1_title': "Inspection périodique",
+      'perf.m1_desc': "Vérifier l'état général du revêtement.",
+      'perf.m2_title': "Nettoyage doux",
+      'perf.m2_desc': "Un lavage doux lorsque nécessaire.",
+      'perf.m3_title': "Contrôle d'état",
+      'perf.m3_desc': "Contrôler la continuité de la protection.",
+
+      // ---- Supports ----
+      'supports.eyebrow': "Compatibilité",
+      'supports.title': "S'applique sur tous les types de toitures.",
+      'supports.subtitle': "Que votre toiture soit en bitume, en acier ou en membrane synthétique, WhiteRoof dispose d'une formule adaptée.",
+      'supports.s1_title': "Membranes synthétiques",
+      'supports.s1_desc': "Membranes EPDM et PVC. Le revêtement adhère durablement et ne se décolle pas.",
+      'supports.s2_title': "Toitures bitumineuses",
+      'supports.s2_desc': "Bitume, Calandrite, Asphalte et Shingle. La toiture est protégée des UV et dure plus longtemps.",
+      'supports.s3_title': "Toitures métalliques & Bac Acier",
+      'supports.s3_desc': `Zinc, Acier, Tôles aluminium, Cuivre et Plomb — avec <strong class="text-wr-dark">traitement anti-corrosion</strong> inclus.`,
+      'supports.s4_title': "Toits plats & terrasses sans pente",
+      'supports.s4_desc': `Technologie spécifique <strong class="text-wr-dark">résistante à la stagnation d'eau</strong> et à l'humidité constante.`,
+
+      // ---- Calculator ----
+      'calc.eyebrow': "Calculateur d'économies",
+      'calc.title': "Combien votre bâtiment pourrait-il économiser ?",
+      'calc.subtitle': "Entrez la surface de votre toit. Vous obtenez immédiatement une estimation des économies d'énergie annuelles.",
+      'calc.step1': "Étape 1",
+      'calc.step1_title': "Entrez votre surface",
+      'calc.surface_label': "Surface de votre toit plat (m²)",
+      'calc.min_surface': "50 m²",
+      'calc.max_surface': "50 000 m²",
+      'calc.info_box': `Estimation basée sur une fourchette de <span class="font-bold text-wr-dark">3 € à 5 € d'économie par m² par an</span> (climatisation, ventilation, préservation des équipements). Le résultat réel dépend de l'isolation, de l'usage du bâtiment et de votre système de climatisation.`,
+      'calc.step2': "Étape 2",
+      'calc.step2_title': "Résultats immédiats",
+      'calc.savings_label': "Économies d'énergie estimées",
+      'calc.to': "à",
+      'calc.per_year': "€ / an",
+      'calc.savings_sub': "Sur la climatisation (estimation basée sur une moyenne d'économies au m²)",
+      'calc.kwh_line': `<span aria-hidden="true">⚡</span><span>Soit une réduction de <strong id="kwhMin" class="text-wr-green-soft font-semibold stat-number">15 000</strong> à <strong id="kwhMax" class="text-wr-green-soft font-semibold stat-number">22 000</strong> kWh de consommation.</span>`,
+      'calc.impact_label': "Impact environnemental estimé",
+      'calc.co2_per_year': "tonnes de CO₂ / an",
+      'calc.co2_sub': "Émissions évitées grâce à la baisse de votre consommation électrique (facteur mix énergétique Belgique).",
+      'calc.cta_quote': "Demander mon devis gratuit d'application",
+      'calc.note': `<strong class="text-slate-300">Note :</strong> Cette estimation est basée sur une moyenne d'économies d'énergie constatée au m². Le calcul exact dépend de l'isolation actuelle du bâtiment, de l'usage de la climatisation et de votre zone géographique. Une étude thermique personnalisée est nécessaire pour valider ces chiffres.`,
+
+      // ---- Devis form ----
+      'devis.eyebrow': "Demande de devis gratuit",
+      'devis.title': "Recevez votre devis d'application sous 48 h.",
+      'devis.subtitle': "Décrivez votre projet en quelques lignes. Un expert WhiteRoof vous recontacte avec un devis d'application chiffré, détaillé et sans engagement.",
+      'devis.f1_title': "Interventions en Belgique et au Luxembourg",
+      'devis.f1_desc': "Wallonie, Bruxelles, Flandre et Grand-Duché de Luxembourg — déplacement inclus.",
+      'devis.f2_title': "Réponse sous 48 h ouvrées",
+      'devis.f2_desc': "Un interlocuteur unique du diagnostic à la pose.",
+      'devis.f3_title': "Devis détaillé et transparent",
+      'devis.f3_desc': "Surface, méthode, calendrier, garanties — sans surprise.",
+      'form.name_label': "Nom complet *",
+      'form.name_ph': "Jean Dupont",
+      'form.company_label': "Nom de la société *",
+      'form.company_ph': "Dupont Industries SA",
+      'form.phone_label': `Numéro de téléphone <span class="text-slate-400 font-normal">(Optionnel — pour un traitement plus rapide)</span>`,
+      'form.phone_ph': "+32 4 70 12 34 56",
+      'form.email_label': "Adresse email *",
+      'form.email_ph': "j.dupont@dupont-industries.be",
+      'form.surface_label': "Surface estimée de la toiture (m²) *",
+      'form.surface_ph': "ex. 1000",
+      'form.message_label': "Message",
+      'form.message_ph': "Décrivez votre projet, votre bâtiment, vos contraintes thermiques ou d'étanchéité...",
+      'form.submit': "Envoyer ma demande de devis gratuit",
+      'form.consent': "En soumettant ce formulaire, vous acceptez d'être recontacté par WhiteRoof SRL. Vos données ne sont jamais partagées.",
+      'form.success': "Merci ! Votre demande a bien été envoyée. Un expert WhiteRoof vous recontacte sous 48 h ouvrées.",
+
+      // ---- FAQ ----
+      'faq.eyebrow': "Foire aux questions",
+      'faq.title': "Tout ce que vous devez savoir avant de décider.",
+      'faq.subtitle': "Les réponses techniques aux questions les plus fréquentes de nos clients industriels et commerciaux.",
+      'faq.q1': "Le revêtement WhiteRoof est-il un inconvénient en hiver ? Vais-je consommer plus de chauffage ?",
+      'faq.a1': `<p><strong class="text-wr-dark">Non.</strong> En Belgique et au Luxembourg, l'ensoleillement hivernal est faible et l'effet réfléchissant du revêtement est donc très limité durant cette période.</p><p>Les pertes de chaleur d'un bâtiment proviennent principalement de l'isolation, des ponts thermiques et de la ventilation, et non de la couleur de la toiture.</p><p>WhiteRoof n'augmente donc pas significativement les besoins en chauffage et permet de retrouver tous ses bénéfices dès le retour des fortes chaleurs.</p>`,
+      'faq.q2': "Est-ce que cela fonctionne sur une toiture ancienne ?",
+      'faq.a2': `<strong class="text-wr-dark">Oui.</strong> Le revêtement s'applique sur la toiture existante, sans remplacement. C'est même l'un de ses principaux atouts : prolonger la durée de vie d'une toiture vieillissante à fraction du coût d'une réfection complète.`,
+      'faq.q3': "Vais-je devoir arrêter mon activité pendant les travaux ?",
+      'faq.a3': `<strong class="text-wr-dark">Non.</strong> L'application se fait par l'extérieur, au pistolet Airless (jusqu'à 200 m²/h par opérateur). Aucun impact sur l'activité intérieure : vos équipes, stocks et machines continuent de travailler normalement.`,
+      'faq.q4': "Quelle est la durée de vie du revêtement ?",
+      'faq.a4': `<p>Plus de <strong class="text-wr-dark">15 à 20 ans</strong>, couverts par nos garanties : 10 ans sur la main d'œuvre (WhiteRoof) et garantie fabricant incluse.</p><p>Pour atteindre cette durabilité maximale, un <strong class="text-wr-dark">suivi par WhiteRoof</strong> et un entretien régulier sont importants : inspection périodique, nettoyage doux lorsque nécessaire et contrôle de l'état général du revêtement.</p>`,
+      'faq.q5': "Le produit résiste-t-il aux intempéries ?",
+      'faq.a5': `<strong class="text-wr-dark">Oui.</strong> Le revêtement forme une couche protectrice continue, sans joint ni raccord. Il résiste à la pluie, au gel, aux UV et à la stagnation d'eau sur toits plats. Il protège même votre toiture existante des intempéries.`,
+      'faq.q6': "Est-ce rentable pour mon bâtiment ?",
+      'faq.a6': `<strong class="text-wr-dark">Oui.</strong> Vous économisez 30 à 50% sur votre climatisation. L'amortissement est rapide, et vous évitez un remplacement complet de toiture. Utilisez notre calculateur pour estimer vos gains.`,
+      'faq.q7': "Sur quels types de toitures peut-il être appliqué ?",
+      'faq.a7': `Sur <strong class="text-wr-dark">tous les supports courants</strong> : membranes EPDM et PVC, bitume, bac acier, zinc, tôles aluminium, toits plats sans pente. Chaque support dispose d'un primaire d'accroche spécifique.`,
+      'faq.q8': "Quel est l'impact environnemental du revêtement WhiteRoof ?",
+      'faq.a8': `<p><strong class="text-wr-dark">Positif et mesurable.</strong> En réduisant vos besoins en climatisation, WhiteRoof diminue directement votre consommation électrique et les émissions de CO₂ qui y sont liées.</p><p>La prolongation de la durée de vie de votre toiture existante évite également des rénovations précoces et limite les déchets de chantier. Le revêtement participe par ailleurs à la réduction des îlots de chaleur urbains en réfléchissant le rayonnement solaire au lieu de le stocker.</p>`,
+      'faq.cta_question': "Une autre question ? Parlons-en directement.",
+      'faq.cta_form': "Poser ma question via le formulaire",
+      'faq.cta_call': "Appeler un expert",
+
+      // ---- Footer ----
+      'footer.brand_desc': "WhiteRoof SRL applique des revêtements blancs thermo-réflectifs haute performance pour toitures industrielles et commerciales.",
+      'footer.nav_title': "Navigation",
+      'footer.devis_link': "Devis gratuit",
+      'footer.contact_title': "Contact",
+      'footer.contact_geo': "Belgique & Luxembourg — Interventions dans les deux pays",
+      'footer.delil_line': "Delil Benjamin Odun — Ingénieur Process & Maintenance",
+      'footer.mehdi_line': "Mehdi Bourass — Chargé d'affaires",
+      'footer.response_48h': "Réponse sous 48 h ouvrées",
+      'footer.follow_us': "Suivez-nous",
+      'footer.copyright': `© <span id="currentYear">2026</span> WhiteRoof SRL. Tous droits réservés.`,
+      'footer.legal': "Mentions légales",
+      'footer.terms': "Conditions générales",
+    },
+
+    // ===================== NEDERLANDS (Belgisch — B2B) =====================
+    nl: {
+      // ---- Meta / SEO ----
+      'meta.title': "WhiteRoof — Reflecterende dakcoating voor industriële daken",
+      'meta.description': "WhiteRoof — Reflecterende witte dakcoating voor industriële gebouwen. Verlaag uw energiefactuur met 30 tot 50% en uw binnentemperatuur met 6 tot 10°C. Interventies in België en Luxemburg.",
+      'meta.keywords': "cool roofing, reflecterende dakcoating, thermische coating, energiebesparing, industriële daken, België, Luxemburg, airless toepassing",
+      'meta.og.title': "WhiteRoof — Reflecterende dakcoating voor industriële gebouwen",
+      'meta.og.description': "Tot -40°C op uw dak, 6 tot 10°C binnenshuis, 30 tot 50% op uw energiefactuur.",
+
+      // ---- Navigation ----
+      'nav.accueil': "Home",
+      'nav.solution': "Oplossing",
+      'nav.calculateur': "Calculator",
+      'nav.profil': "Ons profiel",
+      'nav.devis': "Offerte",
+      'nav.language_label': "Taal",
+      'cta.devis_gratuit': "Gratis offerte",
+      'aria.menu': "Menu",
+
+      // ---- Hero ----
+      'hero.badge': "Hoogwaardige reflecterende witte dakcoating",
+      'hero.title': `Verlaag uw energiefactuur met <span class="relative inline-block"><span class="relative z-10 bg-gradient-to-r from-wr-blue to-wr-green bg-clip-text text-transparent">30 tot 50%</span></span> en uw binnentemperatuur met <span class="relative inline-block"><span class="relative z-10 bg-gradient-to-r from-wr-blue to-wr-green bg-clip-text text-transparent">6 tot 10°C</span><svg class="absolute -bottom-1 left-0 w-full" viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M0,8 Q50,2 100,6 T200,4" stroke="#10b981" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.5"/></svg></span>`,
+      'hero.subtitle': "Verminder de warmteophoping in uw gebouw dankzij een reflecterende coating, direct aangebracht op uw bestaande dak.",
+      'hero.cta_phone': "Contacteer ons telefonisch",
+      'team.delil_role': "Proces- & onderhoudsingenieur",
+      'team.mehdi_role': "Business developer",
+      'hero.badge_water': "Versterkte waterdichting",
+      'hero.badge_geo': "Interventies in België en Luxemburg",
+      'hero.badge_airless': "Nauwkeurige airless toepassing",
+      'hero.compare_label': "Thermische vergelijking",
+      'hero.compare_title': "Dakoppervlak in de zomer",
+      'hero.standard_roof': "Standaard donker dak",
+      'hero.absorption': "Maximale absorptie",
+      'hero.wr_roof': "WhiteRoof coating",
+      'hero.upto_minus40': "Tot -40°C",
+      'hero.solar_reflection': "Hoge zonreflectie",
+      'hero.surface_drop': "Daling van de oppervlaktetemperatuur",
+      'hero.upto_minus40_short': "Tot -40°C",
+      'hero.energy_bills': "Energiefactuur",
+      'hero.minus_30_50': "−30 tot −50%",
+
+      // ---- Trust metrics ----
+      'metric.upto_minus40': "Tot -40°C",
+      'metric.roof_surface': "Op het dakoppervlak",
+      'metric.indoor_drop': "daling van de binnentemperatuur",
+      'metric.energy_bills': "Op de energiefactuur",
+      'metric.coating_lifespan': "Levensduur van de coating",
+      'metric.lifespan_link_aria': "Bekijk de details over de levensduur",
+
+      // ---- Cool Roofing preview ----
+      'coolroof.eyebrow': "Cool Roofing in beeld",
+      'coolroof.title': "Een dak dat warmte reflecteert in plaats van absorbeert.",
+      'coolroof.subtitle': "De WhiteRoof coating vermindert de warmteophoping op het dak en beperkt de behoefte aan airconditioning, met tegelijk een beter thermisch comfort in het gebouw.",
+      'coolroof.b1_title': "Reflecteert zonnestraling",
+      'coolroof.b1_desc': "De warmte wordt naar buiten afgevoerd in plaats van door het dak geabsorbeerd.",
+      'coolroof.b2_title': "Vermindert oververhitting van het gebouw",
+      'coolroof.b2_desc': "Koelere ruimtes en een beter thermisch comfort tijdens warme periodes.",
+      'coolroof.b3_title': "Beschermt het dak",
+      'coolroof.b3_desc': "Minder thermische belasting en een langere levensduur van het dak.",
+      'coolroof.cta': "Mijn energiebesparing schatten",
+      'coolroof.caption': "Een koeler dak, zonder volledige vervanging.",
+      'coolroof.img_alt': "Aanbrengen van de WhiteRoof cool roofing coating op een industrieel dak — reflecterend wit oppervlak",
+
+      // ---- How it works ----
+      'howitworks.eyebrow': "Hoe het werkt",
+      'howitworks.title': "Hoe WhiteRoof de warmte in uw gebouw vermindert.",
+      'howitworks.subtitle': `Een donker dak <strong class="text-wr-dark">absorbeert</strong> warmte. Een wit WhiteRoof dak <strong class="text-wr-dark">reflecteert</strong> deze. Heel eenvoudig — en de besparing is onmiddellijk.`,
+      'howitworks.before': "Voor",
+      'howitworks.standard_roof': "Standaard donker dak",
+      'howitworks.upto_85': "Tot 85°C",
+      'howitworks.sun': "Zon",
+      'howitworks.dark_roof': "Donker dak",
+      'howitworks.heat_transmitted': "Warmte overgedragen aan het gebouw",
+      'howitworks.hot_building': "Gebouw dat opwarmt",
+      'howitworks.before_b1': "Het dak hoopt warmte op",
+      'howitworks.before_b2': "De warmte versnelt de veroudering van het dak",
+      'howitworks.before_b3': "De airconditioning verbruikt meer",
+      'howitworks.after': "Na",
+      'howitworks.wr_coating': "Witte WhiteRoof coating",
+      'howitworks.upto_40_less': "Tot 40°C minder",
+      'howitworks.heat_reflected': "Warmte naar buiten gereflecteerd",
+      'howitworks.cool_building': "Koeler gebouw",
+      'howitworks.after_b1': "De warmte wordt naar buiten afgevoerd",
+      'howitworks.after_b2': "Het dak gaat langer mee",
+      'howitworks.after_b3': "Minder airconditioning nodig",
+
+      // ---- Profil ----
+      'profile.eyebrow': "Ons profiel",
+      'profile.title': "Een aanpak die veldexpertise combineert met technische kennis van industriële gebouwen.",
+
+      // ---- Performances ----
+      'perf.eyebrow': "Technische oplossing & prestaties",
+      'perf.title': "Een sterk reflecterend oppervlak, meetbare resultaten.",
+      'perf.subtitle': `WhiteRoof vermindert de warmteabsorptie van uw dak dankzij een sterk reflecterend wit oppervlak. Direct resultaat: <strong class="text-white">uw energiekosten dalen</strong>, het thermisch comfort van het gebouw verbetert, de structuur wordt duurzaam beschermd en uw ecologische voetafdruk neemt af.`,
+      'perf.p1_label': "Besparing op airconditioning",
+      'perf.p1_desc': "Tot 50% besparing op uw airconditioning. De thermische belasting van het gebouw daalt, en daarmee ook uw elektriciteitsfactuur.",
+      'perf.p2_label': "Binnenshuis",
+      'perf.p2_desc': "Tot 10°C minder binnenshuis. Het thermisch comfort van uw teams en opslagruimtes verbetert onmiddellijk.",
+      'perf.p3_label': "Zonreflectie",
+      'perf.p3_desc': "85% van de zonnestraling wordt gereflecteerd vóór het door het dak wordt geabsorbeerd. Het oppervlak wordt niet meer warm, het gebouw evenmin.",
+      'perf.p4_label': "SRI-index",
+      'perf.p4_desc': "Een SRI-index tussen 106 en 112 plaatst WhiteRoof bij de meest performante coatings op de markt. Het dak blijft koel, ook in volle zomer.",
+      'perf.p5_label': "Duurzaamheid",
+      'perf.p5_desc': "Een levensduur tot 20 jaar. Een duurzame investering die uw gebouw en uw besparingen op lange termijn beschermt.",
+      'perf.p6_label': "Ecologische voetafdruk",
+      'perf.p6_desc': "Elke bespaarde kWh vermindert rechtstreeks uw CO₂-uitstoot. Een meetbaar ecologisch voordeel, bovenop uw financiële besparing.",
+      'perf.how_title': "Hoe het werkt",
+      'perf.prop1_title': "Reflecteert warmte in plaats van deze te absorberen",
+      'perf.prop1_desc': "Het oppervlak voert zonne-energie af in plaats van deze op te slaan: uw dak werkt niet langer als een radiator.",
+      'perf.prop2_title': "Dak volledig waterdicht gemaakt",
+      'perf.prop2_desc': `Een <strong class="text-white">doorlopende beschermingslaag</strong> zonder naden of overgangen. Uw dak wordt beschermd tegen infiltraties, UV en weersinvloeden.`,
+      'perf.prop3_title': "Reinigt zichzelf met regenwater",
+      'perf.prop3_desc': `Voorkomt de ontwikkeling van mossen en korstmossen en <strong class="text-white">reinigt zichzelf met regenwater</strong>. De prestaties blijven optimaal in de tijd.`,
+      'perf.prop4_title': "Vermijdt een volledige dakvervanging",
+      'perf.prop4_desc': `Geen volledige vervanging nodig. WhiteRoof <strong class="text-white">verlengt de levensduur</strong> van uw bestaande dak voor een fractie van de kost van een vervanging — en beperkt zo de bouwafval.`,
+      'perf.cert_eyebrow': "Certificeringen & conformiteit",
+      'perf.cert_title': "Gecertificeerde prestaties, professionele conformiteit.",
+      'perf.cert_desc': "Onze AFNOR-classificaties garanderen de kwaliteit, betrouwbaarheid en conformiteit van elke toepassing. Het bewijs van een serieus product, technisch verdedigbaar en duurzaam.",
+      'perf.warranty_title': "Onze garanties.",
+      'perf.warranty_subtitle': "Twee dekkingsniveaus om uw investering veilig te stellen.",
+      'perf.w1_title': "Garantie op toepassing / uitvoering",
+      'perf.w1_value': "10 jaar",
+      'perf.w1_desc': "Aangeboden door WhiteRoof op al onze interventies. Dekt de plaatsing, de hechting en de continuïteit van de aangebrachte bescherming.",
+      'perf.w2_title': "Fabrikantgarantie",
+      'perf.w2_value': "Inbegrepen",
+      'perf.w2_desc': `Afkomstig van een <strong class="text-white">gespecialiseerde grote Franse industriële laboratorium</strong>. Dekt de thermische eigenschappen en de waterdichting van het product zelf.`,
+      'perf.monitor_eyebrow': "Prestatie-opvolging",
+      'perf.monitor_title': "Een duurzame investering, prestaties die in de tijd behouden blijven.",
+      'perf.monitor_desc': "Om de reflecterende prestaties van uw dak op lange termijn te behouden, beveelt WhiteRoof een eenvoudige en periodieke opvolging aan. Het doel: een constante efficiëntie gedurende vele jaren garanderen.",
+      'perf.m1_title': "Periodieke inspectie",
+      'perf.m1_desc': "De algemene staat van de coating controleren.",
+      'perf.m2_title': "Zachte reiniging",
+      'perf.m2_desc': "Een zachte reiniging wanneer nodig.",
+      'perf.m3_title': "Staatcontrole",
+      'perf.m3_desc': "De continuïteit van de bescherming controleren.",
+
+      // ---- Supports ----
+      'supports.eyebrow': "Compatibiliteit",
+      'supports.title': "Toepasbaar op alle daktypes.",
+      'supports.subtitle': "Of uw dak nu in bitumen, staal of synthetische membraan is, WhiteRoof beschikt over een aangepaste formule.",
+      'supports.s1_title': "Synthetische membranen",
+      'supports.s1_desc': "EPDM- en PVC-membranen. De coating hecht duurzaam en laat niet los.",
+      'supports.s2_title': "Bitumineuze daken",
+      'supports.s2_desc': "Bitumen, Calandrite, asfalt en shingles. Het dak wordt beschermd tegen UV en gaat langer mee.",
+      'supports.s3_title': "Metalen daken & staalplaten",
+      'supports.s3_desc': `Zink, staal, aluminium platen, koper en lood — met inbegrip van <strong class="text-wr-dark">anti-corrosiebehandeling</strong>.`,
+      'supports.s4_title': "Platte daken & terrassen zonder helling",
+      'supports.s4_desc': `Specifieke technologie <strong class="text-wr-dark">bestand tegen waterstagnatie</strong> en constante vochtigheid.`,
+
+      // ---- Calculator ----
+      'calc.eyebrow': "Besparingscalculator",
+      'calc.title': "Hoeveel zou uw gebouw kunnen besparen?",
+      'calc.subtitle': "Voer de oppervlakte van uw dak in. U krijgt onmiddellijk een schatting van de jaarlijkse energiebesparing.",
+      'calc.step1': "Stap 1",
+      'calc.step1_title': "Voer uw oppervlakte in",
+      'calc.surface_label': "Oppervlakte van uw platte dak (m²)",
+      'calc.min_surface': "50 m²",
+      'calc.max_surface': "50 000 m²",
+      'calc.info_box': `Schatting op basis van een marge van <span class="font-bold text-wr-dark">3 € tot 5 € besparing per m² per jaar</span> (airconditioning, ventilatie, behoud van installaties). Het werkelijke resultaat hangt af van de isolatie, het gebruik van het gebouw en uw airconditioningssysteem.`,
+      'calc.step2': "Stap 2",
+      'calc.step2_title': "Onmiddellijk resultaat",
+      'calc.savings_label': "Geschatte energiebesparing",
+      'calc.to': "tot",
+      'calc.per_year': "€ / jaar",
+      'calc.savings_sub': "Op de airconditioning (schatting op basis van een gemiddelde besparing per m²)",
+      'calc.kwh_line': `<span aria-hidden="true">⚡</span><span>Een vermindering van <strong id="kwhMin" class="text-wr-green-soft font-semibold stat-number">15.000</strong> tot <strong id="kwhMax" class="text-wr-green-soft font-semibold stat-number">22.000</strong> kWh verbruik.</span>`,
+      'calc.impact_label': "Geschatte ecologische impact",
+      'calc.co2_per_year': "ton CO₂ / jaar",
+      'calc.co2_sub': "Vermeden uitstoot dankzij de daling van uw elektriciteitsverbruik (factor energiemix België).",
+      'calc.cta_quote': "Mijn gratis offerte voor de toepassing aanvragen",
+      'calc.note': `<strong class="text-slate-300">Opmerking:</strong> Deze schatting is gebaseerd op een gemiddelde vastgestelde energiebesparing per m². De exacte berekening hangt af van de huidige isolatie van het gebouw, het gebruik van de airconditioning en uw geografische zone. Een gepersonaliseerde thermische studie is nodig om deze cijfers te valideren.`,
+
+      // ---- Devis form ----
+      'devis.eyebrow': "Aanvraag gratis offerte",
+      'devis.title': "Ontvang uw offerte voor de toepassing binnen 48 u.",
+      'devis.subtitle': "Beschrijf uw project in enkele regels. Een WhiteRoof-expert neemt contact met u op met een gedetailleerde, kwantitatieve en vrijblijvende offerte.",
+      'devis.f1_title': "Interventies in België en Luxemburg",
+      'devis.f1_desc': "Wallonië, Brussel, Vlaanderen en Groothertogdom Luxemburg — verplaatsing inbegrepen.",
+      'devis.f2_title': "Antwoord binnen 48 werkuur",
+      'devis.f2_desc': "Eén enkel aanspreekpunt van diagnose tot plaatsing.",
+      'devis.f3_title': "Gedetailleerde en transparante offerte",
+      'devis.f3_desc': "Oppervlakte, methode, planning, garanties — zonder verrassingen.",
+      'form.name_label': "Volledige naam *",
+      'form.name_ph': "Jan Janssens",
+      'form.company_label': "Bedrijfsnaam *",
+      'form.company_ph': "Janssens Industries NV",
+      'form.phone_label': `Telefoonnummer <span class="text-slate-400 font-normal">(Optioneel — voor een snellere afhandeling)</span>`,
+      'form.phone_ph': "+32 4 70 12 34 56",
+      'form.email_label': "E-mailadres *",
+      'form.email_ph': "j.janssens@janssens-industries.be",
+      'form.surface_label': "Geschatte oppervlakte van het dak (m²) *",
+      'form.surface_ph': "bijv. 1000",
+      'form.message_label': "Bericht",
+      'form.message_ph': "Beschrijf uw project, uw gebouw, uw thermische of waterdichtingsvereisten...",
+      'form.submit': "Mijn aanvraag voor gratis offerte versturen",
+      'form.consent': "Door dit formulier te verzenden, aanvaardt u dat WhiteRoof SRL u contacteert. Uw gegevens worden nooit gedeeld.",
+      'form.success': "Bedankt! Uw aanvraag is goed verzonden. Een WhiteRoof-expert neemt binnen 48 werkuur contact met u op.",
+
+      // ---- FAQ ----
+      'faq.eyebrow': "Veelgestelde vragen",
+      'faq.title': "Alles wat u moet weten voordat u beslist.",
+      'faq.subtitle': "De technische antwoorden op de meest gestelde vragen van onze industriële en commerciële klanten.",
+      'faq.q1': "Vormt de WhiteRoof-coating een nadeel in de winter? Zal ik meer verwarmen?",
+      'faq.a1': `<p><strong class="text-wr-dark">Nee.</strong> In België en Luxemburg is de winterse zonne-instraling beperkt en blijft het reflecterende effect van de coating tijdens deze periode zeer gering.</p><p>De warmteverliezen van een gebouw komen voornamelijk voort uit de isolatie, thermische bruggen en ventilatie, niet uit de kleur van het dak.</p><p>WhiteRoof verhoogt dus de verwarmingsbehoefte niet significant en biedt opnieuw al zijn voordelen zodra de warmte terugkeert.</p>`,
+      'faq.q2': "Werkt dit op een oud dak?",
+      'faq.a2': `<strong class="text-wr-dark">Ja.</strong> De coating wordt aangebracht op het bestaande dak, zonder vervanging. Dat is precies één van de belangrijkste troeven: de levensduur van een verouderd dak verlengen voor een fractie van de kost van een volledige dakrenovatie.`,
+      'faq.q3': "Moet ik mijn activiteit stilleggen tijdens de werken?",
+      'faq.a3': `<strong class="text-wr-dark">Nee.</strong> De toepassing gebeurt van buitenaf, met een airless spuitpistool (tot 200 m²/u per operator). Geen impact op de binnenactiviteit: uw teams, voorraden en machines blijven normaal werken.`,
+      'faq.q4': "Wat is de levensduur van de coating?",
+      'faq.a4': `<p>Meer dan <strong class="text-wr-dark">15 tot 20 jaar</strong>, gedekt door onze garanties: 10 jaar op de uitvoering (WhiteRoof) en inbegrepen fabrikantgarantie.</p><p>Om deze maximale levensduur te bereiken, zijn een <strong class="text-wr-dark">opvolging door WhiteRoof</strong> en regelmatig onderhoud belangrijk: periodieke inspectie, zachte reiniging wanneer nodig en controle van de algemene staat van de coating.</p>`,
+      'faq.q5': "Is het product bestand tegen weersinvloeden?",
+      'faq.a5': `<strong class="text-wr-dark">Ja.</strong> De coating vormt een doorlopende beschermingslaag, zonder naden of overgangen. Hij is bestand tegen regen, vorst, UV en waterstagnatie op platte daken. Hij beschermt zelfs uw bestaande dak tegen weersinvloeden.`,
+      'faq.q6': "Is het rendabel voor mijn gebouw?",
+      'faq.a6': `<strong class="text-wr-dark">Ja.</strong> U bespaart 30 tot 50% op uw airconditioning. De terugverdientijd is kort en u vermijdt een volledige dakvervanging. Gebruik onze calculator om uw winst te schatten.`,
+      'faq.q7': "Op welke daktypes kan het aangebracht worden?",
+      'faq.a7': `Op <strong class="text-wr-dark">alle gangbare dragers</strong>: EPDM- en PVC-membranen, bitumen, staalplaten, zink, aluminium platen, platte daken zonder helling. Elke drager beschikt over een specifieke hechtprimer.`,
+      'faq.q8': "Wat is de ecologische impact van de WhiteRoof-coating?",
+      'faq.a8': `<p><strong class="text-wr-dark">Positief en meetbaar.</strong> Door uw airconditioningsbehoefte te verminderen, verlaagt WhiteRoof rechtstreeks uw elektriciteitsverbruik en de daaraan verbonden CO₂-uitstoot.</p><p>Het verlengen van de levensduur van uw bestaande dak voorkomt ook vervroede renovaties en beperkt het bouwafval. De coating draagt bovendien bij aan de vermindering van stedelijke hitte-eilanden door zonnestraling te reflecteren in plaats van op te slaan.</p>`,
+      'faq.cta_question': "Nog een vraag? Laten we het direct bespreken.",
+      'faq.cta_form': "Mijn vraag stellen via het formulier",
+      'faq.cta_call': "Een expert bellen",
+
+      // ---- Footer ----
+      'footer.brand_desc': "WhiteRoof SRL brengt hoogwaardige reflecterende witte dakcoating aan voor industriële en commerciële daken.",
+      'footer.nav_title': "Navigatie",
+      'footer.devis_link': "Gratis offerte",
+      'footer.contact_title': "Contact",
+      'footer.contact_geo': "België & Luxemburg — Interventies in beide landen",
+      'footer.delil_line': "Delil Benjamin Odun — Proces- & onderhoudsingenieur",
+      'footer.mehdi_line': "Mehdi Bourass — Business developer",
+      'footer.response_48h': "Antwoord binnen 48 werkuur",
+      'footer.follow_us': "Volg ons",
+      'footer.copyright': `© <span id="currentYear">2026</span> WhiteRoof SRL. Alle rechten voorbehouden.`,
+      'footer.legal': "Juridische vermeldingen",
+      'footer.terms': "Algemene voorwaarden",
+    },
+
+    // ===================== DEUTSCH (Belgien — B2B) =====================
+    de: {
+      // ---- Meta / SEO ----
+      'meta.title': "WhiteRoof — Reflexionsbeschichtung für Industriedächer",
+      'meta.description': "WhiteRoof — Reflexionsbeschichtung (weiß) für Industriegebäude. Senken Sie Ihre Energiekosten um 30 bis 50% und Ihre Innentemperatur um 6 bis 10°C. Einsätze in Belgien und Luxemburg.",
+      'meta.keywords': "Cool Roofing, Reflexionsbeschichtung, thermische Beschichtung, Energieeinsparung, Industriedächer, Belgien, Luxemburg, Airless-Auftrag",
+      'meta.og.title': "WhiteRoof — Reflexionsbeschichtung für Industriegebäude",
+      'meta.og.description': "Bis zu -40°C auf Ihrem Dach, 6 bis 10°C im Inneren, 30 bis 50% auf Ihren Energiekosten.",
+
+      // ---- Navigation ----
+      'nav.accueil': "Startseite",
+      'nav.solution': "Lösung",
+      'nav.calculateur': "Rechner",
+      'nav.profil': "Unser Profil",
+      'nav.devis': "Angebot",
+      'nav.language_label': "Sprache",
+      'cta.devis_gratuit': "Kostenloses Angebot",
+      'aria.menu': "Menü",
+
+      // ---- Hero ----
+      'hero.badge': "Hochleistungs-Reflexionsbeschichtung in Weiß",
+      'hero.title': `Senken Sie Ihre Energiekosten um <span class="relative inline-block"><span class="relative z-10 bg-gradient-to-r from-wr-blue to-wr-green bg-clip-text text-transparent">30 bis 50%</span></span> und Ihre Innentemperatur um <span class="relative inline-block"><span class="relative z-10 bg-gradient-to-r from-wr-blue to-wr-green bg-clip-text text-transparent">6 bis 10°C</span><svg class="absolute -bottom-1 left-0 w-full" viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M0,8 Q50,2 100,6 T200,4" stroke="#10b981" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.5"/></svg></span>`,
+      'hero.subtitle': "Reduzieren Sie die Wärmeentwicklung in Ihrem Gebäude dank einer reflektierenden Beschichtung, die direkt auf Ihr bestehendes Dach aufgetragen wird.",
+      'hero.cta_phone': "Kontaktieren Sie uns telefonisch",
+      'team.delil_role': "Verfahrens- & Wartungsingenieur",
+      'team.mehdi_role': "Vertriebsmitarbeiter",
+      'hero.badge_water': "Verstärkte Abdichtung",
+      'hero.badge_geo': "Einsätze in Belgien und Luxemburg",
+      'hero.badge_airless': "Präziser Airless-Auftrag",
+      'hero.compare_label': "Thermischer Vergleich",
+      'hero.compare_title': "Dachoberfläche im Sommer",
+      'hero.standard_roof': "Standard dunkles Dach",
+      'hero.absorption': "Maximale Absorption",
+      'hero.wr_roof': "WhiteRoof Beschichtung",
+      'hero.upto_minus40': "Bis zu -40°C",
+      'hero.solar_reflection': "Hohe Solarreflexion",
+      'hero.surface_drop': "Senkung der Oberflächentemperatur",
+      'hero.upto_minus40_short': "Bis zu -40°C",
+      'hero.energy_bills': "Energiekosten",
+      'hero.minus_30_50': "−30 bis −50%",
+
+      // ---- Trust metrics ----
+      'metric.upto_minus40': "Bis zu -40°C",
+      'metric.roof_surface': "Auf der Dachoberfläche",
+      'metric.indoor_drop': "Senkung der Innentemperatur",
+      'metric.energy_bills': "Auf den Energiekosten",
+      'metric.coating_lifespan': "Lebensdauer der Beschichtung",
+      'metric.lifespan_link_aria': "Details zur Lebensdauer anzeigen",
+
+      // ---- Cool Roofing preview ----
+      'coolroof.eyebrow': "Cool Roofing in Bildern",
+      'coolroof.title': "Ein Dach, das Wärme reflektiert statt absorbiert.",
+      'coolroof.subtitle': "Die WhiteRoof Beschichtung reduziert die Wärmeentwicklung auf dem Dach und senkt den Klimatisierungsbedarf, bei gleichzeitig verbessertem thermischem Komfort im Gebäude.",
+      'coolroof.b1_title': "Reflektiert die Sonnenstrahlung",
+      'coolroof.b1_desc': "Die Wärme wird nach außen abgeleitet, statt vom Dach absorbiert zu werden.",
+      'coolroof.b2_title': "Reduziert die Überhitzung des Gebäudes",
+      'coolroof.b2_desc': "Kühlere Räume und ein besserer thermischer Komfort in heißen Perioden.",
+      'coolroof.b3_title': "Schützt das Dach",
+      'coolroof.b3_desc': "Geringere thermische Belastung und eine längere Lebensdauer des Dachs.",
+      'coolroof.cta': "Meine Energieeinsparung schätzen",
+      'coolroof.caption': "Ein kühleres Dach, ohne vollständigen Austausch.",
+      'coolroof.img_alt': "Auftrag der WhiteRoof Cool-Roofing-Beschichtung auf einem Industriedach — reflektierende weiße Oberfläche",
+
+      // ---- How it works ----
+      'howitworks.eyebrow': "So funktioniert es",
+      'howitworks.title': "Wie WhiteRoof die Wärme in Ihrem Gebäude reduziert.",
+      'howitworks.subtitle': `Ein dunkles Dach <strong class="text-wr-dark">absorbiert</strong> Wärme. Ein weißes WhiteRoof Dach <strong class="text-wr-dark">reflektiert</strong> sie. Ganz einfach — und die Einsparungen sind sofort spürbar.`,
+      'howitworks.before': "Vorher",
+      'howitworks.standard_roof': "Standard dunkles Dach",
+      'howitworks.upto_85': "Bis zu 85°C",
+      'howitworks.sun': "Sonne",
+      'howitworks.dark_roof': "Dunkles Dach",
+      'howitworks.heat_transmitted': "Wärme ins Gebäude übertragen",
+      'howitworks.hot_building': "Aufheizendes Gebäude",
+      'howitworks.before_b1': "Das Dach speichert die Wärme",
+      'howitworks.before_b2': "Die Wärme beschleunigt die Dachalterung",
+      'howitworks.before_b3': "Die Klimatisierung verbraucht mehr",
+      'howitworks.after': "Nachher",
+      'howitworks.wr_coating': "Weiße WhiteRoof Beschichtung",
+      'howitworks.upto_40_less': "Bis zu 40°C weniger",
+      'howitworks.heat_reflected': "Wärme nach außen reflektiert",
+      'howitworks.cool_building': "Kühleres Gebäude",
+      'howitworks.after_b1': "Die Wärme wird nach außen abgeleitet",
+      'howitworks.after_b2': "Das Dach hält länger",
+      'howitworks.after_b3': "Weniger Klimatisierung nötig",
+
+      // ---- Profil ----
+      'profile.eyebrow': "Unser Profil",
+      'profile.title': "Ein Ansatz, der Praxiserfahrung mit technischer Kenntnis von Industriegebäuden verbindet.",
+
+      // ---- Performances ----
+      'perf.eyebrow': "Technische Lösung & Leistungen",
+      'perf.title': "Eine hoch reflektierende Oberfläche, messbare Ergebnisse.",
+      'perf.subtitle': `WhiteRoof reduziert die Wärmeaufnahme Ihres Dachs dank einer hoch reflektierenden weißen Oberfläche. Direktes Ergebnis: <strong class="text-white">Ihre Energiekosten sinken</strong>, der thermische Komfort des Gebäudes verbessert sich, die Struktur wird dauerhaft geschützt und Ihr CO₂-Fußabdruck nimmt ab.`,
+      'perf.p1_label': "Einsparung bei der Klimatisierung",
+      'perf.p1_desc': "Bis zu 50% Einsparung bei Ihrer Klimatisierung. Die thermische Last des Gebäudes sinkt, ebenso wie Ihre Stromrechnung.",
+      'perf.p2_label': "Im Gebäudeinneren",
+      'perf.p2_desc': "Bis zu 10°C weniger im Gebäudeinneren. Der thermische Komfort Ihrer Teams und Lagerflächen verbessert sich sofort.",
+      'perf.p3_label': "Solarreflexion",
+      'perf.p3_desc': "85% der Sonnenstrahlung werden reflektiert, bevor sie vom Dach absorbiert wird. Die Oberfläche wird nicht mehr heiß, das Gebäude ebenso wenig.",
+      'perf.p4_label': "SRI-Index",
+      'perf.p4_desc': "Ein SRI-Index zwischen 106 und 112 reiht WhiteRoof unter die leistungsstärksten Beschichtungen am Markt ein. Das Dach bleibt kühl, auch in der Hochsommerhitze.",
+      'perf.p5_label': "Dauerhaftigkeit",
+      'perf.p5_desc': "Eine Lebensdauer von bis zu 20 Jahren. Eine nachhaltige Investition, die Ihr Gebäude und Ihre Einsparungen langfristig schützt.",
+      'perf.p6_label': "CO₂-Fußabdruck",
+      'perf.p6_desc': "Jede eingesparte kWh senkt direkt Ihre CO₂-Emissionen. Ein messbarer ökologischer Nutzen, zusätzlich zu Ihren finanziellen Einsparungen.",
+      'perf.how_title': "So funktioniert es",
+      'perf.prop1_title': "Reflektiert Wärme statt sie zu absorbieren",
+      'perf.prop1_desc': "Die Oberfläche leitet Sonnenenergie ab statt sie zu speichern: Ihr Dach funktioniert nicht mehr als Heizkörper.",
+      'perf.prop2_title': "Dach abgedichtet",
+      'perf.prop2_desc': `Eine <strong class="text-white">durchgehende Schutzschicht</strong> ohne Nähte oder Übergänge. Ihr Dach wird vor Infiltrationen, UV und Witterung geschützt.`,
+      'perf.prop3_title': "Reinigt sich selbst mit Regenwasser",
+      'perf.prop3_desc': `Verhindert die Entwicklung von Moos und Flechten und <strong class="text-white">reinigt sich mit Regenwasser</strong>. Die Leistung bleibt über die Zeit optimal.`,
+      'perf.prop4_title': "Vermeidet eine vollständige Dachsanierung",
+      'perf.prop4_desc': `Kein vollständiger Austausch nötig. WhiteRoof <strong class="text-white">verlängert die Lebensdauer</strong> Ihres bestehenden Dachs für einen Bruchteil der Kosten einer Erneuerung — und reduziert so den Bauabfall.`,
+      'perf.cert_eyebrow': "Zertifizierungen & Konformität",
+      'perf.cert_title': "Zertifizierte Leistungen, professionelle Konformität.",
+      'perf.cert_desc': "Unsere AFNOR-Klassifizierungen garantieren Qualität, Zuverlässigkeit und Konformität jedes Auftrags. Der Beweis für ein ernsthaftes, technisch vertretbares und dauerhaftes Produkt.",
+      'perf.warranty_title': "Unsere Garantien.",
+      'perf.warranty_subtitle': "Zwei Deckungsstufen, um Ihre Investition abzusichern.",
+      'perf.w1_title': "Garantie auf Auftrag / Ausführung",
+      'perf.w1_value': "10 Jahre",
+      'perf.w1_desc': "Von WhiteRoof bei all unseren Einsätzen angeboten. Deckt den Auftrag, die Haftung und die Kontinuität des aufgebrachten Schutzes.",
+      'perf.w2_title': "Herstellergarantie",
+      'perf.w2_value': "Inbegriffen",
+      'perf.w2_desc': `Von einem <strong class="text-white">großen spezialisierten französischen Industrielabor</strong> bereitgestellt. Deckt die thermischen Eigenschaften und die Abdichtung des Produkts selbst.`,
+      'perf.monitor_eyebrow': "Leistungsüberwachung",
+      'perf.monitor_title': "Eine nachhaltige Investition, langfristig erhaltene Leistungen.",
+      'perf.monitor_desc': "Um die reflektierenden Leistungen Ihres Dachs langfristig zu erhalten, empfiehlt WhiteRoof eine einfache und regelmäßige Überwachung. Ziel: eine konstante Effizienz über viele Jahre hinweg garantieren.",
+      'perf.m1_title': "Regelmäßige Inspektion",
+      'perf.m1_desc': "Den Allgemeinzustand der Beschichtung prüfen.",
+      'perf.m2_title': "Schonende Reinigung",
+      'perf.m2_desc': "Eine schonende Reinigung bei Bedarf.",
+      'perf.m3_title': "Zustandskontrolle",
+      'perf.m3_desc': "Die Kontinuität des Schutzes kontrollieren.",
+
+      // ---- Supports ----
+      'supports.eyebrow': "Kompatibilität",
+      'supports.title': "Auf alle Dachtypen anwendbar.",
+      'supports.subtitle': "Ob Ihr Dach aus Bitumen, Stahl oder synthetischer Membran besteht — WhiteRoof verfügt über eine passende Formel.",
+      'supports.s1_title': "Synthetische Membranen",
+      'supports.s1_desc': "EPDM- und PVC-Membranen. Die Beschichtung haftet dauerhaft und löst sich nicht.",
+      'supports.s2_title': "Bitumendächer",
+      'supports.s2_desc': "Bitumen, Calandrite, Asphalt und Schindeln. Das Dach wird vor UV geschützt und hält länger.",
+      'supports.s3_title': "Metalldächer & Trapezblech",
+      'supports.s3_desc': `Zink, Stahl, Aluminiumplatten, Kupfer und Blei — mit <strong class="text-wr-dark">Antikorrosionsbehandlung</strong>.`,
+      'supports.s4_title': "Flachdächer & Terrassen ohne Gefälle",
+      'supports.s4_desc': `Spezifische Technologie <strong class="text-wr-dark">beständig gegen Wasserstau</strong> und konstante Feuchtigkeit.`,
+
+      // ---- Calculator ----
+      'calc.eyebrow': "Einsparungsrechner",
+      'calc.title': "Wie viel könnte Ihr Gebäude einsparen?",
+      'calc.subtitle': "Geben Sie die Fläche Ihres Dachs ein. Sie erhalten sofort eine Schätzung der jährlichen Energieeinsparung.",
+      'calc.step1': "Schritt 1",
+      'calc.step1_title': "Geben Sie Ihre Fläche ein",
+      'calc.surface_label': "Fläche Ihres Flachdachs (m²)",
+      'calc.min_surface': "50 m²",
+      'calc.max_surface': "50 000 m²",
+      'calc.info_box': `Schätzung basierend auf einer Spanne von <span class="font-bold text-wr-dark">3 € bis 5 € Einsparung pro m² pro Jahr</span> (Klimatisierung, Lüftung, Erhaltung der Anlagen). Das tatsächliche Ergebnis hängt von der Isolierung, der Nutzung des Gebäudes und Ihrer Klimaanlage ab.`,
+      'calc.step2': "Schritt 2",
+      'calc.step2_title': "Sofortiges Ergebnis",
+      'calc.savings_label': "Geschätzte Energieeinsparung",
+      'calc.to': "bis",
+      'calc.per_year': "€ / Jahr",
+      'calc.savings_sub': "Bei der Klimatisierung (Schätzung basierend auf einer durchschnittlichen Einsparung pro m²)",
+      'calc.kwh_line': `<span aria-hidden="true">⚡</span><span>Eine Reduktion von <strong id="kwhMin" class="text-wr-green-soft font-semibold stat-number">15.000</strong> bis <strong id="kwhMax" class="text-wr-green-soft font-semibold stat-number">22.000</strong> kWh Verbrauch.</span>`,
+      'calc.impact_label': "Geschätzte ökologische Auswirkung",
+      'calc.co2_per_year': "Tonnen CO₂ / Jahr",
+      'calc.co2_sub': "Vermiedene Emissionen dank der Senkung Ihres Stromverbrauchs (Faktor Energiemix Belgien).",
+      'calc.cta_quote': "Mein kostenloses Angebot für den Auftrag anfordern",
+      'calc.note': `<strong class="text-slate-300">Hinweis:</strong> Diese Schätzung basiert auf einem durchschnittlichen, festgestellten Energieeinsparungswert pro m². Die genaue Berechnung hängt von der aktuellen Isolierung des Gebäudes, der Nutzung der Klimatisierung und Ihrer geografischen Zone ab. Eine personalisierte thermische Studie ist erforderlich, um diese Zahlen zu validieren.`,
+
+      // ---- Devis form ----
+      'devis.eyebrow': "Anfrage kostenloses Angebot",
+      'devis.title': "Erhalten Sie Ihr Angebot für den Auftrag innerhalb von 48 Std.",
+      'devis.subtitle': "Beschreiben Sie Ihr Projekt in wenigen Zeilen. Ein WhiteRoof-Experte meldet sich bei Ihnen mit einem quantifizierten, detaillierten und unverbindlichen Angebot.",
+      'devis.f1_title': "Einsätze in Belgien und Luxemburg",
+      'devis.f1_desc': "Wallonien, Brüssel, Flandern und Großherzogtum Luxemburg — Anfahrt inbegriffen.",
+      'devis.f2_title': "Antwort innerhalb von 48 Arbeitsstunden",
+      'devis.f2_desc': "Ein einziger Ansprechpartner von der Diagnose bis zum Auftrag.",
+      'devis.f3_title': "Detailliertes und transparentes Angebot",
+      'devis.f3_desc': "Fläche, Methode, Zeitplan, Garantien — ohne Überraschungen.",
+      'form.name_label': "Vollständiger Name *",
+      'form.name_ph': "Max Mustermann",
+      'form.company_label': "Firmenname *",
+      'form.company_ph': "Mustermann Industries GmbH",
+      'form.phone_label': `Telefonnummer <span class="text-slate-400 font-normal">(Optional — für eine schnellere Bearbeitung)</span>`,
+      'form.phone_ph': "+32 4 70 12 34 56",
+      'form.email_label': "E-Mail-Adresse *",
+      'form.email_ph': "m.mustermann@mustermann-industries.be",
+      'form.surface_label': "Geschätzte Dachfläche (m²) *",
+      'form.surface_ph': "z. B. 1000",
+      'form.message_label': "Nachricht",
+      'form.message_ph': "Beschreiben Sie Ihr Projekt, Ihr Gebäude, Ihre thermischen oder Abdichtungsanforderungen...",
+      'form.submit': "Meine Anfrage für ein kostenloses Angebot senden",
+      'form.consent': "Mit dem Absenden dieses Formulars willigen Sie ein, von WhiteRoof SRL kontaktiert zu werden. Ihre Daten werden niemals weitergegeben.",
+      'form.success': "Vielen Dank! Ihre Anfrage wurde gesendet. Ein WhiteRoof-Expert meldet sich innerhalb von 48 Arbeitsstunden bei Ihnen.",
+
+      // ---- FAQ ----
+      'faq.eyebrow': "Häufig gestellte Fragen",
+      'faq.title': "Alles, was Sie vor der Entscheidung wissen müssen.",
+      'faq.subtitle': "Die technischen Antworten auf die häufigsten Fragen unserer industriellen und gewerblichen Kunden.",
+      'faq.q1': "Ist die WhiteRoof-Beschichtung im Winter ein Nachteil? Werde ich mehr heizen müssen?",
+      'faq.a1': `<p><strong class="text-wr-dark">Nein.</strong> In Belgien und Luxemburg ist die winterliche Sonneneinstrahlung gering und der reflektierende Effekt der Beschichtung ist in dieser Periode sehr begrenzt.</p><p>Die Wärmeverluste eines Gebäudes stammen hauptsächlich aus der Isolierung, thermischen Brücken und der Lüftung, nicht aus der Farbe des Dachs.</p><p>WhiteRoof erhöht also den Heizbedarf nicht wesentlich und bietet alle Vorteile wieder, sobald die Hitze zurückkehrt.</p>`,
+      'faq.q2': "Funktioniert das auf einem alten Dach?",
+      'faq.a2': `<strong class="text-wr-dark">Ja.</strong> Die Beschichtung wird auf das bestehende Dach aufgetragen, ohne Austausch. Das ist sogar einer der Hauptvorteile: die Lebensdauer eines alternden Dachs für einen Bruchteil der Kosten einer vollständigen Dachsanierung zu verlängern.`,
+      'faq.q3': "Muss ich meinen Betrieb während der Arbeiten einstellen?",
+      'faq.a3': `<strong class="text-wr-dark">Nein.</strong> Der Auftrag erfolgt von außen, mit Airless-Spritzpistole (bis zu 200 m²/h pro Bediener). Keine Auswirkung auf die Innenaktivität: Ihre Teams, Bestände und Maschinen arbeiten normal weiter.`,
+      'faq.q4': "Wie lange ist die Lebensdauer der Beschichtung?",
+      'faq.a4': `<p>Mehr als <strong class="text-wr-dark">15 bis 20 Jahre</strong>, abgedeckt durch unsere Garantien: 10 Jahre auf die Ausführung (WhiteRoof) und inbegriffene Herstellergarantie.</p><p>Um diese maximale Lebensdauer zu erreichen, sind eine <strong class="text-wr-dark">Überwachung durch WhiteRoof</strong> und regelmäßige Wartung wichtig: regelmäßige Inspektion, schonende Reinigung bei Bedarf und Kontrolle des Allgemeinzustands der Beschichtung.</p>`,
+      'faq.q5': "Hält das Produkt den Witterungsbedingungen stand?",
+      'faq.a5': `<strong class="text-wr-dark">Ja.</strong> Die Beschichtung bildet eine durchgehende Schutzschicht, ohne Nähte oder Übergänge. Sie ist beständig gegen Regen, Frost, UV und Wasserstau auf Flachdächern. Sie schützt sogar Ihr bestehendes Dach vor Witterung.`,
+      'faq.q6': "Lohnt es sich für mein Gebäude?",
+      'faq.a6': `<strong class="text-wr-dark">Ja.</strong> Sie sparen 30 bis 50% bei Ihrer Klimatisierung. Die Amortisation ist schnell, und Sie vermeiden eine vollständige Dachsanierung. Nutzen Sie unseren Rechner, um Ihre Gewinne zu schätzen.`,
+      'faq.q7': "Auf welche Dachtypen kann es aufgetragen werden?",
+      'faq.a7': `Auf <strong class="text-wr-dark">alle gängigen Untergründe</strong>: EPDM- und PVC-Membranen, Bitumen, Trapezblech, Zink, Aluminiumplatten, Flachdächer ohne Gefälle. Jeder Untergrund verfügt über einen spezifischen Haftprimer.`,
+      'faq.q8': "Wie ist die ökologische Auswirkung der WhiteRoof-Beschichtung?",
+      'faq.a8': `<p><strong class="text-wr-dark">Positiv und messbar.</strong> Durch die Reduzierung Ihres Klimatisierungsbedarfs senkt WhiteRoof direkt Ihren Stromverbrauch und die damit verbundenen CO₂-Emissionen.</p><p>Die Verlängerung der Lebensdauer Ihres bestehenden Dachs verhindert zudem vorzeitige Renovierungen und reduziert den Bauabfall. Die Beschichtung trägt außerdem zur Verringerung städtischer Wärmeinseln bei, indem sie Sonnenstrahlung reflektiert statt zu speichern.</p>`,
+      'faq.cta_question': "Eine andere Frage? Sprechen wir direkt darüber.",
+      'faq.cta_form': "Meine Frage über das Formular stellen",
+      'faq.cta_call': "Einen Experten anrufen",
+
+      // ---- Footer ----
+      'footer.brand_desc': "WhiteRoof SRL trägt hochleistungs-Reflexionsbeschichtungen in Weiß auf industrielle und gewerbliche Dächer auf.",
+      'footer.nav_title': "Navigation",
+      'footer.devis_link': "Kostenloses Angebot",
+      'footer.contact_title': "Kontakt",
+      'footer.contact_geo': "Belgien & Luxemburg — Einsätze in beiden Ländern",
+      'footer.delil_line': "Delil Benjamin Odun — Verfahrens- & Wartungsingenieur",
+      'footer.mehdi_line': "Mehdi Bourass — Vertriebsmitarbeiter",
+      'footer.response_48h': "Antwort innerhalb von 48 Arbeitsstunden",
+      'footer.follow_us': "Folgen Sie uns",
+      'footer.copyright': `© <span id="currentYear">2026</span> WhiteRoof SRL. Alle Rechte vorbehalten.`,
+      'footer.legal': "Impressum",
+      'footer.terms': "Allgemeine Geschäftsbedingungen",
+    },
+  },
+
+  // ----------------------------------------------------------------------------
+  // Résout la langue initiale au chargement de la page
+  //  1. URL ?lang=xx (prioritaire — permet de partager une langue précise)
+  //  2. localStorage
+  //  3. langue par défaut (fr)
+  // ----------------------------------------------------------------------------
+  resolveInitialLang() {
+    try {
+      const url = new URL(window.location.href);
+      const urlLang = url.searchParams.get('lang');
+      if (urlLang && this.translations[urlLang]) return urlLang;
+    } catch (e) { /* ignore */ }
+
+    try {
+      const stored = window.localStorage.getItem(this.STORAGE_KEY);
+      if (stored && this.translations[stored]) return stored;
+    } catch (e) { /* localStorage indisponible (mode privé etc.) */ }
+
+    return this.DEFAULT_LANG;
+  },
+
+  // ----------------------------------------------------------------------------
+  // Récupère une traduction par clé, avec fallback français puis clé brute.
+  // ----------------------------------------------------------------------------
+  t(key) {
+    const dict = this.translations[this.current] || {};
+    if (Object.prototype.hasOwnProperty.call(dict, key)) return dict[key];
+    // Fallback FR
+    const frDict = this.translations.fr || {};
+    if (Object.prototype.hasOwnProperty.call(frDict, key)) return frDict[key];
+    // Fallback : retourne la clé (visible — facilite le debug)
+    return key;
+  },
+
+  // ----------------------------------------------------------------------------
+  // Applique toutes les traductions au DOM en fonction de la langue courante.
+  // ----------------------------------------------------------------------------
+  apply() {
+    if (!this.current) this.current = this.resolveInitialLang();
+    const lang = this.current;
+
+    // 1. <html lang="...">
+    document.documentElement.setAttribute('lang', lang);
+
+    // 2. <meta property="og:locale">
+    const ogLocale = document.querySelector('meta[property="og:locale"]');
+    if (ogLocale) ogLocale.setAttribute('content', this.OG_LOCALES[lang] || 'fr_BE');
+
+    // 3. Contenu textuel simple
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const value = this.t(key);
+      // Pour les éléments simples, on remplace le textContent si pas d'enfants
+      // significatifs, sinon on utilise textContent quand même (sécurisé).
+      el.textContent = value;
+    });
+
+    // 4. Contenu HTML (autorise balises)
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      el.innerHTML = this.t(key);
+    });
+
+    // 5. Placeholders
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      el.setAttribute('placeholder', this.t(key));
+    });
+
+    // 6. aria-label
+    document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
+      const key = el.getAttribute('data-i18n-aria-label');
+      el.setAttribute('aria-label', this.t(key));
+    });
+
+    // 7. alt
+    document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+      const key = el.getAttribute('data-i18n-alt');
+      el.setAttribute('alt', this.t(key));
+    });
+
+    // 8. Meta dynamiques (title, description, keywords, og:*)
+    document.querySelectorAll('[data-i18n-meta]').forEach(el => {
+      const key = 'meta.' + el.getAttribute('data-i18n-meta');
+      const value = this.t(key);
+      if (el.tagName === 'TITLE') {
+        el.textContent = value;
+      } else {
+        el.setAttribute('content', value);
+      }
+    });
+
+    // 9. Mise à jour de l'état visuel du sélecteur de langue (FR | NL | DE)
+    document.querySelectorAll('[data-lang]').forEach(btn => {
+      const isActive = btn.getAttribute('data-lang') === lang;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    // 10. Réinitialiser le currentYear après remplacement HTML du footer
+    const yearEl = document.getElementById('currentYear');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // 11. Réinitialiser les icônes Lucide (les remplacements innerHTML
+    //     détruisent les <i data-lucide> déjà instanciés)
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    }
+
+    // 12. Re-déclencher le calcul pour reformater les nombres selon la locale
+    if (typeof window.refreshCalculatorForLang === 'function') {
+      window.refreshCalculatorForLang(lang);
+    }
+
+    // 13. Re-vérifier les accordéons FAQ ouverts (la hauteur scrollHeight
+    //     peut changer quand le texte change)
+    document.querySelectorAll('.faq-content').forEach(c => {
+      if (c.style.maxHeight && c.style.maxHeight !== '0px') {
+        c.style.maxHeight = c.scrollHeight + 'px';
+      }
+    });
+  },
+
+  // ----------------------------------------------------------------------------
+  // Change la langue courante, la persiste, met à jour l'URL, et ré-applique.
+  // ----------------------------------------------------------------------------
+  setLang(lang, options) {
+    options = options || {};
+    if (!this.translations[lang]) {
+      console.warn('[i18n] Langue non supportée:', lang);
+      return;
+    }
+    this.current = lang;
+
+    // Persistance localStorage
+    try {
+      window.localStorage.setItem(this.STORAGE_KEY, lang);
+    } catch (e) { /* mode privé etc. */ }
+
+    // Mise à jour douce de l'URL (?lang=xx) sans rechargement ni scroll
+    if (!options.skipUrl) {
+      try {
+        const url = new URL(window.location.href);
+        if (lang === this.DEFAULT_LANG) {
+          url.searchParams.delete('lang');
+        } else {
+          url.searchParams.set('lang', lang);
+        }
+        window.history.replaceState({}, '', url.toString());
+      } catch (e) { /* ignore */ }
+    }
+
+    // Transition douce : fondre les textes, les remplacer, puis réafficher
+    document.body.classList.add('i18n-transitioning');
+    setTimeout(() => {
+      this.apply();
+      document.body.classList.remove('i18n-transitioning');
+    }, 150);
+  },
+
+  // ----------------------------------------------------------------------------
+  // Initialise les écouteurs sur les boutons du sélecteur de langue.
+  // ----------------------------------------------------------------------------
+  init() {
+    this.current = this.resolveInitialLang();
+    this.apply();
+
+    // Brancher tous les boutons [data-lang]
+    document.querySelectorAll('[data-lang]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const lang = btn.getAttribute('data-lang');
+        this.setLang(lang);
+      });
+    });
+  },
+};
+
+// Exposer globalement pour le débogage et l'intégration
+window.I18N = I18N;
+
+// Auto-initialisation au chargement (avant les autres scripts pour que les
+// textes soient déjà traduits quand Lucide etc. se réinitialisent).
+I18N.init();
+
+  </script>
 
   <!-- ============ SCRIPTS ============ -->
   <script>
@@ -1715,14 +2757,18 @@
     // ===== Calculateur d'économies =====
     // Fourchette € : 3 € à 5 € d'économie par m² par an
     // Fourchette kWh : 15 à 22 kWh/m²/an de climatisation économisés (données marché belge)
-    const surfaceInput = document.getElementById('surfaceInput');
-    const surfaceSlider = document.getElementById('surfaceSlider');
-    const savingsMin = document.getElementById('savingsMin');
-    const savingsMax = document.getElementById('savingsMax');
-    const kwhMin = document.getElementById('kwhMin');
-    const kwhMax = document.getElementById('kwhMax');
-    const co2Min = document.getElementById('co2Min');
-    const co2Max = document.getElementById('co2Max');
+    // Helpers ré-obtenant l'élément à chaque appel — nécessaire car
+    // I18N.apply() peut remplacer innerHTML de certains parents et ainsi
+    // détruire les anciens nœuds (ex. : #kwhMin, #kwhMax, #currentYear).
+    const $ = (id) => document.getElementById(id);
+    const surfaceInput = () => $('surfaceInput');
+    const surfaceSlider = () => $('surfaceSlider');
+    const savingsMin = () => $('savingsMin');
+    const savingsMax = () => $('savingsMax');
+    const kwhMin = () => $('kwhMin');
+    const kwhMax = () => $('kwhMax');
+    const co2Min = () => $('co2Min');
+    const co2Max = () => $('co2Max');
 
     const MIN_PER_M2 = 3;   // € / m² / an
     const MAX_PER_M2 = 5;   // € / m² / an
@@ -1731,16 +2777,26 @@
     const CO2_KG_PER_KWH = 0.18; // kg CO₂ / kWh — facteur mix énergétique Belgique
 
     // Formatage entier pour € et kWh (jamais de décimales)
+    // Locale dynamique selon la langue active (FR / NL / DE).
+    function getCurrentLocale() {
+      try {
+        if (window.I18N && window.I18N.current && window.I18N.LOCALES[window.I18N.current]) {
+          return window.I18N.LOCALES[window.I18N.current];
+        }
+      } catch (e) { /* fallback */ }
+      return 'fr-BE';
+    }
+
     function formatNumber(n) {
-      return new Intl.NumberFormat('fr-BE').format(Math.round(n));
+      return new Intl.NumberFormat(getCurrentLocale()).format(Math.round(n));
     }
 
     // Formatage CO₂ : 1 décimale si < 10 tonnes, sinon entier
     function formatCo2(n) {
       if (n < 10) {
-        return new Intl.NumberFormat('fr-BE', { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(n);
+        return new Intl.NumberFormat(getCurrentLocale(), { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(n);
       }
-      return new Intl.NumberFormat('fr-BE').format(Math.round(n));
+      return new Intl.NumberFormat(getCurrentLocale()).format(Math.round(n));
     }
 
     function animateNumber(element, target, formatter) {
@@ -1762,15 +2818,19 @@
     }
 
     function updateCalc(source) {
-      let surface = parseFloat(source === 'input' ? surfaceInput.value : surfaceSlider.value);
+      const sInput = surfaceInput();
+      const sSlider = surfaceSlider();
+      if (!sInput || !sSlider) return;
+
+      let surface = parseFloat(source === 'input' ? sInput.value : sSlider.value);
       if (isNaN(surface) || surface < 0) surface = 0;
       if (surface > 50000) surface = 50000;
 
       // Synchroniser input + slider
       if (source === 'input') {
-        surfaceSlider.value = Math.min(surface, 50000);
+        sSlider.value = Math.min(surface, 50000);
       } else {
-        surfaceInput.value = surface;
+        sInput.value = surface;
       }
 
       // Calcul de la fourchette d'économies (€)
@@ -1787,18 +2847,37 @@
       const maxCo2 = (maxKwh * CO2_KG_PER_KWH) / 1000;
 
       // Animation synchronisée € + kWh (entiers) + CO₂ (décimales adaptatives)
-      animateNumber(savingsMin, minSavings);
-      animateNumber(savingsMax, maxSavings);
-      animateNumber(kwhMin, minKwh);
-      animateNumber(kwhMax, maxKwh);
-      animateNumber(co2Min, minCo2, formatCo2);
-      animateNumber(co2Max, maxCo2, formatCo2);
+      // Les éléments sont ré-obtenus à chaque appel (I18N peut les remplacer).
+      const elSavingsMin = savingsMin();
+      const elSavingsMax = savingsMax();
+      const elKwhMin = kwhMin();
+      const elKwhMax = kwhMax();
+      const elCo2Min = co2Min();
+      const elCo2Max = co2Max();
+
+      if (elSavingsMin) animateNumber(elSavingsMin, minSavings);
+      if (elSavingsMax) animateNumber(elSavingsMax, maxSavings);
+      if (elKwhMin) animateNumber(elKwhMin, minKwh);
+      if (elKwhMax) animateNumber(elKwhMax, maxKwh);
+      if (elCo2Min) animateNumber(elCo2Min, minCo2, formatCo2);
+      if (elCo2Max) animateNumber(elCo2Max, maxCo2, formatCo2);
     }
 
-    surfaceInput.addEventListener('input', () => updateCalc('input'));
-    surfaceSlider.addEventListener('input', () => updateCalc('slider'));
+    // Attacher les listeners (les inputs #surfaceInput et #surfaceSlider ne
+    // sont jamais remplacés par i18n, on peut donc les attacher une fois).
+    (function attachCalcListeners() {
+      const sInput = surfaceInput();
+      const sSlider = surfaceSlider();
+      if (sInput) sInput.addEventListener('input', () => updateCalc('input'));
+      if (sSlider) sSlider.addEventListener('input', () => updateCalc('slider'));
+    })();
 
     updateCalc('input');
+
+    // Permet à I18N de rafraîchir les nombres quand la langue change
+    window.refreshCalculatorForLang = function (lang) {
+      try { updateCalc('input'); } catch (e) { /* calculateur pas encore prêt */ }
+    };
 
     // ===== Form submission (Formspree gère la soumission via l'attribut action) =====
     // Le formulaire devisForm est soumis normalement vers Formspree.
