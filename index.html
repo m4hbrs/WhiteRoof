@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ===== SEO multilingue : hreflang fr-BE / nl-BE / de-BE ===== -->
+  <!-- ===== SEO multilingue : hreflang fr-BE / nl-BE / de-BE / en-BE ===== -->
   <!-- TODO : remplacez https://www.whiteroof.be/ par l'URL définitive en production -->
   <link rel="alternate" hreflang="fr-BE" href="https://www.whiteroof.be/" />
   <link rel="alternate" hreflang="nl-BE" href="https://www.whiteroof.be/?lang=nl" />
   <link rel="alternate" hreflang="de-BE" href="https://www.whiteroof.be/?lang=de" />
+  <link rel="alternate" hreflang="en-BE" href="https://www.whiteroof.be/?lang=en" />
   <link rel="alternate" hreflang="x-default" href="https://www.whiteroof.be/" />
 
   <!-- Meta description multilingue (mise à jour dynamiquement par i18n.js) -->
@@ -21,6 +22,7 @@
   <meta property="og:locale" content="fr_BE" />
   <meta property="og:locale:alternate" content="nl_BE" />
   <meta property="og:locale:alternate" content="de_BE" />
+  <meta property="og:locale:alternate" content="en_GB" />
   <!-- TODO : remplacez l'URL ci-dessous par l'URL définitive de votre site en production -->
   <meta property="og:url" content="https://www.whiteroof.be/" />
   <!-- TODO : remplacez le chemin ci-dessous par votre image de prévisualisation (1200x630 px recommandé) -->
@@ -326,6 +328,7 @@
             <button type="button" class="lang-switch__btn" data-lang="fr" aria-label="Français" aria-pressed="true">FR</button>
             <button type="button" class="lang-switch__btn" data-lang="nl" aria-label="Nederlands" aria-pressed="false">NL</button>
             <button type="button" class="lang-switch__btn" data-lang="de" aria-label="Deutsch" aria-pressed="false">DE</button>
+            <button type="button" class="lang-switch__btn" data-lang="en" aria-label="English" aria-pressed="false">EN</button>
           </div>
 
           <a href="#devis" class="hidden sm:inline-flex btn-shine items-center gap-2 bg-wr-dark hover:bg-slate-800 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all shadow-lg shadow-wr-dark/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
@@ -354,6 +357,7 @@
               <button type="button" class="lang-switch__btn" data-lang="fr" data-lang-mobile="1" aria-label="Français" aria-pressed="true">FR</button>
               <button type="button" class="lang-switch__btn" data-lang="nl" data-lang-mobile="1" aria-label="Nederlands" aria-pressed="false">NL</button>
               <button type="button" class="lang-switch__btn" data-lang="de" data-lang-mobile="1" aria-label="Deutsch" aria-pressed="false">DE</button>
+              <button type="button" class="lang-switch__btn" data-lang="en" data-lang-mobile="1" aria-label="English" aria-pressed="false">EN</button>
             </div>
           </div>
 
@@ -517,15 +521,15 @@
           <p class="text-sm text-slate-500 mt-1" data-i18n="metric.roof_surface">Sur la surface du toit</p>
         </div>
         <div class="text-center lg:text-left">
-          <p class="font-display text-3xl lg:text-4xl font-bold text-wr-dark stat-number">6 à 10°C</p>
+          <p class="font-display text-3xl lg:text-4xl font-bold text-wr-dark stat-number" data-i18n="metric.indoor_drop_value">6 à 10°C</p>
           <p class="text-sm text-slate-500 mt-1" data-i18n="metric.indoor_drop">baisse de température intérieure</p>
         </div>
         <div class="text-center lg:text-left">
-          <p class="font-display text-3xl lg:text-4xl font-bold text-wr-dark stat-number">30 à 50%</p>
+          <p class="font-display text-3xl lg:text-4xl font-bold text-wr-dark stat-number" data-i18n="metric.energy_bills_value">30 à 50%</p>
           <p class="text-sm text-slate-500 mt-1" data-i18n="metric.energy_bills">Sur les factures d'énergie</p>
         </div>
         <div class="text-center lg:text-left">
-          <p class="font-display text-3xl lg:text-4xl font-bold text-wr-dark stat-number">
+          <p class="font-display text-3xl lg:text-4xl font-bold text-wr-dark stat-number" data-i18n="metric.lifespan_value">
             20 ans<a href="#durabilite" class="text-wr-blue text-base align-super font-bold ml-0.5 hover:text-wr-blue-dark transition-colors" aria-label="Voir les détails de la durabilité" data-i18n-aria-label="metric.lifespan_link_aria">*</a>
           </p>
           <p class="text-sm text-slate-500 mt-1" data-i18n="metric.coating_lifespan">Durée de vie du revêtement</p>
@@ -882,7 +886,7 @@
 
         <!-- Perf 4 : Indice SRI -->
         <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-7 card-lift" style="transition-delay: 0.15s;">
-          <p class="font-display text-3xl lg:text-4xl font-bold text-wr-green-soft stat-number whitespace-nowrap">106 à 112</p>
+          <p class="font-display text-3xl lg:text-4xl font-bold text-wr-green-soft stat-number whitespace-nowrap" data-i18n="perf.p4_value">106 à 112</p>
           <p class="mt-1 text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="perf.p4_label">Indice SRI</p>
           <p class="mt-4 text-sm text-slate-300 leading-relaxed" data-i18n="perf.p4_desc">
             Un indice SRI entre 106 et 112 classe WhiteRoof parmi les revêtements les plus performants du marché. La toiture reste froide même en plein été.
@@ -891,7 +895,7 @@
 
         <!-- Perf 5 : Durabilité -->
         <div id="durabilite" class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-7 card-lift scroll-mt-28" style="transition-delay: 0.2s;">
-          <p class="font-display text-4xl font-bold text-wr-green-soft stat-number">20 ans</p>
+          <p class="font-display text-4xl font-bold text-wr-green-soft stat-number" data-i18n="perf.p5_value">20 ans</p>
           <p class="mt-1 text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="perf.p5_label">Durabilité</p>
           <p class="mt-4 text-sm text-slate-300 leading-relaxed" data-i18n="perf.p5_desc">
             Une durabilité jusqu'à 20 ans. Un investissement durable qui protège votre bâtiment et vos économies sur le long terme.
@@ -1781,6 +1785,7 @@ const I18N = {
     fr: 'fr-BE',
     nl: 'nl-BE',
     de: 'de-BE',
+    en: 'en-GB',
   },
 
   // Map lang -> og:locale pour Open Graph
@@ -1788,6 +1793,7 @@ const I18N = {
     fr: 'fr_BE',
     nl: 'nl_BE',
     de: 'de_BE',
+    en: 'en_GB',
   },
 
   // Clé localStorage pour mémoriser la langue choisie
@@ -1847,8 +1853,11 @@ const I18N = {
       // ---- Trust metrics ----
       'metric.upto_minus40': "Jusqu'à -40°C",
       'metric.roof_surface': "Sur la surface du toit",
+      'metric.indoor_drop_value': "6 à 10°C",
       'metric.indoor_drop': "baisse de température intérieure",
+      'metric.energy_bills_value': "30 à 50%",
       'metric.energy_bills': "Sur les factures d'énergie",
+      'metric.lifespan_value': "20 ans",
       'metric.coating_lifespan': "Durée de vie du revêtement",
       'metric.lifespan_link_aria': "Voir les détails de la durabilité",
 
@@ -1903,8 +1912,10 @@ const I18N = {
       'perf.p2_desc': "Jusqu'à 10 °C de moins à l'intérieur du bâtiment. Le confort thermique de vos équipes et de vos stocks s'améliore immédiatement.",
       'perf.p3_label': "Réflectance solaire",
       'perf.p3_desc': "85 % du rayonnement solaire est réfléchi avant d'être absorbé par la toiture. La surface ne chauffe plus, le bâtiment non plus.",
+      'perf.p4_value': "106 à 112",
       'perf.p4_label': "Indice SRI",
       'perf.p4_desc': "Un indice SRI entre 106 et 112 classe WhiteRoof parmi les revêtements les plus performants du marché. La toiture reste froide même en plein été.",
+      'perf.p5_value': "20 ans",
       'perf.p5_label': "Durabilité",
       'perf.p5_desc': "Une durabilité jusqu'à 20 ans. Un investissement durable qui protège votre bâtiment et vos économies sur le long terme.",
       'perf.p6_label': "Empreinte carbone",
@@ -2084,8 +2095,11 @@ const I18N = {
       // ---- Trust metrics ----
       'metric.upto_minus40': "Tot -40°C",
       'metric.roof_surface': "Op het dakoppervlak",
+      'metric.indoor_drop_value': "6 tot 10°C",
       'metric.indoor_drop': "daling van de binnentemperatuur",
+      'metric.energy_bills_value': "30 tot 50%",
       'metric.energy_bills': "Op de energiefactuur",
+      'metric.lifespan_value': "20 jaar",
       'metric.coating_lifespan': "Levensduur van de coating",
       'metric.lifespan_link_aria': "Bekijk de details over de levensduur",
 
@@ -2140,8 +2154,10 @@ const I18N = {
       'perf.p2_desc': "Tot 10°C minder binnenshuis. Het thermisch comfort van uw teams en opslagruimtes verbetert onmiddellijk.",
       'perf.p3_label': "Zonreflectie",
       'perf.p3_desc': "85% van de zonnestraling wordt gereflecteerd vóór het door het dak wordt geabsorbeerd. Het oppervlak wordt niet meer warm, het gebouw evenmin.",
+      'perf.p4_value': "106 tot 112",
       'perf.p4_label': "SRI-index",
       'perf.p4_desc': "Een SRI-index tussen 106 en 112 plaatst WhiteRoof bij de meest performante coatings op de markt. Het dak blijft koel, ook in volle zomer.",
+      'perf.p5_value': "20 jaar",
       'perf.p5_label': "Duurzaamheid",
       'perf.p5_desc': "Een levensduur tot 20 jaar. Een duurzame investering die uw gebouw en uw besparingen op lange termijn beschermt.",
       'perf.p6_label': "Ecologische voetafdruk",
@@ -2321,8 +2337,11 @@ const I18N = {
       // ---- Trust metrics ----
       'metric.upto_minus40': "Bis zu -40°C",
       'metric.roof_surface': "Auf der Dachoberfläche",
+      'metric.indoor_drop_value': "6 bis 10°C",
       'metric.indoor_drop': "Senkung der Innentemperatur",
+      'metric.energy_bills_value': "30 bis 50%",
       'metric.energy_bills': "Auf den Energiekosten",
+      'metric.lifespan_value': "20 Jahre",
       'metric.coating_lifespan': "Lebensdauer der Beschichtung",
       'metric.lifespan_link_aria': "Details zur Lebensdauer anzeigen",
 
@@ -2377,8 +2396,10 @@ const I18N = {
       'perf.p2_desc': "Bis zu 10°C weniger im Gebäudeinneren. Der thermische Komfort Ihrer Teams und Lagerflächen verbessert sich sofort.",
       'perf.p3_label': "Solarreflexion",
       'perf.p3_desc': "85% der Sonnenstrahlung werden reflektiert, bevor sie vom Dach absorbiert wird. Die Oberfläche wird nicht mehr heiß, das Gebäude ebenso wenig.",
+      'perf.p4_value': "106 bis 112",
       'perf.p4_label': "SRI-Index",
       'perf.p4_desc': "Ein SRI-Index zwischen 106 und 112 reiht WhiteRoof unter die leistungsstärksten Beschichtungen am Markt ein. Das Dach bleibt kühl, auch in der Hochsommerhitze.",
+      'perf.p5_value': "20 Jahre",
       'perf.p5_label': "Dauerhaftigkeit",
       'perf.p5_desc': "Eine Lebensdauer von bis zu 20 Jahren. Eine nachhaltige Investition, die Ihr Gebäude und Ihre Einsparungen langfristig schützt.",
       'perf.p6_label': "CO₂-Fußabdruck",
@@ -2512,6 +2533,247 @@ const I18N = {
       'footer.copyright': `© <span id="currentYear">2026</span> WhiteRoof SRL. Alle Rechte vorbehalten.`,
       'footer.legal': "Impressum",
       'footer.terms': "Allgemeine Geschäftsbedingungen",
+    },
+    // ===================== ENGLISH (Belgian — B2B) =====================
+    en: {
+      // ---- Meta / SEO ----
+      'meta.title': "WhiteRoof — Reflective roof coating for industrial roofs",
+      'meta.description': "WhiteRoof — Highly reflective white roof coating for industrial buildings. Cut your energy bills by 30 to 50% and your indoor temperature by 6 to 10°C. Interventions across Belgium and Luxembourg.",
+      'meta.keywords': "cool roofing, reflective roof coating, thermal coating, energy savings, industrial roof, Belgium, Luxembourg, airless application",
+      'meta.og.title': "WhiteRoof — Reflective roof coating for industrial buildings",
+      'meta.og.description': "Up to -40°C on your roof, 6 to 10°C indoors, 30 to 50% on your energy bills.",
+
+      // ---- Navigation ----
+      'nav.accueil': "Home",
+      'nav.solution': "Solution",
+      'nav.calculateur': "Calculator",
+      'nav.profil': "Our Profile",
+      'nav.devis': "Quote",
+      'nav.language_label': "Language",
+      'cta.devis_gratuit': "Free Quote",
+      'aria.menu': "Menu",
+
+      // ---- Hero ----
+      'hero.badge': "High-performance reflective white roof coating",
+      'hero.title': `Cut your energy bills by <span class="relative inline-block"><span class="relative z-10 bg-gradient-to-r from-wr-blue to-wr-green bg-clip-text text-transparent">30 to 50%</span></span> and your indoor temperature by <span class="relative inline-block"><span class="relative z-10 bg-gradient-to-r from-wr-blue to-wr-green bg-clip-text text-transparent">6 to 10°C</span><svg class="absolute -bottom-1 left-0 w-full" viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M0,8 Q50,2 100,6 T200,4" stroke="#10b981" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.5"/></svg></span>`,
+      'hero.subtitle': "Reduce the heat build-up in your building with a reflective coating applied directly onto your existing roof.",
+      'hero.cta_phone': "Contact us by phone",
+      'team.delil_role': "Process & Maintenance Engineer",
+      'team.mehdi_role': "Business Development Manager",
+      'hero.badge_water': "Reinforced waterproofing",
+      'hero.badge_geo': "Interventions across Belgium and Luxembourg",
+      'hero.badge_airless': "Precision airless application",
+      'hero.compare_label': "Thermal comparison",
+      'hero.compare_title': "Roof surface in summer",
+      'hero.standard_roof': "Standard dark roof",
+      'hero.absorption': "Maximum absorption",
+      'hero.wr_roof': "WhiteRoof coating",
+      'hero.upto_minus40': "Up to -40°C",
+      'hero.solar_reflection': "High solar reflectance",
+      'hero.surface_drop': "Surface temperature reduction",
+      'hero.upto_minus40_short': "Up to -40°C",
+      'hero.energy_bills': "Energy bills",
+      'hero.minus_30_50': "−30 to −50%",
+
+      // ---- Trust metrics ----
+      'metric.upto_minus40': "Up to -40°C",
+      'metric.roof_surface': "On the roof surface",
+      'metric.indoor_drop_value': "6 to 10°C",
+      'metric.indoor_drop': "indoor temperature drop",
+      'metric.energy_bills_value': "30 to 50%",
+      'metric.energy_bills': "On energy bills",
+      'metric.lifespan_value': "20 years",
+      'metric.coating_lifespan': "Coating lifespan",
+      'metric.lifespan_link_aria': "View lifespan details",
+
+      // ---- Cool Roofing preview ----
+      'coolroof.eyebrow': "Cool Roofing in pictures",
+      'coolroof.title': "A roof that reflects heat instead of absorbing it.",
+      'coolroof.subtitle': "The WhiteRoof coating reduces heat build-up on the roof and lowers air-conditioning demand, while improving the building's thermal comfort.",
+      'coolroof.b1_title': "Reflects solar radiation",
+      'coolroof.b1_desc': "Heat is sent back outside instead of being absorbed by the roof.",
+      'coolroof.b2_title': "Reduces building overheating",
+      'coolroof.b2_desc': "Cooler premises and better thermal comfort during hot periods.",
+      'coolroof.b3_title': "Protects the roof",
+      'coolroof.b3_desc': "Less thermal stress and a longer service life for the roof.",
+      'coolroof.cta': "Estimate my energy savings",
+      'coolroof.caption': "A cooler roof, without a full replacement.",
+      'coolroof.img_alt': "Application of the WhiteRoof cool roofing coating on an industrial roof — reflective white surface",
+
+      // ---- How it works ----
+      'howitworks.eyebrow': "How it works",
+      'howitworks.title': "How WhiteRoof reduces heat in your building.",
+      'howitworks.subtitle': `A dark roof <strong class="text-wr-dark">absorbs</strong> heat. A white WhiteRoof roof <strong class="text-wr-dark">reflects</strong> it. It's that simple — and the savings are immediate.`,
+      'howitworks.before': "Before",
+      'howitworks.standard_roof': "Standard dark roof",
+      'howitworks.upto_85': "Up to 85°C",
+      'howitworks.sun': "Sun",
+      'howitworks.dark_roof': "Dark roof",
+      'howitworks.heat_transmitted': "Heat transferred to the building",
+      'howitworks.hot_building': "Building that heats up",
+      'howitworks.before_b1': "The roof builds up heat",
+      'howitworks.before_b2': "Heat accelerates roof ageing",
+      'howitworks.before_b3': "Air conditioning consumes more",
+      'howitworks.after': "After",
+      'howitworks.wr_coating': "White WhiteRoof coating",
+      'howitworks.upto_40_less': "Up to 40°C less",
+      'howitworks.heat_reflected': "Heat reflected back outside",
+      'howitworks.cool_building': "Cooler building",
+      'howitworks.after_b1': "Heat is sent back outside",
+      'howitworks.after_b2': "The roof lasts longer",
+      'howitworks.after_b3': "Less air conditioning needed",
+
+      // ---- Profil ----
+      'profile.eyebrow': "Our profile",
+      'profile.title': "An approach combining field expertise with technical knowledge of industrial buildings.",
+
+      // ---- Performances ----
+      'perf.eyebrow': "Technical solution & performance",
+      'perf.title': "A highly reflective surface, measurable results.",
+      'perf.subtitle': `WhiteRoof reduces the heat absorbed by your roof through a highly reflective white surface. Direct result: <strong class="text-white">your energy costs fall</strong>, the building's thermal comfort improves, the structure is durably protected, and your carbon footprint shrinks.`,
+      'perf.p1_label': "Air conditioning savings",
+      'perf.p1_desc': "Up to 50% savings on your air conditioning. The building's thermal load drops, and so does your electricity bill.",
+      'perf.p2_label': "Inside the building",
+      'perf.p2_desc': "Up to 10°C less inside the building. The thermal comfort of your teams and stored goods improves immediately.",
+      'perf.p3_label': "Solar reflectance",
+      'perf.p3_desc': "85% of solar radiation is reflected before being absorbed by the roof. The surface no longer heats up, and neither does the building.",
+      'perf.p4_value': "106 to 112",
+      'perf.p4_label': "SRI index",
+      'perf.p4_desc': "An SRI index between 106 and 112 places WhiteRoof among the most performant coatings on the market. The roof stays cool even in peak summer.",
+      'perf.p5_value': "20 years",
+      'perf.p5_label': "Durability",
+      'perf.p5_desc': "A lifespan of up to 20 years. A sustainable investment that protects your building and your savings over the long term.",
+      'perf.p6_label': "Carbon footprint",
+      'perf.p6_desc': "Every kWh saved directly reduces your CO₂ emissions. A measurable environmental benefit, on top of your financial savings.",
+      'perf.how_title': "How it works",
+      'perf.prop1_title': "Reflects heat instead of absorbing it",
+      'perf.prop1_desc': "The surface sends solar energy back rather than storing it: your roof stops working like a radiator.",
+      'perf.prop2_title': "Roof made watertight",
+      'perf.prop2_desc': `A <strong class="text-white">continuous protective layer</strong> with no joints or seams. Your roof is protected against infiltration, UV and weather.`,
+      'perf.prop3_title': "Self-cleaning with rainwater",
+      'perf.prop3_desc': `Prevents the growth of moss and lichen and <strong class="text-white">cleans itself with rainwater</strong>. Performance stays optimal over time.`,
+      'perf.prop4_title': "Avoids a full roof replacement",
+      'perf.prop4_desc': `No full replacement needed. WhiteRoof <strong class="text-white">extends the service life</strong> of your existing roof for a fraction of the cost of a replacement — and so reduces construction waste.`,
+      'perf.cert_eyebrow': "Certifications & compliance",
+      'perf.cert_title': "Certified performance, professional compliance.",
+      'perf.cert_desc': "Our AFNOR classifications guarantee the quality, reliability and compliance of every application. Proof of a serious, technically defensible and durable product.",
+      'perf.warranty_title': "Our warranties.",
+      'perf.warranty_subtitle': "Two levels of cover to secure your investment.",
+      'perf.w1_title': "Application / Workmanship warranty",
+      'perf.w1_value': "10 years",
+      'perf.w1_desc': "Provided by WhiteRoof across all our interventions. Covers the application, adhesion and continuity of the protective layer applied.",
+      'perf.w2_title': "Manufacturer warranty",
+      'perf.w2_value': "Included",
+      'perf.w2_desc': `Provided by a <strong class="text-white">large specialised French industrial laboratory</strong>. Covers the thermal properties and waterproofing of the product itself.`,
+      'perf.monitor_eyebrow': "Performance monitoring",
+      'perf.monitor_title': "A sustainable investment, performance maintained over time.",
+      'perf.monitor_desc': "To preserve the reflective performance of your roof over the long term, WhiteRoof recommends simple, periodic monitoring. The goal: guarantee consistent efficiency for many years.",
+      'perf.m1_title': "Periodic inspection",
+      'perf.m1_desc': "Check the overall condition of the coating.",
+      'perf.m2_title': "Gentle cleaning",
+      'perf.m2_desc': "A gentle wash when needed.",
+      'perf.m3_title': "Condition check",
+      'perf.m3_desc': "Check the continuity of the protection.",
+
+      // ---- Supports ----
+      'supports.eyebrow': "Compatibility",
+      'supports.title': "Suitable for all roof types.",
+      'supports.subtitle': "Whether your roof is bitumen, steel or a synthetic membrane, WhiteRoof has a suitable formula.",
+      'supports.s1_title': "Synthetic membranes",
+      'supports.s1_desc': "EPDM and PVC membranes. The coating adheres durably and does not peel off.",
+      'supports.s2_title': "Bituminous roofs",
+      'supports.s2_desc': "Bitumen, Calandrite, asphalt and shingles. The roof is protected from UV and lasts longer.",
+      'supports.s3_title': "Metal roofs & profiled steel",
+      'supports.s3_desc': `Zinc, steel, aluminium sheets, copper and lead — with <strong class="text-wr-dark">anti-corrosion treatment</strong> included.`,
+      'supports.s4_title': "Flat roofs & zero-pitch terraces",
+      'supports.s4_desc': `Specific technology <strong class="text-wr-dark">resistant to standing water</strong> and constant moisture.`,
+
+      // ---- Calculator ----
+      'calc.eyebrow': "Savings calculator",
+      'calc.title': "How much could your building save?",
+      'calc.subtitle': "Enter your roof surface. You instantly get an estimate of the annual energy savings.",
+      'calc.step1': "Step 1",
+      'calc.step1_title': "Enter your surface area",
+      'calc.surface_label': "Surface of your flat roof (m²)",
+      'calc.min_surface': "50 m²",
+      'calc.max_surface': "50,000 m²",
+      'calc.info_box': `Estimate based on a range of <span class="font-bold text-wr-dark">€3 to €5 of savings per m² per year</span> (air conditioning, ventilation, equipment preservation). The actual result depends on insulation, building use and your air-conditioning system.`,
+      'calc.step2': "Step 2",
+      'calc.step2_title': "Instant results",
+      'calc.savings_label': "Estimated energy savings",
+      'calc.to': "to",
+      'calc.per_year': "€ / year",
+      'calc.savings_sub': "On air conditioning (estimate based on an average saving per m²)",
+      'calc.kwh_line': `<span aria-hidden="true">⚡</span><span>A reduction of <strong id="kwhMin" class="text-wr-green-soft font-semibold stat-number">15,000</strong> to <strong id="kwhMax" class="text-wr-green-soft font-semibold stat-number">22,000</strong> kWh of consumption.</span>`,
+      'calc.impact_label': "Estimated environmental impact",
+      'calc.co2_per_year': "tonnes of CO₂ / year",
+      'calc.co2_sub': "Emissions avoided thanks to the reduction in your electricity consumption (Belgium energy mix factor).",
+      'calc.cta_quote': "Request my free application quote",
+      'calc.note': `<strong class="text-slate-300">Note:</strong> This estimate is based on an average observed energy saving per m². The exact calculation depends on the building's current insulation, air-conditioning use and your geographical area. A bespoke thermal study is required to validate these figures.`,
+
+      // ---- Devis form ----
+      'devis.eyebrow': "Request a free quote",
+      'devis.title': "Receive your application quote within 48 hours.",
+      'devis.subtitle': "Describe your project in a few lines. A WhiteRoof expert will get back to you with a priced, detailed and non-binding application quote.",
+      'devis.f1_title': "Interventions across Belgium and Luxembourg",
+      'devis.f1_desc': "Wallonia, Brussels, Flanders and the Grand Duchy of Luxembourg — travel included.",
+      'devis.f2_title': "Response within 48 working hours",
+      'devis.f2_desc': "A single point of contact from diagnosis to application.",
+      'devis.f3_title': "Detailed and transparent quote",
+      'devis.f3_desc': "Surface, method, schedule, warranties — no surprises.",
+      'form.name_label': "Full name *",
+      'form.name_ph': "John Smith",
+      'form.company_label': "Company name *",
+      'form.company_ph': "Smith Industries Ltd",
+      'form.phone_label': `Phone number <span class="text-slate-400 font-normal">(Optional — for faster handling)</span>`,
+      'form.phone_ph': "+32 4 70 12 34 56",
+      'form.email_label': "Email address *",
+      'form.email_ph': "j.smith@smith-industries.be",
+      'form.surface_label': "Estimated roof surface (m²) *",
+      'form.surface_ph': "e.g. 1000",
+      'form.message_label': "Message",
+      'form.message_ph': "Describe your project, your building, your thermal or waterproofing constraints...",
+      'form.submit': "Send my free quote request",
+      'form.consent': "By submitting this form, you agree to be contacted by WhiteRoof SRL. Your data is never shared.",
+      'form.success': "Thank you! Your request has been sent. A WhiteRoof expert will get back to you within 48 working hours.",
+
+      // ---- FAQ ----
+      'faq.eyebrow': "Frequently asked questions",
+      'faq.title': "Everything you need to know before deciding.",
+      'faq.subtitle': "Technical answers to the most common questions from our industrial and commercial clients.",
+      'faq.q1': "Is the WhiteRoof coating a drawback in winter? Will I consume more heating?",
+      'faq.a1': `<p><strong class="text-wr-dark">No.</strong> In Belgium and Luxembourg, winter sunlight is limited and the reflective effect of the coating is therefore very limited during this period.</p><p>A building's heat losses mainly come from insulation, thermal bridges and ventilation, not from the colour of the roof.</p><p>WhiteRoof therefore does not significantly increase heating demand, and you get all its benefits back as soon as the hot weather returns.</p>`,
+      'faq.q2': "Does it work on an old roof?",
+      'faq.a2': `<strong class="text-wr-dark">Yes.</strong> The coating is applied to the existing roof, without replacement. That's actually one of its main advantages: extending the service life of an ageing roof for a fraction of the cost of a full refurbishment.`,
+      'faq.q3': "Will I have to stop my activity during the works?",
+      'faq.a3': `<strong class="text-wr-dark">No.</strong> Application is carried out from the outside, with an airless spray gun (up to 200 m²/h per operator). No impact on indoor activity: your teams, stocks and machines keep working normally.`,
+      'faq.q4': "What is the lifespan of the coating?",
+      'faq.a4': `<p>More than <strong class="text-wr-dark">15 to 20 years</strong>, covered by our warranties: 10 years on workmanship (WhiteRoof) and included manufacturer warranty.</p><p>To reach this maximum lifespan, <strong class="text-wr-dark">monitoring by WhiteRoof</strong> and regular maintenance are important: periodic inspection, gentle cleaning when needed and checking the overall condition of the coating.</p>`,
+      'faq.q5': "Does the product withstand the weather?",
+      'faq.a5': `<strong class="text-wr-dark">Yes.</strong> The coating forms a continuous protective layer, with no joints or seams. It resists rain, frost, UV and standing water on flat roofs. It even protects your existing roof from the weather.`,
+      'faq.q6': "Is it profitable for my building?",
+      'faq.a6': `<strong class="text-wr-dark">Yes.</strong> You save 30 to 50% on your air conditioning. Payback is fast, and you avoid a full roof replacement. Use our calculator to estimate your gains.`,
+      'faq.q7': "On which roof types can it be applied?",
+      'faq.a7': `On <strong class="text-wr-dark">all common substrates</strong>: EPDM and PVC membranes, bitumen, profiled steel, zinc, aluminium sheets, flat roofs with no pitch. Each substrate has a specific adhesion primer.`,
+      'faq.q8': "What is the environmental impact of the WhiteRoof coating?",
+      'faq.a8': `<p><strong class="text-wr-dark">Positive and measurable.</strong> By reducing your air-conditioning demand, WhiteRoof directly lowers your electricity consumption and the associated CO₂ emissions.</p><p>Extending the service life of your existing roof also avoids premature renovations and limits construction waste. The coating also helps reduce urban heat islands by reflecting solar radiation instead of storing it.</p>`,
+      'faq.cta_question': "Another question? Let's talk directly.",
+      'faq.cta_form': "Ask my question via the form",
+      'faq.cta_call': "Call an expert",
+
+      // ---- Footer ----
+      'footer.brand_desc': "WhiteRoof SRL applies high-performance reflective white roof coatings to industrial and commercial roofs.",
+      'footer.nav_title': "Navigation",
+      'footer.devis_link': "Free quote",
+      'footer.contact_title': "Contact",
+      'footer.contact_geo': "Belgium & Luxembourg — Interventions in both countries",
+      'footer.delil_line': "Delil Benjamin Odun — Process & Maintenance Engineer",
+      'footer.mehdi_line': "Mehdi Bourass — Business Development Manager",
+      'footer.response_48h': "Response within 48 working hours",
+      'footer.follow_us': "Follow us",
+      'footer.copyright': `© <span id="currentYear">2026</span> WhiteRoof SRL. All rights reserved.`,
+      'footer.legal': "Legal notice",
+      'footer.terms': "Terms & conditions",
     },
   },
 
